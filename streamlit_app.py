@@ -5,14 +5,34 @@ st.title("🧬Bioinformatics Tool")
 st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
-st.write("""
-Welcome to the Bioinformatics Tool!  
-Analyze DNA sequences using this interactive platform. You can perform nucleotide counting, k-mer analysis, 
-and search for motifs or genes.  
-""")
+st.markdown(
+    """
+    <style>
+    .centered {
+        text-align: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Title for the tool
+st.markdown('<h1 class="centered">Bioinformatics Tool 🧬</h1>', unsafe_allow_html=True)
+st.markdown(
+    """
+    <p class="centered">
+    Welcome to the Bioinformatics Tool! Analyze DNA sequences using this interactive platform. You can perform nucleotide counting, k-mer analysis, and search for motifs or genes.  
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+
+# Tabs for different analysis
 tab = st.radio(
     "Select an Analysis Option",
-    ("Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder")
+    ("Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder"),
+    index=0,
+    label_visibility="collapsed"
 )
 
 # Main Input Section: DNA Sequence
@@ -32,6 +52,8 @@ def count_nucleotides(seq):
 @st.cache_data
 def kmer_analysis(seq, k):
     """Analyze k-mers in the sequence."""
+    if len(seq) < k:
+        return {"error": "Sequence length is shorter than k-mer size."}
     kmers = [seq[i:i + k] for i in range(len(seq) - k + 1)]
     return dict(Counter(kmers))
 
@@ -68,22 +90,30 @@ else:
 
 # Nucleotide Count Analysis
 if tab == "Nucleotide Count" and valid_sequence:
-    st.header("Nucleotide Count Analysis")
+    st.markdown('<h2 class="centered">Nucleotide Count Analysis</h2>', unsafe_allow_html=True)
     counts = count_nucleotides(sequence)
+    # Display the count of each nucleotide
     st.write("Nucleotide counts:")
     st.bar_chart(pd.DataFrame.from_dict(counts, orient="index", columns=["Count"]))
 
 # K-mer Analysis
 elif tab == "K-mer Analysis" and valid_sequence:
-    st.header("K-mer Analysis")
+    st.markdown('<h2 class="centered">K-mer Analysis</h2>', unsafe_allow_html=True)
     k = st.slider("Select the value of k:", 1, len(sequence), 2)
-    kmer_results = kmer_analysis(sequence, k)
-    st.write(f"K-mers found (k={k}):")
-    st.dataframe(pd.DataFrame.from_dict(kmer_results, orient="index", columns=["Count"]))
+    
+    if len(sequence) < k:
+        st.error("Sequence is too short for the selected k-mer size.")
+    else:
+        kmer_results = kmer_analysis(sequence, k)
+        if "error" in kmer_results:
+            st.error(kmer_results["error"])
+        else:
+            st.write(f"K-mers found (k={k}):")
+            st.dataframe(pd.DataFrame.from_dict(kmer_results, orient="index", columns=["Count"]))
 
 # Motif Search Analysis
 elif tab == "Motif Search" and valid_sequence:
-    st.header("Motif Search")
+    st.markdown('<h2 class="centered">Motif Search</h2>', unsafe_allow_html=True)
     motif = st.text_input("Enter the motif to search for:", "ATG")
     if motif:
         motif_indices = motif_search(sequence, motif.upper())
@@ -94,7 +124,7 @@ elif tab == "Motif Search" and valid_sequence:
 
 # Gene Finder Analysis
 elif tab == "Gene Finder" and valid_sequence:
-    st.header("Gene Finder Analysis")
+    st.markdown('<h2 class="centered">Gene Finder Analysis</h2>', unsafe_allow_html=True)
     genes = gene_finder(sequence)
     if genes:
         st.write(f"Genes found ({len(genes)}):")
@@ -104,5 +134,5 @@ elif tab == "Gene Finder" and valid_sequence:
         st.write("No genes found in the sequence.")
 
 # Footer
-st.markdown("---")
-st.info("Bioinformatics Tool | Developed with [Streamlit](https://streamlit.io/)")
+st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown('<p class="centered">Bioinformatics Tool | Developed with <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>', unsafe_allow_html=True)
