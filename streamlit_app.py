@@ -12,7 +12,7 @@ and search for motifs or genes.
 """)
 tab = st.radio(
     "Select an Analysis Option",
-    ("Home", "Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder")
+    ("Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder")
 )
 
 # Main Input Section: DNA Sequence
@@ -58,11 +58,7 @@ def gene_finder(seq):
         i += 1
     return genes
 
-# Display the title page when the user selects "Home"
-if tab == "Home":
-    display_title_page()
-
-# Analyze the DNA sequence if entered
+# Display the DNA sequence input and validation
 if sequence:
     valid_sequence = all(base in "ATGC" for base in sequence)
     if not valid_sequence:
