@@ -26,7 +26,8 @@ st.markdown(
 # Tabs for different analysis
 tab = st.radio(
     "Select an Analysis Option",
-    ("Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder"),
+    ("Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder", "GC Content", 
+     "Reverse Complement", "Transcription", "Translation", "Longest ORF", "Palindrome Finder"),
     index=0,
     label_visibility="collapsed"
 )
@@ -179,19 +180,17 @@ elif tab == "Motif Search" and valid_sequence:
         st.write("Motif not found.")
 
 elif tab == "Gene Finder" and valid_sequence:
-    st.markdown('<h2 class="centered">Gene Finder Analysis</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 class="centered">Gene Finder</h2>', unsafe_allow_html=True)
     genes = gene_finder(sequence)
     if genes:
-        st.write(f"Genes found ({len(genes)}):")
-        for i, gene in enumerate(genes, 1):
-            st.write(f"{i}: {gene}")
+        st.write(f"Found genes: {genes}")
     else:
-        st.write("No genes found in the sequence.")
+        st.write("No genes found.")
 
 elif tab == "GC Content" and valid_sequence:
-    st.markdown('<h2 class="centered">GC Content</h2>', unsafe_allow_html=True)
-    gc = gc_content(sequence)
-    st.write(f"GC Content: {gc:.2f}%")
+    st.markdown('<h2 class="centered">GC Content Analysis</h2>', unsafe_allow_html=True)
+    gc_percentage = gc_content(sequence)
+    st.write(f"GC content: {gc_percentage:.2f}%")
 
 elif tab == "Reverse Complement" and valid_sequence:
     st.markdown('<h2 class="centered">Reverse Complement</h2>', unsafe_allow_html=True)
@@ -199,15 +198,14 @@ elif tab == "Reverse Complement" and valid_sequence:
     st.write(f"Reverse Complement: {rev_comp}")
 
 elif tab == "Transcription" and valid_sequence:
-    st.markdown('<h2 class="centered">Transcription (mRNA)</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 class="centered">Transcription</h2>', unsafe_allow_html=True)
     mRNA = transcription(sequence)
-    st.write(f"mRNA Sequence: {mRNA}")
+    st.write(f"mRNA sequence: {mRNA}")
 
 elif tab == "Translation" and valid_sequence:
-    st.markdown('<h2 class="centered">Translation (Protein)</h2>', unsafe_allow_html=True)
-    mRNA = transcription(sequence)
-    protein = translation(mRNA)
-    st.write(f"Protein Sequence: {protein}")
+    st.markdown('<h2 class="centered">Translation</h2>', unsafe_allow_html=True)
+    protein = translation(sequence)
+    st.write(f"Protein sequence: {protein}")
 
 elif tab == "Longest ORF" and valid_sequence:
     st.markdown('<h2 class="centered">Longest Open Reading Frame (ORF)</h2>', unsafe_allow_html=True)
@@ -221,7 +219,3 @@ elif tab == "Palindrome Finder" and valid_sequence:
         st.write(f"Palindromes found: {palindromes}")
     else:
         st.write("No palindromes found.")
-
-# Footer
-st.markdown("<br><br>", unsafe_allow_html=True)
-st.markdown('<p class="centered">Bioinformatics Tool | Developed with <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>', unsafe_allow_html=True)
