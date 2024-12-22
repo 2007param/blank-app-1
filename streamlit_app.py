@@ -219,3 +219,6 @@ elif tab == "Palindrome Finder" and valid_sequence:
         st.write(f"Palindromes found: {palindromes}")
     else:
         st.write("No palindromes found.")
+        # Footer
+st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown('<p class="centered">Bioinformatics Tool | Developed with <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>', unsafe_allow_html=True)
