@@ -13,16 +13,18 @@ st.markdown(
 )
 
 # Title for the tool
-st.markdown('<h1 class="centered">Bioinformatics Tool 🧬</h1>', unsafe_allow_html=True)
-st.markdown(
-    """
-    <p class="centered">
-    Welcome to the Bioinformatics Tool! Analyze DNA sequences using this interactive platform. You can perform "Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder", "GC Content", 
-     "Reverse Complement", "Transcription", "Translation", "Longest ORF", or "Palindrome Finder".
+def title_page():
+    st.title("🎈 Bioinformatics Tool")
+    st.write(
+        """
+        <p class="centered">
+        Welcome to the Bioinformatics Tool! Analyze DNA sequences using this interactive platform. You can perform "Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder", "GC Content", 
+        "Reverse Complement", "Transcription", "Translation", "Longest ORF", or "Palindrome Finder".
     </p>
     """,
     unsafe_allow_html=True
-)
+        """
+    )
 
 # Tabs for different analysis
 tab = st.radio(
