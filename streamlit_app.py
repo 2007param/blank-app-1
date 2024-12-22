@@ -9,16 +9,14 @@ Welcome to the Bioinformatics Tool!
 Analyze DNA sequences using this interactive platform. You can perform nucleotide counting, k-mer analysis, 
 and search for motifs or genes.  
 """)
-with st.sidebar:
-    st.header("Input DNA Sequence")
-    sequence_input = st.text_area(
-        "Enter a DNA sequence:",
-        height=150,
-        help="Valid characters: A, T, G, and C only."
-    )
-    sequence = sequence_input.strip().upper()
-    
-    # Error handling for invalid input
+st.header("Input DNA Sequence")
+sequence_input = st.text_area(
+    "Enter a DNA sequence:",
+    height=150,
+    help="Valid characters: A, T, G, and C only."
+)
+sequence = sequence_input.strip().upper()
+
     valid_sequence = all(base in "ATGC" for base in sequence)
     if sequence and not valid_sequence:
         st.error("Invalid characters found in the DNA sequence. Please use only A, T, G, and C.")
