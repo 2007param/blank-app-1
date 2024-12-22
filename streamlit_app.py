@@ -1,227 +1,199 @@
 import streamlit as st
 import pandas as pd
 from collections import Counter
-st.markdown(
-    """
-    <style>
-    .centered {
-        text-align: center;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+import streamlit as st
 
-# Title for the tool
-def title_page():
-    st.title("🎈 Bioinformatics Tool")
-    st.write(
-        """
-        <p class="centered">
-        Welcome to the Bioinformatics Tool! Analyze DNA sequences using this interactive platform. You can perform "Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder", "GC Content", 
-        "Reverse Complement", "Transcription", "Translation", "Longest ORF", or "Palindrome Finder".
-    </p>
-    """,
-    unsafe_allow_html=True
-        """
-    )
+def get_nucleotide_count(sequence):
+    return {'A': sequence.count('A'), 'T': sequence.count('T'),
+            'C': sequence.count('C'), 'G': sequence.count('G')}
 
-# Tabs for different analysis
-tab = st.radio(
-    "Select an Analysis Option",
-    ("Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder", "GC Content", 
-     "Reverse Complement", "Transcription", "Translation", "Longest ORF", "Palindrome Finder"),
-    index=0,
-    label_visibility="collapsed"
-)
+# Function for k-mer analysis
+def kmer_analysis(sequence, k):
+    kmers = {}
+    for i in range(len(sequence) - k + 1):
+        kmer = sequence[i:i + k]
+        kmers[kmer] = kmers.get(kmer, 0) + 1
+    return kmers
 
-# Main Input Section: DNA Sequence
-sequence_input = st.text_area(
-    "Enter a DNA sequence:",
-    height=150,
-    help="Valid characters: A, T, G, and C only."
-)
-sequence = sequence_input.strip().upper()
+# Function for Hamming distance
+def hamming_distance(seq1, seq2):
+    if len(seq1) != len(seq2):
+        return "Error: Sequences must have the same length"
+    return sum(el1 != el2 for el1, el2 in zip(seq1, seq2))
 
-# Helper Functions
-@st.cache_data
-def count_nucleotides(seq):
-    """Count occurrences of each nucleotide."""
-    return dict(Counter(seq))
-
-@st.cache_data
-def kmer_analysis(seq, k):
-    """Analyze k-mers in the sequence."""
-    if len(seq) < k:
-        return {"error": "Sequence length is shorter than k-mer size."}
-    kmers = [seq[i:i + k] for i in range(len(seq) - k + 1)]
-    return dict(Counter(kmers))
-
-@st.cache_data
-def motif_search(seq, motif):
-    """Find all occurrences of a motif."""
-    indices = [i for i in range(len(seq)) if seq.startswith(motif, i)]
-    return indices
-
-@st.cache_data
-def gene_finder(seq):
-    """Find genes based on biological start and stop codons."""
+# Function for Gene finding
+def find_genes(sequence):
     start_codon = "ATG"
-    stop_codons = {"TAA", "TAG", "TGA"}
+    stop_codons = ["TAA", "TAG", "TGA"]
     genes = []
-    i = 0
-    while i < len(seq):
-        if seq[i:i + 3] == start_codon:
-            for j in range(i + 3, len(seq), 3):
-                if seq[j:j + 3] in stop_codons:
-                    genes.append(seq[i:j + 3])
-                    i = j
+    for i in range(len(sequence)):
+        if sequence[i:i + 3] == start_codon:
+            for j in range(i + 3, len(sequence), 3):
+                if sequence[j:j + 3] in stop_codons:
+                    genes.append(sequence[i:j + 3])
                     break
-        i += 1
     return genes
 
-@st.cache_data
-def gc_content(seq):
-    """Calculate the GC content of the sequence."""
-    g_c = sum(1 for base in seq if base in "GC")
-    return (g_c / len(seq)) * 100 if len(seq) > 0 else 0
-
-@st.cache_data
-def reverse_complement(seq):
-    """Generate the reverse complement of the DNA sequence."""
+# Function for Reverse complement
+def reverse_complement(sequence):
     complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
-    return ''.join(complement.get(base, base) for base in reversed(seq))
+    return ''.join(complement[base] for base in reversed(sequence))
 
-@st.cache_data
-def transcription(seq):
-    """Transcribe the DNA sequence into mRNA."""
-    transcription_dict = {'A': 'U', 'T': 'A', 'C': 'G', 'G': 'C'}
-    return ''.join(transcription_dict.get(base, base) for base in seq)
+# Function for GC Content
+def gc_content(sequence):
+    gc_count = sequence.count('G') + sequence.count('C')
+    return (gc_count / len(sequence)) * 100
 
-@st.cache_data
-def translation(seq):
-    """Translate the mRNA sequence into a protein sequence."""
+# Function for Transcription
+def transcription(sequence):
+    return sequence.replace('T', 'U')
+
+# Function for Translation (simple case, codon-to-amino acid)
+def translation(sequence):
     codon_table = {
-        'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',
-        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
-        'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',
-        'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
-        'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S',
-        'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
-        'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',
-        'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
-        'UAU': 'Y', 'UAC': 'Y', 'UAA': '', 'UAG': '',
-        'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
-        'AAU': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',
-        'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
-        'UGU': 'C', 'UGC': 'C', 'UGA': '', 'UGG': 'W',
-        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
-        'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',
-        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G'
+        'ATA': 'I', 'ATC': 'I', 'ATT': 'I', 'ATG': 'M',
+        'ACA': 'T', 'ACC': 'T', 'ACG': 'T', 'ACT': 'T',
+        'AAC': 'N', 'AAT': 'N', 'AAA': 'K', 'AAG': 'K',
+        'AGC': 'S', 'AGT': 'S', 'AGA': 'R', 'AGG': 'R',
+        'CTA': 'L', 'CTC': 'L', 'CTG': 'L', 'CTT': 'L',
+        'CCA': 'P', 'CCC': 'P', 'CCG': 'P', 'CCT': 'P',
+        'CAC': 'H', 'CAT': 'H', 'CAA': 'Q', 'CAG': 'Q',
+        'CGA': 'R', 'CGC': 'R', 'CGG': 'R', 'CGT': 'R',
+        'GTA': 'V', 'GTC': 'V', 'GTG': 'V', 'GTT': 'V',
+        'GCA': 'A', 'GCC': 'A', 'GCG': 'A', 'GCT': 'A',
+        'GAC': 'D', 'GAT': 'D', 'GAA': 'E', 'GAG': 'E',
+        'GGA': 'G', 'GGC': 'G', 'GGG': 'G', 'GGT': 'G',
+        'TCA': 'S', 'TCC': 'S', 'TCG': 'S', 'TCT': 'S',
+        'TTC': 'F', 'TTT': 'F', 'TTA': 'L', 'TTG': 'L',
+        'TAC': 'Y', 'TAT': 'Y', 'TAA': '*', 'TAG': '*',
+        'TGC': 'C', 'TGT': 'C', 'TGA': '*', 'TGG': 'W',
     }
-    return ''.join(codon_table.get(seq[i:i+3], '') for i in range(0, len(seq), 3))
+    protein = ""
+    for i in range(0, len(sequence), 3):
+        codon = sequence[i:i+3]
+        protein += codon_table.get(codon, '-')
+    return protein
 
-@st.cache_data
-def longest_orf(seq):
-    """Find the longest open reading frame."""
-    start_codon = "ATG"
-    stop_codons = {"TAA", "TAG", "TGA"}
-    longest_gene = ""
-    i = 0
-    while i < len(seq):
-        if seq[i:i + 3] == start_codon:
-            for j in range(i + 3, len(seq), 3):
-                if seq[j:j + 3] in stop_codons:
-                    gene = seq[i:j + 3]
-                    if len(gene) > len(longest_gene):
-                        longest_gene = gene
-                    i = j
-                    break
-        i += 1
-    return longest_gene
+# Function for Sequence alignment (simple version)
+def sequence_alignment(seq1, seq2):
+    from difflib import SequenceMatcher
+    matcher = SequenceMatcher(None, seq1, seq2)
+    match_ratio = matcher.ratio()
+    return f"Sequence similarity ratio: {match_ratio*100:.2f}%"
 
-@st.cache_data
-def find_palindromes(seq):
-    """Find palindromes in the sequence."""
-    palindromes = []
-    for i in range(len(seq)):
-        for j in range(i + 4, len(seq) + 1):  # Palindromes of length 4 or more
-            substring = seq[i:j]
-            if substring == substring[::-1]:
-                palindromes.append(substring)
-    return palindromes
+# Function to display the title page
+def title_page():
+    st.markdown("<h1 style='text-align: center;'>🎈 Bioinformatics Tool</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
 
-# Display the DNA sequence input and validation
-if sequence:
-    valid_sequence = all(base in "ATGC" for base in sequence)
-    if not valid_sequence:
-        st.error("Invalid characters found in the DNA sequence. Please use only A, T, G, and C.")
-else:
-    valid_sequence = False
+# Function for Nucleotide count page
+def nucleotide_count_page():
+    st.markdown("<h2 style='text-align: center;'>Nucleotide Count</h2>", unsafe_allow_html=True)
+    sequence = st.text_area("Enter a DNA sequence:")
+    if sequence:
+        counts = get_nucleotide_count(sequence.upper())
+        st.markdown(f"<p style='text-align: center;'>A: {counts['A']}, T: {counts['T']}, C: {counts['C']}, G: {counts['G']}</p>", unsafe_allow_html=True)
 
-# Handle the analysis based on selected tab
-if tab == "Nucleotide Count" and valid_sequence:
-    st.markdown('<h2 class="centered">Nucleotide Count Analysis</h2>', unsafe_allow_html=True)
-    counts = count_nucleotides(sequence)
-    st.write("Nucleotide counts:")
-    st.bar_chart(pd.DataFrame.from_dict(counts, orient="index", columns=["Count"]))
+# Function for K-mer analysis page
+def kmer_analysis_page():
+    st.markdown("<h2 style='text-align: center;'>K-mer Analysis</h2>", unsafe_allow_html=True)
+    sequence = st.text_area("Enter a DNA sequence:")
+    k = st.number_input("Enter the value of k:", min_value=1, step=1)
+    if sequence and k:
+        kmers = kmer_analysis(sequence.upper(), k)
+        st.markdown("<p style='text-align: center;'>K-mer analysis results:</p>", unsafe_allow_html=True)
+        st.write(kmers)
 
-elif tab == "K-mer Analysis" and valid_sequence:
-    st.markdown('<h2 class="centered">K-mer Analysis</h2>', unsafe_allow_html=True)
-    k = st.slider("Select the value of k:", 1, len(sequence), 2)
-    kmer_results = kmer_analysis(sequence, k)
-    st.write(f"K-mers found (k={k}):")
-    st.dataframe(pd.DataFrame.from_dict(kmer_results, orient="index", columns=["Count"]))
+# Function for Gene Finding page
+def gene_finding_page():
+    st.markdown("<h2 style='text-align: center;'>Gene Finding</h2>", unsafe_allow_html=True)
+    sequence = st.text_area("Enter a DNA sequence:")
+    if sequence:
+        genes = find_genes(sequence.upper())
+        st.markdown(f"<p style='text-align: center;'>Found genes: {genes}</p>", unsafe_allow_html=True)
 
-elif tab == "Motif Search" and valid_sequence:
-    st.markdown('<h2 class="centered">Motif Search</h2>', unsafe_allow_html=True)
-    motif = st.text_input("Enter the motif to search for:", "ATG")
-    motif_indices = motif_search(sequence, motif.upper())
-    if motif_indices:
-        st.write(f"Motif found at positions: {motif_indices}")
-    else:
-        st.write("Motif not found.")
+# Function for Hamming Distance page
+def hamming_distance_page():
+    st.markdown("<h2 style='text-align: center;'>Hamming Distance</h2>", unsafe_allow_html=True)
+    seq1 = st.text_area("Enter the first DNA sequence:")
+    seq2 = st.text_area("Enter the second DNA sequence:")
+    if seq1 and seq2:
+        result = hamming_distance(seq1.upper(), seq2.upper())
+        st.markdown(f"<p style='text-align: center;'>Hamming Distance: {result}</p>", unsafe_allow_html=True)
 
-elif tab == "Gene Finder" and valid_sequence:
-    st.markdown('<h2 class="centered">Gene Finder</h2>', unsafe_allow_html=True)
-    genes = gene_finder(sequence)
-    if genes:
-        st.write(f"Found genes: {genes}")
-    else:
-        st.write("No genes found.")
+# Function for Reverse Complement page
+def reverse_complement_page():
+    st.markdown("<h2 style='text-align: center;'>Reverse Complement</h2>", unsafe_allow_html=True)
+    sequence = st.text_area("Enter a DNA sequence:")
+    if sequence:
+        complement = reverse_complement(sequence.upper())
+        st.markdown(f"<p style='text-align: center;'>Reverse complement: {complement}</p>", unsafe_allow_html=True)
 
-elif tab == "GC Content" and valid_sequence:
-    st.markdown('<h2 class="centered">GC Content Analysis</h2>', unsafe_allow_html=True)
-    gc_percentage = gc_content(sequence)
-    st.write(f"GC content: {gc_percentage:.2f}%")
+# Function for GC Content page
+def gc_content_page():
+    st.markdown("<h2 style='text-align: center;'>GC Content</h2>", unsafe_allow_html=True)
+    sequence = st.text_area("Enter a DNA sequence:")
+    if sequence:
+        gc_percent = gc_content(sequence.upper())
+        st.markdown(f"<p style='text-align: center;'>GC Content: {gc_percent:.2f}%</p>", unsafe_allow_html=True)
 
-elif tab == "Reverse Complement" and valid_sequence:
-    st.markdown('<h2 class="centered">Reverse Complement</h2>', unsafe_allow_html=True)
-    rev_comp = reverse_complement(sequence)
-    st.write(f"Reverse Complement: {rev_comp}")
+# Function for Transcription page
+def transcription_page():
+    st.markdown("<h2 style='text-align: center;'>Transcription</h2>", unsafe_allow_html=True)
+    sequence = st.text_area("Enter a DNA sequence:")
+    if sequence:
+        transcribed = transcription(sequence.upper())
+        st.markdown(f"<p style='text-align: center;'>Transcribed RNA sequence: {transcribed}</p>", unsafe_allow_html=True)
 
-elif tab == "Transcription" and valid_sequence:
-    st.markdown('<h2 class="centered">Transcription</h2>', unsafe_allow_html=True)
-    mRNA = transcription(sequence)
-    st.write(f"mRNA sequence: {mRNA}")
+# Function for Translation page
+def translation_page():
+    st.markdown("<h2 style='text-align: center;'>Translation</h2>", unsafe_allow_html=True)
+    sequence = st.text_area("Enter a DNA sequence:")
+    if sequence:
+        protein = translation(sequence.upper())
+        st.markdown(f"<p style='text-align: center;'>Translated protein sequence: {protein}</p>", unsafe_allow_html=True)
 
-elif tab == "Translation" and valid_sequence:
-    st.markdown('<h2 class="centered">Translation</h2>', unsafe_allow_html=True)
-    protein = translation(sequence)
-    st.write(f"Protein sequence: {protein}")
+# Function for Sequence Alignment page
+def sequence_alignment_page():
+    st.markdown("<h2 style='text-align: center;'>Sequence Alignment</h2>", unsafe_allow_html=True)
+    seq1 = st.text_area("Enter the first DNA sequence:")
+    seq2 = st.text_area("Enter the second DNA sequence:")
+    if seq1 and seq2:
+        result = sequence_alignment(seq1.upper(), seq2.upper())
+        st.markdown(f"<p style='text-align: center;'>Sequence alignment result: {result}</p>", unsafe_allow_html=True)
 
-elif tab == "Longest ORF" and valid_sequence:
-    st.markdown('<h2 class="centered">Longest Open Reading Frame (ORF)</h2>', unsafe_allow_html=True)
-    orf = longest_orf(sequence)
-    st.write(f"Longest ORF: {orf}")
+# Function to control page navigation
+def main():
+    # Sidebar navigation to select pages
+    page = st.sidebar.radio(
+        "Select a page:",
+        ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
+         "Reverse Complement", "GC Content", "Transcription", "Translation", 
+         "Sequence Alignment")
+    )
 
-elif tab == "Palindrome Finder" and valid_sequence:
-    st.markdown('<h2 class="centered">Palindrome Finder</h2>', unsafe_allow_html=True)
-    palindromes = find_palindromes(sequence)
-    if palindromes:
-        st.write(f"Palindromes found: {palindromes}")
-    else:
-        st.write("No palindromes found.")
-        # Footer
-st.markdown("<br><br>", unsafe_allow_html=True)
-st.markdown('<p class="centered">Bioinformatics Tool | Developed with <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>', unsafe_allow_html=True)
+    # Display selected page
+    if page == "Title Page":
+        title_page()
+    elif page == "Nucleotide Count":
+        nucleotide_count_page()
+    elif page == "K-mer Analysis":
+        kmer_analysis_page()
+    elif page == "Gene Finding":
+        gene_finding_page()
+    elif page == "Hamming Distance":
+        hamming_distance_page()
+    elif page == "Reverse Complement":
+        reverse_complement_page()
+    elif page == "GC Content":
+        gc_content_page()
+    elif page == "Transcription":
+        transcription_page()
+    elif page == "Translation":
+        translation_page()
+    elif page == "Sequence Alignment":
+        sequence_alignment_page()
+
+if __name__ == "__main__":
+    main()
+
