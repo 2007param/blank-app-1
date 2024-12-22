@@ -1,10 +1,6 @@
 import streamlit as st
 import pandas as pd
 from collections import Counter
-st.title("🧬Bioinformatics Tool")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
 st.markdown(
     """
     <style>
