@@ -83,9 +83,16 @@ def sequence_alignment(seq1, seq2):
 
 # Function to display the title page
 def title_page():
-    st.markdown("<h1 style='text-align: center;'>🎈 Bioinformatics Tool</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>🧬 Bioinformatics Tool</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
-
+    st.markdown("<h1 style='text-align: center;'>About Us</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>We are a team of passionate bioinformaticians, biologists, and developers working to provide tools for DNA sequence analysis. Our goal is to make bioinformatics more accessible and provide a range of useful functionalities for researchers and students alike.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>This tool includes features such as nucleotide counting, k-mer analysis, gene finding, and more. We hope these tools will be helpful in your research and studies.</p>", unsafe_allow_html=True)
+    st.marksown("<p style='text-align: center;'>If you have any questions or feedback about our AI tutorial, please don't hesitate to contact us.")
+    st.markdown("<p style='text-align: center;'>Email: ai-tutorial@example.com")
+    st.markdown("<p style='text-align: center;'>Phone: (123)-456-7890")
+    st.markdown("<p style='text-align: center;'>© 2024 Bioinformatics Tutorial for High Schoolers")
+    
 # Function for Nucleotide count page
 def nucleotide_count_page():
     st.markdown("<h2 style='text-align: center;'>Nucleotide Count</h2>", unsafe_allow_html=True)
