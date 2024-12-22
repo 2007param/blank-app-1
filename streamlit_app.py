@@ -9,25 +9,18 @@ Welcome to the Bioinformatics Tool!
 Analyze DNA sequences using this interactive platform. You can perform nucleotide counting, k-mer analysis, 
 and search for motifs or genes.  
 """)
-st.header("Input DNA Sequence")
+tab = st.radio(
+    "Select an Analysis Option",
+    ("Home", "Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder")
+)
+
+# Main Input Section: DNA Sequence
 sequence_input = st.text_area(
     "Enter a DNA sequence:",
     height=150,
     help="Valid characters: A, T, G, and C only."
 )
 sequence = sequence_input.strip().upper()
-
-valid_sequence = all(base in "ATGC" for base in sequence)
-if sequence and not valid_sequence:
-    st.error("Invalid characters found in the DNA sequence. Please use only A, T, G, and C.")
-
-# Sidebar: Analysis Options
-if valid_sequence and sequence:
-    st.sidebar.header("Choose Analysis")
-    analysis_option = st.sidebar.selectbox(
-        "Select an analysis:",
-        ["Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder"]
-    )
 
 # Helper Functions
 @st.cache_data
@@ -64,42 +57,54 @@ def gene_finder(seq):
         i += 1
     return genes
 
-# Main Analysis Section
-if valid_sequence and sequence:
-    st.header("Analysis Results")
+# Display the title page when the user selects "Home"
+if tab == "Home":
+    display_title_page()
 
-    if analysis_option == "Nucleotide Count":
-        st.subheader("Nucleotide Count")
-        counts = count_nucleotides(sequence)
-        st.write("Nucleotide counts:")
-        st.bar_chart(pd.DataFrame.from_dict(counts, orient="index", columns=["Count"]))
+# Analyze the DNA sequence if entered
+if sequence:
+    valid_sequence = all(base in "ATGC" for base in sequence)
+    if not valid_sequence:
+        st.error("Invalid characters found in the DNA sequence. Please use only A, T, G, and C.")
+else:
+    valid_sequence = False
 
-    elif analysis_option == "K-mer Analysis":
-        st.subheader("K-mer Analysis")
-        k = st.slider("Select the value of k:", 1, len(sequence), 2)
-        kmer_results = kmer_analysis(sequence, k)
-        st.write(f"K-mers found (k={k}):")
-        st.dataframe(pd.DataFrame.from_dict(kmer_results, orient="index", columns=["Count"]))
+# Nucleotide Count Analysis
+if tab == "Nucleotide Count" and valid_sequence:
+    st.header("Nucleotide Count Analysis")
+    counts = count_nucleotides(sequence)
+    st.write("Nucleotide counts:")
+    st.bar_chart(pd.DataFrame.from_dict(counts, orient="index", columns=["Count"]))
 
-    elif analysis_option == "Motif Search":
-        st.subheader("Motif Search")
-        motif = st.text_input("Enter the motif to search for:", "ATG")
-        if motif:
-            motif_indices = motif_search(sequence, motif.upper())
-            if motif_indices:
-                st.write(f"Motif found at positions: {motif_indices}")
-            else:
-                st.write("Motif not found.")
+# K-mer Analysis
+elif tab == "K-mer Analysis" and valid_sequence:
+    st.header("K-mer Analysis")
+    k = st.slider("Select the value of k:", 1, len(sequence), 2)
+    kmer_results = kmer_analysis(sequence, k)
+    st.write(f"K-mers found (k={k}):")
+    st.dataframe(pd.DataFrame.from_dict(kmer_results, orient="index", columns=["Count"]))
 
-    elif analysis_option == "Gene Finder":
-        st.subheader("Gene Finder")
-        genes = gene_finder(sequence)
-        if genes:
-            st.write(f"Genes found ({len(genes)}):")
-            for i, gene in enumerate(genes, 1):
-                st.write(f"{i}: {gene}")
+# Motif Search Analysis
+elif tab == "Motif Search" and valid_sequence:
+    st.header("Motif Search")
+    motif = st.text_input("Enter the motif to search for:", "ATG")
+    if motif:
+        motif_indices = motif_search(sequence, motif.upper())
+        if motif_indices:
+            st.write(f"Motif found at positions: {motif_indices}")
         else:
-            st.write("No genes found in the sequence.")
+            st.write("Motif not found.")
+
+# Gene Finder Analysis
+elif tab == "Gene Finder" and valid_sequence:
+    st.header("Gene Finder Analysis")
+    genes = gene_finder(sequence)
+    if genes:
+        st.write(f"Genes found ({len(genes)}):")
+        for i, gene in enumerate(genes, 1):
+            st.write(f"{i}: {gene}")
+    else:
+        st.write("No genes found in the sequence.")
 
 # Footer
 st.markdown("---")
