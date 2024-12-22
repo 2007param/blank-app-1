@@ -17,9 +17,9 @@ sequence_input = st.text_area(
 )
 sequence = sequence_input.strip().upper()
 
-    valid_sequence = all(base in "ATGC" for base in sequence)
-    if sequence and not valid_sequence:
-        st.error("Invalid characters found in the DNA sequence. Please use only A, T, G, and C.")
+valid_sequence = all(base in "ATGC" for base in sequence)
+if sequence and not valid_sequence:
+    st.error("Invalid characters found in the DNA sequence. Please use only A, T, G, and C.")
 
 # Sidebar: Analysis Options
 if valid_sequence and sequence:
