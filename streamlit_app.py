@@ -17,7 +17,8 @@ st.markdown('<h1 class="centered">Bioinformatics Tool 🧬</h1>', unsafe_allow_h
 st.markdown(
     """
     <p class="centered">
-    Welcome to the Bioinformatics Tool! Analyze DNA sequences using this interactive platform. You can perform nucleotide counting, k-mer analysis, and search for motifs or genes.  
+    Welcome to the Bioinformatics Tool! Analyze DNA sequences using this interactive platform. You can perform "Nucleotide Count", "K-mer Analysis", "Motif Search", "Gene Finder", "GC Content", 
+     "Reverse Complement", "Transcription", "Translation", "Longest ORF", or "Palindrome Finder".
     </p>
     """,
     unsafe_allow_html=True
