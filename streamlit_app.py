@@ -51,11 +51,11 @@ def kmer_analysis(sequence, k):
 def hamming_distance(seq1, seq2):
     if len(seq1) != len(seq2):
         return "Error: Sequences must have the same length"
-    if is_valid_sequence(seq1) and is_valid_sequence(seq2):
-        apply_background_color("#D3D3D3")  
-        return sum(el1 != el2 for el1, el2 in zip(seq1, seq2))
-    else:
-        return "Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G."
+        if is_valid_sequence(seq1) and is_valid_sequence(seq2):
+            apply_background_color("#D3D3D3")  
+            return sum(el1 != el2 for el1, el2 in zip(seq1, seq2))
+        else:
+            return "Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G."
 
 # Function for Gene finding
 def find_genes(sequence):
