@@ -3,17 +3,7 @@ import pandas as pd
 from collections import Counter
 import streamlit as st
 
-def apply_background_color(color):
-    st.markdown(
-        f"""
-        <style>
-        .stApp {{
-            background-color: {color};
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+
 def get_nucleotide_count(sequence):
     return {'A': sequence.count('A'), 'T': sequence.count('T'),
             'C': sequence.count('C'), 'G': sequence.count('G')}
@@ -98,7 +88,6 @@ def title_page():
     st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
 
 def about_us_page():
-    apply_background_color("#FAD7A0")  # Light orange
     st.markdown("<h1 style='text-align: center;'>About Us</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>We are a team of passionate bioinformaticians, biologists, and developers working to provide tools for DNA sequence analysis. Our goal is to make bioinformatics more accessible and provide a range of useful functionalities for researchers and students alike.</p>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>If you have any questions or feedback, please don't hesitate to contact us at:</p>", unsafe_allow_html=True)
