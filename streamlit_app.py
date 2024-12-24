@@ -19,7 +19,7 @@ def apply_background_color(color):
         unsafe_allow_html=True
     )
 def get_nucleotide_count(sequence):
-    apply_background_color("#0000FF")  
+    apply_background_color("#FFC0CB")  
     return {'A': sequence.count('A'), 'T': sequence.count('T'),
             'C': sequence.count('C'), 'G': sequence.count('G')}
 
