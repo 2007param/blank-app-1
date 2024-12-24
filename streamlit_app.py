@@ -167,15 +167,15 @@ def kmer_analysis_page():
 
 # Function for Gene Finding page
 def gene_finding_page():
-    apply_background_color("#00FF00")  
-    st.markdown("<h2 style='text-align: center;'>Gene Finding</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:")
-    if sequence:
-        if is_valid_sequence(sequence):
-            genes = find_genes(sequence.upper())
-            st.markdown(f"<p style='text-align: center;'>Found genes: {genes}</p>", unsafe_allow_html=True)
-         else:
-            st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+apply_background_color("#00FF00")  
+st.markdown("<h2 style='text-align: center;'>Gene Finding</h2>", unsafe_allow_html=True)
+sequence = st.text_area("Enter a DNA sequence:")
+if sequence:
+    if is_valid_sequence(sequence):
+        genes = find_genes(sequence.upper())
+        st.markdown(f"<p style='text-align: center;'>Found genes: {genes}</p>", unsafe_allow_html=True)
+     else:
+        st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
 
 # Function for Hamming Distance page
 def hamming_distance_page():
