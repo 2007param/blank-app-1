@@ -201,6 +201,8 @@ def main():
         translation_page()
     elif page == "Sequence Alignment":
         sequence_alignment_page()
+    elif page == "About Us":
+        about_us_page()
 
 if __name__ == "__main__":
     main()
