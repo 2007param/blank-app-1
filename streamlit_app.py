@@ -4,8 +4,7 @@ from collections import Counter
 import streamlit as st
 
 def is_valid_sequence(sequence):
-"""Checks if the sequence contains only valid nucleotides."""
-return all(base in 'ACTG' for base in sequence)
+    return all(base in 'ACTG' for base in sequence)
 
 def apply_background_color(color):
 st.markdown(
@@ -19,25 +18,25 @@ st.markdown(
     unsafe_allow_html=True
 )
 def get_nucleotide_count(sequence):
-apply_background_color("#FFC0CB")  
-return {'A': sequence.count('A'), 'T': sequence.count('T'),
+    apply_background_color("#FFC0CB")  
+    return {'A': sequence.count('A'), 'T': sequence.count('T'),
         'C': sequence.count('C'), 'G': sequence.count('G')}
 
 # Function for k-mer analysis
 def kmer_analysis(sequence, k):
-kmers = {}
-for i in range(len(sequence) - k + 1):
-    kmer = sequence[i:i + k]
-    kmers[kmer] = kmers.get(kmer, 0) + 1
-apply_background_color("#008000")  
-return kmers
+    kmers = {}
+    for i in range(len(sequence) - k + 1):
+        kmer = sequence[i:i + k]
+        kmers[kmer] = kmers.get(kmer, 0) + 1
+    apply_background_color("#008000")  
+    return kmers
 
 # Function for Hamming distance
 def hamming_distance(seq1, seq2):
-if len(seq1) != len(seq2):
-    return "Error: Sequences must have the same length"
-apply_background_color("#D3D3D3")  
-return sum(el1 != el2 for el1, el2 in zip(seq1, seq2))
+    if len(seq1) != len(seq2):
+        return "Error: Sequences must have the same length"
+    apply_background_color("#D3D3D3")  
+    return sum(el1 != el2 for el1, el2 in zip(seq1, seq2))
 
 # Function for Gene finding
 def find_genes(sequence):
