@@ -3,6 +3,10 @@ import pandas as pd
 from collections import Counter
 import streamlit as st
 
+def is_valid_sequence(sequence):
+    """Checks if the sequence contains only valid nucleotides."""
+    return all(base in 'ACTG' for base in sequence)
+    
 def apply_background_color(color):
     st.markdown(
         f"""
