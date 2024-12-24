@@ -60,7 +60,7 @@ def apply_background_color(color):
         </style>
         """,
         unsafe_allow_html=True
-)
+    )
 def get_nucleotide_count(sequence):
     if is_valid_sequence(sequence):
         apply_background_color("#FFC0CB")  
