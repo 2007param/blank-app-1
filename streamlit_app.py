@@ -4,14 +4,14 @@ from collections import Counter
 import streamlit as st
 from PIL import Image
 
-def foote():
-    st.markdown(
-        """
-        <footer style='text-align: center; padding: 10px; font-size: 14px; color: #777;'>
-            <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
-        </footer>
-        """, unsafe_allow_html=True
-    )
+def footer():
+st.markdown(
+    """
+    <footer style='text-align: center; padding: 10px; font-size: 14px; color: #777;'>
+        <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
+    </footer>
+    """, unsafe_allow_html=True
+)
     
 def is_valid_sequence(sequence):
     return all(base in 'ACTG' for base in sequence)
