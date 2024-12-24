@@ -3,8 +3,19 @@ import pandas as pd
 from collections import Counter
 import streamlit as st
 
-
+def apply_background_color(color):
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-color: {color};
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 def get_nucleotide_count(sequence):
+    apply_background_color("#D6EAF8")  # Light blue
     return {'A': sequence.count('A'), 'T': sequence.count('T'),
             'C': sequence.count('C'), 'G': sequence.count('G')}
 
