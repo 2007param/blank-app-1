@@ -3,8 +3,6 @@ import pandas as pd
 from collections import Counter
 from PIL import Image
 
-
-
 def footer():
     st.markdown(
         """
@@ -13,7 +11,7 @@ def footer():
         </footer>
         """, unsafe_allow_html=True
     )
-    
+
 def is_valid_sequence(sequence):
     return all(base in 'ACTG' for base in sequence)
 
@@ -28,6 +26,7 @@ def apply_background_color(color):
         """,
         unsafe_allow_html=True
     )
+
 def get_nucleotide_count(sequence):
     if is_valid_sequence(sequence):
         apply_background_color("#FFC0CB")  
@@ -35,7 +34,7 @@ def get_nucleotide_count(sequence):
                 'C': sequence.count('C'), 'G': sequence.count('G')}
     else:
         return "Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G."
-        
+
 # Function for k-mer analysis
 def kmer_analysis(sequence, k):
     if is_valid_sequence(sequence):
