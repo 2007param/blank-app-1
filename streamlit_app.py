@@ -94,7 +94,7 @@ def translation(sequence):
     for i in range(0, len(sequence), 3):
         codon = sequence[i:i+3]
         protein += codon_table.get(codon, '-')
-    apply_background_color("#800000")  
+    apply_background_color("#FAD7A0") 
     return protein
 
 # Function for Sequence alignment (simple version)
@@ -112,7 +112,7 @@ def title_page():
     st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
 
 def about_us_page():
-    apply_background_color("#000080")
+    apply_background_color("#F4ECF7")  
     st.markdown("<h1 style='text-align: center;'>About Us</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>We are a team of passionate bioinformaticians, biologists, and developers working to provide tools for DNA sequence analysis. Our goal is to make bioinformatics more accessible and provide a range of useful functionalities for researchers and students alike.</p>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>If you have any questions or feedback, please don't hesitate to contact us at:</p>", unsafe_allow_html=True)
@@ -187,7 +187,7 @@ def transcription_page():
 
 # Function for Translation page
 def translation_page():
-    apply_background_color("#800000")  
+    apply_background_color("#FAD7A0")  
     st.markdown("<h2 style='text-align: center;'>Translation</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
     if sequence:
