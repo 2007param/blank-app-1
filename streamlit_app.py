@@ -106,11 +106,13 @@ def sequence_alignment(seq1, seq2):
     return f"Sequence similarity ratio: {match_ratio*100:.2f}%"
 
 # Function to display the title page
-def title_page():
+def title_page():    
+    apply_background_color("#800080")  
     st.markdown("<h1 style='text-align: center;'>🧬 Bioinformatics Tool</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
 
 def about_us_page():
+    apply_background_color("#000080")
     st.markdown("<h1 style='text-align: center;'>About Us</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>We are a team of passionate bioinformaticians, biologists, and developers working to provide tools for DNA sequence analysis. Our goal is to make bioinformatics more accessible and provide a range of useful functionalities for researchers and students alike.</p>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>If you have any questions or feedback, please don't hesitate to contact us at:</p>", unsafe_allow_html=True)
@@ -119,6 +121,7 @@ def about_us_page():
     
 # Function for Nucleotide count page
 def nucleotide_count_page():
+    apply_background_color("#FFC0CB")  
     st.markdown("<h2 style='text-align: center;'>Nucleotide Count</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
     if sequence:
@@ -127,6 +130,7 @@ def nucleotide_count_page():
 
 # Function for K-mer analysis page
 def kmer_analysis_page():
+    apply_background_color("#008000")  
     st.markdown("<h2 style='text-align: center;'>K-mer Analysis</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
     k = st.number_input("Enter the value of k:", min_value=1, step=1)
@@ -137,6 +141,7 @@ def kmer_analysis_page():
 
 # Function for Gene Finding page
 def gene_finding_page():
+    apply_background_color("#00FF00")  
     st.markdown("<h2 style='text-align: center;'>Gene Finding</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
     if sequence:
@@ -145,6 +150,7 @@ def gene_finding_page():
 
 # Function for Hamming Distance page
 def hamming_distance_page():
+    apply_background_color("#D3D3D3")  
     st.markdown("<h2 style='text-align: center;'>Hamming Distance</h2>", unsafe_allow_html=True)
     seq1 = st.text_area("Enter the first DNA sequence:")
     seq2 = st.text_area("Enter the second DNA sequence:")
@@ -154,6 +160,7 @@ def hamming_distance_page():
 
 # Function for Reverse Complement page
 def reverse_complement_page():
+    apply_background_color("#FFD700")  
     st.markdown("<h2 style='text-align: center;'>Reverse Complement</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
     if sequence:
@@ -162,6 +169,7 @@ def reverse_complement_page():
 
 # Function for GC Content page
 def gc_content_page():
+    apply_background_color("#A52A2A")  
     st.markdown("<h2 style='text-align: center;'>GC Content</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
     if sequence:
@@ -170,6 +178,7 @@ def gc_content_page():
 
 # Function for Transcription page
 def transcription_page():
+    apply_background_color("#FFA500")  
     st.markdown("<h2 style='text-align: center;'>Transcription</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
     if sequence:
@@ -178,6 +187,7 @@ def transcription_page():
 
 # Function for Translation page
 def translation_page():
+    apply_background_color("#800000")  
     st.markdown("<h2 style='text-align: center;'>Translation</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
     if sequence:
@@ -186,6 +196,7 @@ def translation_page():
 
 # Function for Sequence Alignment page
 def sequence_alignment_page():
+    apply_background_color("#808000")  
     st.markdown("<h2 style='text-align: center;'>Sequence Alignment</h2>", unsafe_allow_html=True)
     seq1 = st.text_area("Enter the first DNA sequence:")
     seq2 = st.text_area("Enter the second DNA sequence:")
