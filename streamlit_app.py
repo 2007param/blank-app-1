@@ -4,7 +4,7 @@ from collections import Counter
 import streamlit as st
 from PIL import Image
 
-def footer():
+def foote():
     st.markdown(
         """
         <footer style='text-align: center; padding: 10px; font-size: 14px; color: #777;'>
