@@ -7,15 +7,15 @@ def is_valid_sequence(sequence):
     return all(base in 'ACTG' for base in sequence)
 
 def apply_background_color(color):
-st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-color: {color};
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-color: {color};
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
 )
 def get_nucleotide_count(sequence):
     apply_background_color("#FFC0CB")  
