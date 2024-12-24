@@ -177,7 +177,7 @@ def main():
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
          "Reverse Complement", "GC Content", "Transcription", "Translation", 
-         "Sequence Alignment")
+         "Sequence Alignment", "About Us")
     )
 
     # Display selected page
