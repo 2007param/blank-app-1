@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from collections import Counter
 import streamlit as st
+from PIL import Image
 
 def footer():
     st.markdown(
