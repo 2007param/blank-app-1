@@ -153,7 +153,7 @@ def gene_finding_page():
         if is_valid_sequence(sequence):
             genes = find_genes(sequence.upper())
             st.markdown(f"<p style='text-align: center;'>Found genes: {genes}</p>", unsafe_allow_html=True)
-         else:
+        else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
 
 # Function for Hamming Distance page
@@ -166,7 +166,7 @@ def hamming_distance_page():
         if is_valid_sequence(sequence):
             result = hamming_distance(seq1.upper(), seq2.upper())
             st.markdown(f"<p style='text-align: center;'>Hamming Distance: {result}</p>", unsafe_allow_html=True)
-         else:
+        else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
 
 # Function for Reverse Complement page
