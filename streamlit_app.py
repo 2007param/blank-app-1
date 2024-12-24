@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 from collections import Counter
-import streamlit as st
 from PIL import Image
 
 image = Image.open("C:\Users\2007p\Downloads\download (28).jpeg")
