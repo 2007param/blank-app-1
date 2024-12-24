@@ -19,7 +19,7 @@ def apply_background_color(color):
         unsafe_allow_html=True
     )
 def get_nucleotide_count(sequence):
-    apply_background_color("#D6EAF8")  # Light blue
+    apply_background_color("#0000FF")  
     return {'A': sequence.count('A'), 'T': sequence.count('T'),
             'C': sequence.count('C'), 'G': sequence.count('G')}
 
@@ -29,12 +29,14 @@ def kmer_analysis(sequence, k):
     for i in range(len(sequence) - k + 1):
         kmer = sequence[i:i + k]
         kmers[kmer] = kmers.get(kmer, 0) + 1
+    apply_background_color("#008000")  
     return kmers
 
 # Function for Hamming distance
 def hamming_distance(seq1, seq2):
     if len(seq1) != len(seq2):
         return "Error: Sequences must have the same length"
+    apply_background_color("#D3D3D3")  
     return sum(el1 != el2 for el1, el2 in zip(seq1, seq2))
 
 # Function for Gene finding
@@ -48,20 +50,24 @@ def find_genes(sequence):
                 if sequence[j:j + 3] in stop_codons:
                     genes.append(sequence[i:j + 3])
                     break
+    apply_background_color("#00FF00")  
     return genes
 
 # Function for Reverse complement
 def reverse_complement(sequence):
     complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+    apply_background_color("#FFD700")  
     return ''.join(complement[base] for base in reversed(sequence))
 
 # Function for GC Content
 def gc_content(sequence):
     gc_count = sequence.count('G') + sequence.count('C')
+    apply_background_color("#A52A2A")  
     return (gc_count / len(sequence)) * 100
 
 # Function for Transcription
 def transcription(sequence):
+    apply_background_color("#FFA500")  
     return sequence.replace('T', 'U')
 
 # Function for Translation (simple case, codon-to-amino acid)
@@ -88,6 +94,7 @@ def translation(sequence):
     for i in range(0, len(sequence), 3):
         codon = sequence[i:i+3]
         protein += codon_table.get(codon, '-')
+    apply_background_color("#800000")  
     return protein
 
 # Function for Sequence alignment (simple version)
@@ -95,6 +102,7 @@ def sequence_alignment(seq1, seq2):
     from difflib import SequenceMatcher
     matcher = SequenceMatcher(None, seq1, seq2)
     match_ratio = matcher.ratio()
+    apply_background_color("#808000")  
     return f"Sequence similarity ratio: {match_ratio*100:.2f}%"
 
 # Function to display the title page
