@@ -3,9 +3,9 @@ import pandas as pd
 from collections import Counter
 from PIL import Image
 
-image = Image.open(r"C:\Users\2007p\Downloads\download (28).jpeg")
-image1 = Image.open(r"C:\Users\2007p\Downloads\download (29).jpeg")
-image2 = Image.open(r"C:\Users\2007p\Downloads\download (30).jpeg")
+image = Image.open("C:\\Users\\2007p\\Downloads\\download (28).jpeg")
+image = Image.open("C:\\Users\\2007p\\Downloads\\download (29).jpeg")
+image = Image.open("C:\\Users\\2007p\\Downloads\\download (30).jpeg")
 image3 = Image.open(r"C:\Users\2007p\Downloads\download (31).jpeg")
 image4 = Image.open(r"C:\Users\2007p\Downloads\download (4).jpeg")
 image5 = Image.open(r"C:\Users\2007p\Downloads\download (5).jpeg")
