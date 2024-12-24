@@ -3,40 +3,7 @@ import pandas as pd
 from collections import Counter
 from PIL import Image
 
-image = Image.open("C:/Users/2007p/Downloads/download (28).jpeg")
-image1 = Image.open("C:/Users/2007p/Downloads/download (29).jpeg")
-image2 = Image.open("C:/Users/2007p/Downloads/download (30).jpeg")
-image3 = Image.open("C:/Users/2007p/Downloads/download (31).jpeg")
-image4 = Image.open("C:/Users/2007p/Downloads/download (4).jpeg")
-image5 = Image.open("C:/Users/2007p/Downloads/download (5).jpeg")
-image6 = Image.open("C:/Users/2007p/Downloads/download (32).jpeg")
-image7 = Image.open("C:/Users/2007p/Downloads/download (33).jpeg")
-image8 = Image.open("C:/Users/2007p/Downloads/download (6).jpeg")
-image9 = Image.open("C:/Users/2007p/Downloads/download (34).jpeg")
-image10 = Image.open("C/Users/2007p/Downloads/download (35).jpeg")
 
-def display_image():
-    st.image(image, caption="Title Page", use_column_width=True)
-def display_image1():
-    st.image(image1, caption="About Us", use_column_width=True)
-def display_image2():
-    st.image(image2, caption="nucleotide_count_page", use_column_width=True)
-def display_image3():
-    st.image(image3, caption="kmer_analysis_page", use_column_width=True)
-def display_image4():
-    st.image(image4, caption="gene_finding_page", use_column_width=True)
-def display_image5():
-    st.image(image5, caption="hamming_distance_page", use_column_width=True)
-def display_image6():
-    st.image(image6, caption="reverse_complement_page", use_column_width=True)
-def display_image7():
-    st.image(image7, caption="gc_content_page", use_column_width=True)
-def display_image8():
-    st.image(image8, caption="transcription_page", use_column_width=True)
-def display_image9():
-    st.image(image9, caption="translation_page", use_column_width=True)
-def display_image10():
-    st.image(image10, caption="sequence_alignment_page", use_column_width=True)
 
 def footer():
     st.markdown(
