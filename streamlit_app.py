@@ -40,69 +40,69 @@ def hamming_distance(seq1, seq2):
 
 # Function for Gene finding
 def find_genes(sequence):
-start_codon = "ATG"
-stop_codons = ["TAA", "TAG", "TGA"]
-genes = []
-for i in range(len(sequence)):
-    if sequence[i:i + 3] == start_codon:
-        for j in range(i + 3, len(sequence), 3):
-            if sequence[j:j + 3] in stop_codons:
-                genes.append(sequence[i:j + 3])
-                break
-apply_background_color("#00FF00")  
-return genes
+    start_codon = "ATG"
+    stop_codons = ["TAA", "TAG", "TGA"]
+    genes = []
+    for i in range(len(sequence)):
+        if sequence[i:i + 3] == start_codon:
+            for j in range(i + 3, len(sequence), 3):
+                if sequence[j:j + 3] in stop_codons:
+                    genes.append(sequence[i:j + 3])
+                    break
+    apply_background_color("#00FF00")  
+    return genes
 
 # Function for Reverse complement
 def reverse_complement(sequence):
-complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
-apply_background_color("#FFD700")  
-return ''.join(complement[base] for base in reversed(sequence))
+    complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+    apply_background_color("#FFD700")  
+    return ''.join(complement[base] for base in reversed(sequence))
 
 # Function for GC Content
 def gc_content(sequence):
-gc_count = sequence.count('G') + sequence.count('C')
-apply_background_color("#A52A2A")  
-return (gc_count / len(sequence)) * 100
+    gc_count = sequence.count('G') + sequence.count('C')
+    apply_background_color("#A52A2A")  
+    return (gc_count / len(sequence)) * 100
 
 # Function for Transcription
 def transcription(sequence):
-apply_background_color("#FFA500")  
-return sequence.replace('T', 'U')
+    apply_background_color("#FFA500")  
+    return sequence.replace('T', 'U')
 
 # Function for Translation (simple case, codon-to-amino acid)
 def translation(sequence):
-codon_table = {
-    'ATA': 'I', 'ATC': 'I', 'ATT': 'I', 'ATG': 'M',
-    'ACA': 'T', 'ACC': 'T', 'ACG': 'T', 'ACT': 'T',
-    'AAC': 'N', 'AAT': 'N', 'AAA': 'K', 'AAG': 'K',
-    'AGC': 'S', 'AGT': 'S', 'AGA': 'R', 'AGG': 'R',
-    'CTA': 'L', 'CTC': 'L', 'CTG': 'L', 'CTT': 'L',
-    'CCA': 'P', 'CCC': 'P', 'CCG': 'P', 'CCT': 'P',
-    'CAC': 'H', 'CAT': 'H', 'CAA': 'Q', 'CAG': 'Q',
-    'CGA': 'R', 'CGC': 'R', 'CGG': 'R', 'CGT': 'R',
-    'GTA': 'V', 'GTC': 'V', 'GTG': 'V', 'GTT': 'V',
-    'GCA': 'A', 'GCC': 'A', 'GCG': 'A', 'GCT': 'A',
-    'GAC': 'D', 'GAT': 'D', 'GAA': 'E', 'GAG': 'E',
-    'GGA': 'G', 'GGC': 'G', 'GGG': 'G', 'GGT': 'G',
-    'TCA': 'S', 'TCC': 'S', 'TCG': 'S', 'TCT': 'S',
-    'TTC': 'F', 'TTT': 'F', 'TTA': 'L', 'TTG': 'L',
-    'TAC': 'Y', 'TAT': 'Y', 'TAA': '*', 'TAG': '*',
-    'TGC': 'C', 'TGT': 'C', 'TGA': '*', 'TGG': 'W',
-}
-protein = ""
-for i in range(0, len(sequence), 3):
-    codon = sequence[i:i+3]
-    protein += codon_table.get(codon, '-')
-apply_background_color("#FAD7A0") 
-return protein
+    codon_table = {
+        'ATA': 'I', 'ATC': 'I', 'ATT': 'I', 'ATG': 'M',
+        'ACA': 'T', 'ACC': 'T', 'ACG': 'T', 'ACT': 'T',
+        'AAC': 'N', 'AAT': 'N', 'AAA': 'K', 'AAG': 'K',
+        'AGC': 'S', 'AGT': 'S', 'AGA': 'R', 'AGG': 'R',
+        'CTA': 'L', 'CTC': 'L', 'CTG': 'L', 'CTT': 'L',
+        'CCA': 'P', 'CCC': 'P', 'CCG': 'P', 'CCT': 'P',
+        'CAC': 'H', 'CAT': 'H', 'CAA': 'Q', 'CAG': 'Q',
+        'CGA': 'R', 'CGC': 'R', 'CGG': 'R', 'CGT': 'R',
+        'GTA': 'V', 'GTC': 'V', 'GTG': 'V', 'GTT': 'V',
+        'GCA': 'A', 'GCC': 'A', 'GCG': 'A', 'GCT': 'A',
+        'GAC': 'D', 'GAT': 'D', 'GAA': 'E', 'GAG': 'E',
+        'GGA': 'G', 'GGC': 'G', 'GGG': 'G', 'GGT': 'G',
+        'TCA': 'S', 'TCC': 'S', 'TCG': 'S', 'TCT': 'S',
+        'TTC': 'F', 'TTT': 'F', 'TTA': 'L', 'TTG': 'L',
+        'TAC': 'Y', 'TAT': 'Y', 'TAA': '*', 'TAG': '*',
+        'TGC': 'C', 'TGT': 'C', 'TGA': '*', 'TGG': 'W',
+    }
+    protein = ""
+    for i in range(0, len(sequence), 3):
+        codon = sequence[i:i+3]
+        protein += codon_table.get(codon, '-')
+    apply_background_color("#FAD7A0") 
+    return protein
 
 # Function for Sequence alignment (simple version)
 def sequence_alignment(seq1, seq2):
-from difflib import SequenceMatcher
-matcher = SequenceMatcher(None, seq1, seq2)
-match_ratio = matcher.ratio()
-apply_background_color("#808000")  
-return f"Sequence similarity ratio: {match_ratio*100:.2f}%"
+    from difflib import SequenceMatcher
+    matcher = SequenceMatcher(None, seq1, seq2)
+    match_ratio = matcher.ratio()
+    apply_background_color("#808000")  
+    return f"Sequence similarity ratio: {match_ratio*100:.2f}%"
 
 # Function to display the title page
 def title_page():    
