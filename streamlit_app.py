@@ -232,37 +232,37 @@ def sequence_alignment_page():
 
 # Function to control page navigation
 def main():
-    # Sidebar navigation to select pages
-    page = st.sidebar.radio(
-        "Select a page:",
-        ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
-         "Reverse Complement", "GC Content", "Transcription", "Translation", 
-         "Sequence Alignment", "About Us")
-    )
-    
-    # Display selected page
-    if page == "Title Page":
-        title_page()
-    elif page == "Nucleotide Count":
-        nucleotide_count_page()
-    elif page == "K-mer Analysis":
-        kmer_analysis_page()
-    elif page == "Gene Finding":
-        gene_finding_page()
-    elif page == "Hamming Distance":
-        hamming_distance_page()
-    elif page == "Reverse Complement":
-        reverse_complement_page()
-    elif page == "GC Content":
-        gc_content_page()
-    elif page == "Transcription":
-        transcription_page()
-    elif page == "Translation":
-        translation_page()
-    elif page == "Sequence Alignment":
-        sequence_alignment_page()
-    elif page == "About Us":
-        about_us_page()
-    
-    if __name__ == "__main__":
-        main()
+# Sidebar navigation to select pages
+page = st.sidebar.radio(
+    "Select a page:",
+    ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
+     "Reverse Complement", "GC Content", "Transcription", "Translation", 
+     "Sequence Alignment", "About Us")
+)
+
+# Display selected page
+if page == "Title Page":
+    title_page()
+elif page == "Nucleotide Count":
+    nucleotide_count_page()
+elif page == "K-mer Analysis":
+    kmer_analysis_page()
+elif page == "Gene Finding":
+    gene_finding_page()
+elif page == "Hamming Distance":
+    hamming_distance_page()
+elif page == "Reverse Complement":
+    reverse_complement_page()
+elif page == "GC Content":
+    gc_content_page()
+elif page == "Transcription":
+    transcription_page()
+elif page == "Translation":
+    translation_page()
+elif page == "Sequence Alignment":
+    sequence_alignment_page()
+elif page == "About Us":
+    about_us_page()
+
+if __name__ == "__main__":
+    main()
