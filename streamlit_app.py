@@ -255,7 +255,8 @@ def nucleotide_count_page():
     reset_input_field()
     apply_background_color("#FFC0CB")  
     st.markdown("<h2 style='text-align: center;'>Nucleotide Count</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    if sequence:
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    
+    if sequence:
         if is_valid_sequence(sequence):
             counts = get_nucleotide_count(sequence)
             st.markdown(f"<p style='text-align: center;'>A: {counts['A']}, T: {counts['T']}, C: {counts['C']}, G: {counts['G']}</p>", unsafe_allow_html=True)
