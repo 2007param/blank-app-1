@@ -180,24 +180,23 @@ def sequence_alignment(seq1, seq2):
 
 # Function to display the title page
 def title_page():    
-    display_image()
     apply_background_color("#D6EAF8")  
     st.markdown("<h1 style='text-align: center;'>🧬 Bioinformatics Tool</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
+    display_image()
     footer()
 def about_us_page():
-    display_image1()
     apply_background_color("#F4ECF7")  
     st.markdown("<h1 style='text-align: center;'>About Us</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>We are a team of passionate bioinformaticians, biologists, and developers working to provide tools for DNA sequence analysis. Our goal is to make bioinformatics more accessible and provide a range of useful functionalities for researchers and students alike.</p>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>If you have any questions or feedback, please don't hesitate to contact us at:</p>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Email: ai-tutorial@example.com</p>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Phone: (123)-456-7890</p>", unsafe_allow_html=True)
+    display_image1()
     footer()
 
 # Function for Nucleotide count page
 def nucleotide_count_page():
-    display_image2()
     apply_background_color("#FFC0CB")  
     st.markdown("<h2 style='text-align: center;'>Nucleotide Count</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:").upper()
@@ -207,10 +206,10 @@ def nucleotide_count_page():
             st.markdown(f"<p style='text-align: center;'>A: {counts['A']}, T: {counts['T']}, C: {counts['C']}, G: {counts['G']}</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    display_image2()
     footer()
 # Function for K-mer analysis page
 def kmer_analysis_page():
-    display_image3()
     apply_background_color("#008000")  
     st.markdown("<h2 style='text-align: center;'>K-mer Analysis</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
@@ -222,10 +221,10 @@ def kmer_analysis_page():
             st.write(kmers)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    display_image3()
     footer()
 # Function for Gene Finding page
 def gene_finding_page():
-    display_image4()
     apply_background_color("#00FF00")  
     st.markdown("<h2 style='text-align: center;'>Gene Finding</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
@@ -235,10 +234,10 @@ def gene_finding_page():
             st.markdown(f"<p style='text-align: center;'>Found genes: {genes}</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    display_image4()
     footer()
 # Function for Hamming Distance page
 def hamming_distance_page():
-    display_image5()
     apply_background_color("#D3D3D3")  
     st.markdown("<h2 style='text-align: center;'>Hamming Distance</h2>", unsafe_allow_html=True)
     seq1 = st.text_area("Enter the first DNA sequence:")
@@ -249,10 +248,10 @@ def hamming_distance_page():
             st.markdown(f"<p style='text-align: center;'>Hamming Distance: {result}</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    display_image5()
     footer()
 # Function for Reverse Complement page
 def reverse_complement_page():
-    display_image6()
     apply_background_color("#FFD700")  
     st.markdown("<h2 style='text-align: center;'>Reverse Complement</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
@@ -262,10 +261,10 @@ def reverse_complement_page():
             st.markdown(f"<p style='text-align: center;'>Reverse complement: {complement}</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    display_image6()
     footer()
 # Function for GC Content page
 def gc_content_page():
-    display_image7()
     apply_background_color("#A52A2A")  
     st.markdown("<h2 style='text-align: center;'>GC Content</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
@@ -275,10 +274,10 @@ def gc_content_page():
             st.markdown(f"<p style='text-align: center;'>GC Content: {gc_percent:.2f}%</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    display_image7()
     footer()
 # Function for Transcription page
 def transcription_page():
-    display_image8()
     apply_background_color("#FFA500")  
     st.markdown("<h2 style='text-align: center;'>Transcription</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
@@ -288,10 +287,10 @@ def transcription_page():
             st.markdown(f"<p style='text-align: center;'>Transcribed RNA sequence: {transcribed}</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    display_image8()
     footer()
 # Function for Translation page
 def translation_page():
-    display_image9()
     apply_background_color("#FAD7A0")  
     st.markdown("<h2 style='text-align: center;'>Translation</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:")
@@ -301,10 +300,10 @@ def translation_page():
             st.markdown(f"<p style='text-align: center;'>Translated protein sequence: {protein}</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    display_image9()
     footer()
 # Function for Sequence Alignment page
 def sequence_alignment_page():
-    display_image10()
     apply_background_color("#808000")  
     st.markdown("<h2 style='text-align: center;'>Sequence Alignment</h2>", unsafe_allow_html=True)
     seq1 = st.text_area("Enter the first DNA sequence:")
@@ -315,6 +314,7 @@ def sequence_alignment_page():
             st.markdown(f"<p style='text-align: center;'>Sequence alignment result: {result}</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    display_image10()
     footer()
 # Function to control page navigation
 def main():
