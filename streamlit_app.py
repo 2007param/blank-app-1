@@ -262,6 +262,7 @@ def kmer_analysis_page():
             st.write(kmers)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
+    reset_input_field()
     display_image3()
     footer()
 # Function for Gene Finding page
