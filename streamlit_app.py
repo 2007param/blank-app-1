@@ -50,6 +50,7 @@ def footer():
     )
 
 def is_valid_sequence(sequence):
+     sequence = sequence.upper()
     return all(base in 'ACTG' for base in sequence)
     
 def apply_background_color(color):
