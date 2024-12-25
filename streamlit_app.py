@@ -61,7 +61,9 @@ def clear_inputs():
     st.session_state.input_sequence = ""
 
 def reset_input_field():
-    if 'input_sequence' in st.session_state:
+    if 'input_sequence' not in st.session_state:
+        st.session_state.input_sequence = ""
+    else:
         st.session_state.input_sequence = ""
     
 def apply_background_color(color):
@@ -246,7 +248,6 @@ def nucleotide_count_page():
             st.markdown(f"<p style='text-align: center;'>A: {counts['A']}, T: {counts['T']}, C: {counts['C']}, G: {counts['G']}</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
-    reset_input_field()
     display_image2()
     footer()
 # Function for K-mer analysis page
@@ -262,7 +263,6 @@ def kmer_analysis_page():
             st.write(kmers)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
-    reset_input_field()
     display_image3()
     footer()
 # Function for Gene Finding page
@@ -394,8 +394,9 @@ def local_alignment_page():
     footer()
 
 def main():
-    # Sidebar navigation to select pages
-    page = st.sidebar.radio(
+    if 'input_sequence' not in st.session_state:
+        st.session_state.input_sequence = ""    
+        page = st.sidebar.radio(
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
          "Reverse Complement", "GC Content", "Transcription", "Translation", 
