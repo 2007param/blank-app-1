@@ -3,20 +3,9 @@ import pandas as pd
 from collections import Counter
 from PIL import Image
 
-image = Image.open("C:/Users/2007p/Downloads/download (28).jpeg")
-image1 = Image.open("C:/Users/2007p/Downloads/download (29).jpeg")
-image2 = Image.open("C:/Users/2007p/Downloads/download (30).jpeg")
-image3 = Image.open("C:/Users/2007p/Downloads/download (31).jpeg")
-image4 = Image.open("C:/Users/2007p/Downloads/download (4).jpeg")
-image5 = Image.open("C:/Users/2007p/Downloads/download (5).jpeg")
-image6 = Image.open("C:/Users/2007p/Downloads/download (32).jpeg")
-image7 = Image.open("C:/Users/2007p/Downloads/download (33).jpeg")
-image8 = Image.open("C:/Users/2007p/Downloads/download (6).jpeg")
-image9 = Image.open("C:/Users/2007p/Downloads/download (34).jpeg")
-image10 = Image.open("C:/Users/2007p/Downloads/download (35).jpeg")
 
 def display_image():
-    st.image(image, caption="Title Page", use_column_width=True)
+    st.image("https://in.pinterest.com/pin/bioinformatics-notebook-cover-page-design--670614200796796549/", caption="Title Page", use_column_width=True)
 def display_image1():
     st.image(image1, caption="About Us", use_column_width=True)
 def display_image2():
