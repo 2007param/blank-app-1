@@ -77,20 +77,16 @@ def apply_background_color(color):
     )
 
 def get_nucleotide_count(sequence):
-    reset_input_field()
     sequence = sequence.upper()
     if is_valid_sequence(sequence):
         apply_background_color("#FFC0CB")  
         return {'A': sequence.count('A'), 'T': sequence.count('T'),
                 'C': sequence.count('C'), 'G': sequence.count('G')}
-        reset_input_field()
     else:
-        reset_input_field()
         return "Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G."
 
 # Function for k-mer analysis
 def kmer_analysis(sequence, k):
-    reset_input_field()
     sequence = sequence.upper()
     if is_valid_sequence(sequence):
         kmers = {}
@@ -99,14 +95,11 @@ def kmer_analysis(sequence, k):
             kmers[kmer] = kmers.get(kmer, 0) + 1
         apply_background_color("#008000")  
         return kmers
-        reset_input_field()
     else:
-        reset_input_field()
         return "Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G."
 
 # Function for Hamming distance
 def hamming_distance(seq1, seq2):
-    reset_input_field()
     seq1, seq2 = seq1.upper(), seq2.upper()
     if len(seq1) != len(seq2):
         return "Error: Sequences must have the same length"
@@ -118,7 +111,6 @@ def hamming_distance(seq1, seq2):
 
 # Function for Gene finding
 def find_genes(sequence):
-    reset_input_field()
     sequence = sequence.upper()
     if is_valid_sequence(sequence):
         start_codon = "ATG"
@@ -137,7 +129,6 @@ def find_genes(sequence):
 
 # Function for Reverse complement
 def reverse_complement(sequence):
-    reset_input_field()
     sequence = sequence.upper()
     if is_valid_sequence(sequence):
         complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
@@ -148,7 +139,6 @@ def reverse_complement(sequence):
 
 # Function for GC Content
 def gc_content(sequence):
-    reset_input_field()
     sequence = sequence.upper()
     if is_valid_sequence(sequence):
         gc_count = sequence.count('G') + sequence.count('C')
@@ -159,7 +149,6 @@ def gc_content(sequence):
 
 # Function for Transcription
 def transcription(sequence):
-    reset_input_field()
     sequence = sequence.upper()
     if is_valid_sequence(sequence):
         apply_background_color("#FFA500")  
@@ -169,7 +158,6 @@ def transcription(sequence):
 
 # Function for Translation (simple case, codon-to-amino acid)
 def translation(sequence):
-    reset_input_field()
     sequence = sequence.upper()
     if is_valid_sequence(sequence):
         codon_table = {
@@ -201,7 +189,6 @@ def translation(sequence):
 
 # Function for Sequence alignment (simple version)
 def sequence_alignment(seq1, seq2):
-    reset_input_field()
     seq1, seq2 = seq1.upper(), seq2.upper()
     if is_valid_sequence(seq1) and is_valid_sequence(seq2):
         from difflib import SequenceMatcher
@@ -213,7 +200,6 @@ def sequence_alignment(seq1, seq2):
         return "Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G."
         
 def global_alignment(seq1, seq2):
-    reset_input_field()
     seq1, seq2 = seq1.upper(), seq2.upper()
     if is_valid_sequence(seq1) and is_valid_sequence(seq2):
         alignments = pairwise2.align.globalxx(seq1, seq2)
@@ -224,7 +210,6 @@ def global_alignment(seq1, seq2):
 
 # Function for Local Alignment
 def local_alignment(seq1, seq2):
-    reset_input_field()
     seq1, seq2 = seq1.upper(), seq2.upper()
     if is_valid_sequence(seq1) and is_valid_sequence(seq2):
         alignments = pairwise2.align.localxx(seq1, seq2)
