@@ -13,7 +13,7 @@ def footer():
             color: #FFF; 
             background-color: #333; 
             position: fixed; 
-            left: 0; 
+            left: 20; 
             bottom: 0; 
             width: 100%;'>
             <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
