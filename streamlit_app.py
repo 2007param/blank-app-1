@@ -283,7 +283,8 @@ def gene_finding_page():
     reset_input_field()
     apply_background_color("#00FF00")  
     st.markdown("<h2 style='text-align: center;'>Gene Finding</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    if sequence:
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    
+    if sequence:
         if is_valid_sequence(sequence):
             genes = find_genes(sequence.upper())
             st.markdown(f"<p style='text-align: center;'>Found genes: {genes}</p>", unsafe_allow_html=True)
