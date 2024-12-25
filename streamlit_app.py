@@ -394,8 +394,7 @@ def local_alignment_page():
     footer()
 
 def main():
-    if 'input_sequence' not in st.session_state:
-        st.session_state.input_sequence = ""    
+     
         page = st.sidebar.radio(
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
