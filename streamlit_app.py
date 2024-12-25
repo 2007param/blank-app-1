@@ -255,8 +255,7 @@ def nucleotide_count_page():
     reset_input_field()
     apply_background_color("#FFC0CB")  
     st.markdown("<h2 style='text-align: center;'>Nucleotide Count</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:").upper()
-    if sequence:
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    if sequence:
         if is_valid_sequence(sequence):
             counts = get_nucleotide_count(sequence)
             st.markdown(f"<p style='text-align: center;'>A: {counts['A']}, T: {counts['T']}, C: {counts['C']}, G: {counts['G']}</p>", unsafe_allow_html=True)
@@ -269,8 +268,7 @@ def kmer_analysis_page():
     reset_input_field()
     apply_background_color("#008000")  
     st.markdown("<h2 style='text-align: center;'>K-mer Analysis</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:")
-    k = st.number_input("Enter the value of k:", min_value=1, step=1)
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    k = st.number_input("Enter the value of k:", min_value=1, step=1)
     if sequence and k:
         if is_valid_sequence(sequence):
             kmers = kmer_analysis(sequence, int(k))
@@ -285,8 +283,7 @@ def gene_finding_page():
     reset_input_field()
     apply_background_color("#00FF00")  
     st.markdown("<h2 style='text-align: center;'>Gene Finding</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:")
-    if sequence:
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    if sequence:
         if is_valid_sequence(sequence):
             genes = find_genes(sequence.upper())
             st.markdown(f"<p style='text-align: center;'>Found genes: {genes}</p>", unsafe_allow_html=True)
@@ -299,8 +296,8 @@ def hamming_distance_page():
     reset_input_field()
     apply_background_color("#D3D3D3")  
     st.markdown("<h2 style='text-align: center;'>Hamming Distance</h2>", unsafe_allow_html=True)
-    seq1 = st.text_area("Enter the first DNA sequence:")
-    seq2 = st.text_area("Enter the second DNA sequence:")
+    seq1 = st.text_area("Enter a DNA sequence:", key="input_sequence")    
+    seq2 = st.text_area("Enter another DNA sequence:", key="input_sequence")    
     if seq1 and seq2:
         if is_valid_sequence(seq1) and is_valid_sequence(seq2):
             result = hamming_distance(seq1.upper(), seq2.upper())
@@ -314,7 +311,7 @@ def reverse_complement_page():
     reset_input_field()
     apply_background_color("#FFD700")  
     st.markdown("<h2 style='text-align: center;'>Reverse Complement</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:")
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")
     if sequence:
         if is_valid_sequence(sequence):
             complement = reverse_complement(sequence.upper())
@@ -328,7 +325,7 @@ def gc_content_page():
     reset_input_field()
     apply_background_color("#A52A2A")  
     st.markdown("<h2 style='text-align: center;'>GC Content</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:")
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")
     if sequence:
         if is_valid_sequence(sequence):
             gc_percent = gc_content(sequence.upper())
@@ -342,7 +339,7 @@ def transcription_page():
     reset_input_field()
     apply_background_color("#FFA500")  
     st.markdown("<h2 style='text-align: center;'>Transcription</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:")
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")
     if sequence:
         if is_valid_sequence(sequence):
             transcribed = transcription(sequence.upper())
@@ -356,7 +353,7 @@ def translation_page():
     reset_input_field()
     apply_background_color("#FAD7A0")  
     st.markdown("<h2 style='text-align: center;'>Translation</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:")
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")
     if sequence:
         if is_valid_sequence(sequence):
             protein = translation(sequence.upper())
@@ -370,8 +367,8 @@ def sequence_alignment_page():
     reset_input_field()
     apply_background_color("#808000")  
     st.markdown("<h2 style='text-align: center;'>Sequence Alignment</h2>", unsafe_allow_html=True)
-    seq1 = st.text_area("Enter the first DNA sequence:")
-    seq2 = st.text_area("Enter the second DNA sequence:")
+    seq1 = st.text_area("Enter a DNA sequence:", key="input_sequence")    
+    seq2 = st.text_area("Enter another DNA sequence:", key="input_sequence")    
     if seq1 and seq2:
         if is_valid_sequence(seq1) and is_valid_sequence(seq2):
             result = sequence_alignment(seq1.upper(), seq2.upper())
@@ -385,8 +382,8 @@ def global_alignment_page():
     reset_input_field()
     apply_background_color("#E0FFFF")
     st.markdown("<h2 style='text-align: center;'>Global Sequence Alignment</h2>", unsafe_allow_html=True)
-    seq1 = st.text_area("Enter the first DNA sequence:")
-    seq2 = st.text_area("Enter the second DNA sequence:")
+    seq1 = st.text_area("Enter a DNA sequence:", key="input_sequence")    
+    seq2 = st.text_area("Enter another DNA sequence:", key="input_sequence")    
     if seq1 and seq2:
         if is_valid_sequence(seq1) and is_valid_sequence(seq2):
             result = global_alignment(seq1.upper(), seq2.upper())
@@ -403,8 +400,8 @@ def local_alignment_page():
     reset_input_field()
     apply_background_color("#FFDEAD")
     st.markdown("<h2 style='text-align: center;'>Local Sequence Alignment</h2>", unsafe_allow_html=True)
-    seq1 = st.text_area("Enter the first DNA sequence:")
-    seq2 = st.text_area("Enter the second DNA sequence:")
+    seq1 = st.text_area("Enter a DNA sequence:", key="input_sequence")    
+    seq2 = st.text_area("Enter another DNA sequence:", key="input_sequence")    
     if seq1 and seq2:
         if is_valid_sequence(seq1) and is_valid_sequence(seq2):
             result = local_alignment(seq1.upper(), seq2.upper())
@@ -424,7 +421,7 @@ def main():
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
          "Reverse Complement", "GC Content", "Transcription", "Translation", 
          "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us"),
-        on_change=clear_inputs
+        on_change=reset_input_field
     )
     footer()
 
