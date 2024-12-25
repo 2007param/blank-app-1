@@ -88,7 +88,7 @@ def kmer_analysis(sequence, k):
 
 # Function for Hamming distance
 def hamming_distance(seq1, seq2):
-    sequence = sequence.upper()
+    seq1, seq2 = seq1.upper(), seq2.upper()
     if len(seq1) != len(seq2):
         return "Error: Sequences must have the same length"
         if is_valid_sequence(seq1) and is_valid_sequence(seq2):
@@ -177,7 +177,7 @@ def translation(sequence):
 
 # Function for Sequence alignment (simple version)
 def sequence_alignment(seq1, seq2):
-    sequence = sequence.upper()
+    seq1, seq2 = seq1.upper(), seq2.upper()
     if is_valid_sequence(seq1) and is_valid_sequence(seq2):
         from difflib import SequenceMatcher
         matcher = SequenceMatcher(None, seq1, seq2)
