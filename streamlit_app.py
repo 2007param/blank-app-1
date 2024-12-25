@@ -246,12 +246,11 @@ def nucleotide_count_page():
             st.markdown(f"<p style='text-align: center;'>A: {counts['A']}, T: {counts['T']}, C: {counts['C']}, G: {counts['G']}</p>", unsafe_allow_html=True)
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
-        reset_input_field()
+    reset_input_field()
     display_image2()
     footer()
 # Function for K-mer analysis page
 def kmer_analysis_page():
-    reset_input_field()
     apply_background_color("#008000")  
     st.markdown("<h2 style='text-align: center;'>K-mer Analysis</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    
@@ -267,7 +266,6 @@ def kmer_analysis_page():
     footer()
 # Function for Gene Finding page
 def gene_finding_page():
-    reset_input_field()
     apply_background_color("#00FF00")  
     st.markdown("<h2 style='text-align: center;'>Gene Finding</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    
@@ -281,7 +279,6 @@ def gene_finding_page():
     footer()
 # Function for Hamming Distance page
 def hamming_distance_page():
-    reset_input_field()
     apply_background_color("#D3D3D3")  
     st.markdown("<h2 style='text-align: center;'>Hamming Distance</h2>", unsafe_allow_html=True)
     seq1 = st.text_area("Enter a DNA sequence:", key="input_sequence")    
@@ -296,7 +293,6 @@ def hamming_distance_page():
     footer()
 # Function for Reverse Complement page
 def reverse_complement_page():
-    reset_input_field()
     apply_background_color("#FFD700")  
     st.markdown("<h2 style='text-align: center;'>Reverse Complement</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")
@@ -310,7 +306,6 @@ def reverse_complement_page():
     footer()
 # Function for GC Content page
 def gc_content_page():
-    reset_input_field()
     apply_background_color("#A52A2A")  
     st.markdown("<h2 style='text-align: center;'>GC Content</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")
@@ -324,7 +319,6 @@ def gc_content_page():
     footer()
 # Function for Transcription page
 def transcription_page():
-    reset_input_field()
     apply_background_color("#FFA500")  
     st.markdown("<h2 style='text-align: center;'>Transcription</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")
@@ -338,7 +332,6 @@ def transcription_page():
     footer()
 # Function for Translation page
 def translation_page():
-    reset_input_field()
     apply_background_color("#FAD7A0")  
     st.markdown("<h2 style='text-align: center;'>Translation</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")
@@ -352,7 +345,6 @@ def translation_page():
     footer()
 # Function for Sequence Alignment page
 def sequence_alignment_page():
-    reset_input_field()
     apply_background_color("#808000")  
     st.markdown("<h2 style='text-align: center;'>Sequence Alignment</h2>", unsafe_allow_html=True)
     seq1 = st.text_area("Enter a DNA sequence:", key="input_sequence")    
@@ -367,7 +359,6 @@ def sequence_alignment_page():
     footer()
 
 def global_alignment_page():
-    reset_input_field()
     apply_background_color("#E0FFFF")
     st.markdown("<h2 style='text-align: center;'>Global Sequence Alignment</h2>", unsafe_allow_html=True)
     seq1 = st.text_area("Enter a DNA sequence:", key="input_sequence")    
@@ -385,7 +376,6 @@ def global_alignment_page():
     footer()
 
 def local_alignment_page():
-    reset_input_field()
     apply_background_color("#FFDEAD")
     st.markdown("<h2 style='text-align: center;'>Local Sequence Alignment</h2>", unsafe_allow_html=True)
     seq1 = st.text_area("Enter a DNA sequence:", key="input_sequence")    
