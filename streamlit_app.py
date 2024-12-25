@@ -384,15 +384,18 @@ def local_alignment_page():
     display_image12()
     footer()
 
+def clear_inputs():
+    st.session_state.seq1 = ""
+    st.session_state.seq2 = ""
 
-# Function to control page navigation
 def main():
-# Sidebar navigation to select pages
+    # Sidebar navigation to select pages
     page = st.sidebar.radio(
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
          "Reverse Complement", "GC Content", "Transcription", "Translation", 
-         "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us")
+         "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us"),
+        on_change=clear_inputs
     )
     footer()
 
