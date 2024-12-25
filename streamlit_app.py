@@ -269,7 +269,8 @@ def kmer_analysis_page():
     reset_input_field()
     apply_background_color("#008000")  
     st.markdown("<h2 style='text-align: center;'>K-mer Analysis</h2>", unsafe_allow_html=True)
-    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    k = st.number_input("Enter the value of k:", min_value=1, step=1)
+    sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    
+    k = st.number_input("Enter the value of k:", min_value=1, step=1)
     if sequence and k:
         if is_valid_sequence(sequence):
             kmers = kmer_analysis(sequence, int(k))
