@@ -417,37 +417,26 @@ def main():
     if page == "Title Page":
         title_page()
     elif page == "Nucleotide Count":
-        reset_input_field()
         nucleotide_count_page()
     elif page == "K-mer Analysis":
-        reset_input_field()
         kmer_analysis_page()
     elif page == "Gene Finding":
-        reset_input_field()
         gene_finding_page()
     elif page == "Hamming Distance":
-        reset_input_field()
         hamming_distance_page()
     elif page == "Reverse Complement":
-        reset_input_field()
         reverse_complement_page()
     elif page == "GC Content":
-        reset_input_field()
         gc_content_page()
     elif page == "Transcription":
-        reset_input_field()
         transcription_page()
     elif page == "Translation":
-        reset_input_field()
         translation_page()
     elif page == "Sequence Alignment":
-        reset_input_field()
         sequence_alignment_page()
     elif page == "Global Alignment":
-        reset_input_field()
         global_alignment_page()
     elif page == "Local Alignment":
-        reset_input_field()
         local_alignment_page()
     elif page == "About Us":
         about_us_page()
