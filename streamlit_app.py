@@ -96,9 +96,9 @@ def hamming_distance(seq1, seq2):
     seq1, seq2 = seq1.upper(), seq2.upper()
     if len(seq1) != len(seq2):
         return "Error: Sequences must have the same length"
-        if is_valid_sequence(seq1) and is_valid_sequence(seq2):
-            apply_background_color("#D3D3D3")  
-            return sum(el1 != el2 for el1, el2 in zip(seq1, seq2))
+    if is_valid_sequence(seq1) and is_valid_sequence(seq2):
+        apply_background_color("#D3D3D3")  
+        return sum(el1 != el2 for el1, el2 in zip(seq1, seq2))
     else:
         return "Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G."
 
@@ -374,7 +374,7 @@ def local_alignment_page():
     seq2 = st.text_area("Enter the second DNA sequence:")
     if seq1 and seq2:
         if is_valid_sequence(seq1) and is_valid_sequence(seq2):
-            result = sequence_alignment(seq1.upper(), seq2.upper())
+            result = local_alignment(seq1.upper(), seq2.upper())
             st.markdown(f"<p><strong>Score:</strong> {result[2]}</p>", unsafe_allow_html=True)
             st.markdown("<p><strong>Alignment:</strong></p>", unsafe_allow_html=True)
             st.text(result[0])
@@ -417,7 +417,7 @@ def main():
         translation_page()
     elif page == "Sequence Alignment":
         sequence_alignment_page()
-    elif page == "Globl Alignment":
+    elif page == "Global Alignment":
         global_alignment_page()
     elif page == "Local Alignment":
         local_alignment_page()
