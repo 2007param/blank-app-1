@@ -5,7 +5,7 @@ from PIL import Image
 
 
 def display_image():
-    st.image("https://in.pinterest.com/pin/bioinformatics-notebook-cover-page-design--670614200796796549/", caption="Title Page", use_column_width=True)
+    st.image("https://in.pinterest.com/pin/bioinformatics-notebook-cover-page-design--670614200796796549/", caption="Title Page", use_container_width=True)
 def display_image1():
     st.image(image1, caption="About Us", use_column_width=True)
 def display_image2():
