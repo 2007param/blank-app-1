@@ -83,7 +83,9 @@ def get_nucleotide_count(sequence):
         apply_background_color("#FFC0CB")  
         return {'A': sequence.count('A'), 'T': sequence.count('T'),
                 'C': sequence.count('C'), 'G': sequence.count('G')}
+        reset_input_field()
     else:
+        reset_input_field()
         return "Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G."
 
 # Function for k-mer analysis
@@ -97,7 +99,9 @@ def kmer_analysis(sequence, k):
             kmers[kmer] = kmers.get(kmer, 0) + 1
         apply_background_color("#008000")  
         return kmers
+        reset_input_field()
     else:
+        reset_input_field()
         return "Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G."
 
 # Function for Hamming distance
