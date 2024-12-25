@@ -6,17 +6,23 @@ from PIL import Image
 def footer():
     st.markdown(
         """
-        <footer style='
-            text-align: center; 
-            padding: 10px; 
-            font-size: 14px; 
-            color: #FFF; 
-            background-color: #333; 
+        <style>
+        footer {
             position: fixed;
-            width: 100%;'>
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+        </style>
+        <footer>
             <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
         </footer>
-        """, unsafe_allow_html=True
+        """, 
+        unsafe_allow_html=True
     )
 
 def is_valid_sequence(sequence):
