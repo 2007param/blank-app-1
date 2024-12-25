@@ -237,8 +237,6 @@ def about_us_page():
 
 # Function for Nucleotide count page
 def nucleotide_count_page():
-    if 'input_sequence' not in st.session_state:
-        st.session_state.input_sequence = ""
     apply_background_color("#FFC0CB")  
     st.markdown("<h2 style='text-align: center;'>Nucleotide Count</h2>", unsafe_allow_html=True)
     sequence = st.text_area("Enter a DNA sequence:", key="input_sequence")    
