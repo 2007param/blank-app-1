@@ -12,9 +12,7 @@ def footer():
             font-size: 14px; 
             color: #FFF; 
             background-color: #333; 
-            position: fixed; 
-            left: 20; 
-            bottom: 0; 
+            position: fixed;
             width: 100%;'>
             <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
         </footer>
