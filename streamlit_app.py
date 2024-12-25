@@ -13,7 +13,7 @@ image6 = Image.open("C:/Users/2007p/Downloads/download (32).jpeg")
 image7 = Image.open("C:/Users/2007p/Downloads/download (33).jpeg")
 image8 = Image.open("C:/Users/2007p/Downloads/download (6).jpeg")
 image9 = Image.open("C:/Users/2007p/Downloads/download (34).jpeg")
-image10 = Image.open("C/Users/2007p/Downloads/download (35).jpeg")
+image10 = Image.open("C:/Users/2007p/Downloads/download (35).jpeg")
 
 def display_image():
     st.image(image, caption="Title Page", use_column_width=True)
