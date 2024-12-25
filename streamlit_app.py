@@ -50,8 +50,8 @@ def footer():
     )
 
 def is_valid_sequence(sequence):
-    return all(base in 'ACTG' for base in sequence)
-
+    return all(base in 'ACTGactg' for base in sequence)
+    
 def apply_background_color(color):
     st.markdown(
         f"""
