@@ -50,7 +50,7 @@ def footer():
     )
 
 def is_valid_sequence(sequence):
-    return all(base in 'ACTGactg' for base in sequence)
+    return all(base in 'ACTG' for base in sequence)
     
 def apply_background_color(color):
     st.markdown(
@@ -65,6 +65,7 @@ def apply_background_color(color):
     )
 
 def get_nucleotide_count(sequence):
+    sequence = sequence.upper()
     if is_valid_sequence(sequence):
         apply_background_color("#FFC0CB")  
         return {'A': sequence.count('A'), 'T': sequence.count('T'),
@@ -74,6 +75,7 @@ def get_nucleotide_count(sequence):
 
 # Function for k-mer analysis
 def kmer_analysis(sequence, k):
+    sequence = sequence.upper()
     if is_valid_sequence(sequence):
         kmers = {}
         for i in range(len(sequence) - k + 1):
@@ -86,6 +88,7 @@ def kmer_analysis(sequence, k):
 
 # Function for Hamming distance
 def hamming_distance(seq1, seq2):
+    sequence = sequence.upper()
     if len(seq1) != len(seq2):
         return "Error: Sequences must have the same length"
         if is_valid_sequence(seq1) and is_valid_sequence(seq2):
@@ -96,6 +99,7 @@ def hamming_distance(seq1, seq2):
 
 # Function for Gene finding
 def find_genes(sequence):
+    sequence = sequence.upper()
     if is_valid_sequence(sequence):
         start_codon = "ATG"
         stop_codons = ["TAA", "TAG", "TGA"]
@@ -113,6 +117,7 @@ def find_genes(sequence):
 
 # Function for Reverse complement
 def reverse_complement(sequence):
+    sequence = sequence.upper()
     if is_valid_sequence(sequence):
         complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
         apply_background_color("#FFD700")  
@@ -122,6 +127,7 @@ def reverse_complement(sequence):
 
 # Function for GC Content
 def gc_content(sequence):
+    sequence = sequence.upper()
     if is_valid_sequence(sequence):
         gc_count = sequence.count('G') + sequence.count('C')
         apply_background_color("#A52A2A")  
@@ -131,6 +137,7 @@ def gc_content(sequence):
 
 # Function for Transcription
 def transcription(sequence):
+    sequence = sequence.upper()
     if is_valid_sequence(sequence):
         apply_background_color("#FFA500")  
         return sequence.replace('T', 'U')
@@ -139,6 +146,7 @@ def transcription(sequence):
 
 # Function for Translation (simple case, codon-to-amino acid)
 def translation(sequence):
+    sequence = sequence.upper()
     if is_valid_sequence(sequence):
         codon_table = {
             'ATA': 'I', 'ATC': 'I', 'ATT': 'I', 'ATG': 'M',
@@ -169,6 +177,7 @@ def translation(sequence):
 
 # Function for Sequence alignment (simple version)
 def sequence_alignment(seq1, seq2):
+    sequence = sequence.upper()
     if is_valid_sequence(seq1) and is_valid_sequence(seq2):
         from difflib import SequenceMatcher
         matcher = SequenceMatcher(None, seq1, seq2)
@@ -183,7 +192,6 @@ def title_page():
     apply_background_color("#D6EAF8")  
     st.markdown("<h1 style='text-align: center;'>🧬 Bioinformatics Tool</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
-    st.markdown("<h1 style='text-align: center;'>ONLY USE CAPITAL LETTERS WHEN TYPING NUCLEOTIDE BASES</h1>", unsafe_allow_html=True)
     display_image()
     footer()
 def about_us_page():
