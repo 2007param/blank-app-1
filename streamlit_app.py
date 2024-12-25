@@ -253,7 +253,7 @@ def hamming_distance_page():
     seq1 = st.text_area("Enter the first DNA sequence:")
     seq2 = st.text_area("Enter the second DNA sequence:")
     if seq1 and seq2:
-        if is_valid_sequence(sequence):
+        if is_valid_sequence(seq1) and is_valid_sequence(seq2):
             result = hamming_distance(seq1.upper(), seq2.upper())
             st.markdown(f"<p style='text-align: center;'>Hamming Distance: {result}</p>", unsafe_allow_html=True)
         else:
@@ -319,7 +319,7 @@ def sequence_alignment_page():
     seq1 = st.text_area("Enter the first DNA sequence:")
     seq2 = st.text_area("Enter the second DNA sequence:")
     if seq1 and seq2:
-        if is_valid_sequence(sequence):
+        if is_valid_sequence(seq1) and is_valid_sequence(seq2):
             result = sequence_alignment(seq1.upper(), seq2.upper())
             st.markdown(f"<p style='text-align: center;'>Sequence alignment result: {result}</p>", unsafe_allow_html=True)
         else:
