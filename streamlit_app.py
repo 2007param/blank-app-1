@@ -258,18 +258,7 @@ def title_page():
     st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
     display_image()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
 def about_us_page():
     apply_background_color("#F4ECF7")  
     st.markdown("<h1 style='text-align: center;'>About Us</h1>", unsafe_allow_html=True)
@@ -279,18 +268,7 @@ def about_us_page():
     st.markdown("<p style='text-align: center;'>Phone: (123)-456-7890</p>", unsafe_allow_html=True)
     display_image1()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
 
 # Function for Nucleotide count page
 def nucleotide_count_page():
@@ -305,18 +283,7 @@ def nucleotide_count_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image2()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
             
 # Function for K-mer analysis page
 def kmer_analysis_page():
@@ -333,18 +300,7 @@ def kmer_analysis_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image3()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
             
 # Function for Gene Finding page
 def gene_finding_page():
@@ -359,18 +315,7 @@ def gene_finding_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image4()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
             
 # Function for Hamming Distance page
 def hamming_distance_page():
@@ -386,18 +331,7 @@ def hamming_distance_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image5()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
             
 # Function for Reverse Complement page
 def reverse_complement_page():
@@ -412,18 +346,7 @@ def reverse_complement_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image6()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
             
 # Function for GC Content page
 def gc_content_page():
@@ -438,18 +361,7 @@ def gc_content_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image7()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
             
 # Function for Transcription page
 def transcription_page():
@@ -464,18 +376,7 @@ def transcription_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image8()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
             
 # Function for Translation page
 def translation_page():
@@ -490,18 +391,7 @@ def translation_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image9()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
             
 # Function for Sequence Alignment page
 def sequence_alignment_page():
@@ -517,18 +407,7 @@ def sequence_alignment_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image10()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
 
 def global_alignment_page():
     apply_background_color("#E0FFFF")
@@ -546,18 +425,7 @@ def global_alignment_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image11()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
 
 def local_alignment_page():
     apply_background_color("#FFDEAD")
@@ -575,18 +443,7 @@ def local_alignment_page():
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image12()
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
 
 def main():
     page = st.sidebar.radio(
@@ -597,18 +454,7 @@ def main():
         on_change=reset_input_field
     )
     footer()
-    st.markdown("---")  # Add a horizontal line to separate footer from content
-    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-
-    # Add text input for email
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
-
-    # Add submit button
-    if st.button("Subscribe"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
+    
 
 # Display selected page
     if page == "Title Page":
