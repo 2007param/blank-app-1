@@ -42,16 +42,30 @@ def footer():
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             font-size: 14px;
         }
         </style>
         <footer>
             <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
         </footer>
-        """, 
+        """,
         unsafe_allow_html=True
+        st.markdown("---")  # Add a horizontal line to separate footer from content
+    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
+
+    # Add text input for email
+    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
+
+    # Add submit button
+    if st.button("Subscribe"):
+        if email:
+            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
+        else:
+            st.error("Please enter a valid email address.")
     )
+
+    
 
 def is_valid_sequence(sequence):
     sequence = sequence.upper()
