@@ -55,8 +55,11 @@ def footer():
             margin-bottom: 100px; /* Adds space above the footer to avoid overlap */
         }
         </style>
-        """,
-        unsafe_allow_html=True,
+        <footer>
+            <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
+        </footer>
+        """, 
+        unsafe_allow_html=True
     )
 
 def is_valid_sequence(sequence):
