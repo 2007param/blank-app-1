@@ -58,6 +58,7 @@ def footer():
         """,
         unsafe_allow_html=True,
     )
+    
     st.markdown("<div class='footer-container'>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
     email = st.text_input("Enter your email:", placeholder="example@example.com", key="footer_email_input")
@@ -68,15 +69,6 @@ def footer():
         else:
             st.error("Please enter a valid email address.")
     
-    st.markdown("</div>", unsafe_allow_html=True)
-
-  
-    
-
-
-
-    
-
 def is_valid_sequence(sequence):
     sequence = sequence.upper()
     return all(base in 'ACTG' for base in sequence)
