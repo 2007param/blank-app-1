@@ -80,12 +80,7 @@ def footer():
         unsafe_allow_html=True,
     )
 
-# Your main Streamlit app code here
 
-# Call the footer function at the end of your script
-if __name__ == "__main__":
-    # Your other Streamlit elements...
-    footer()
 
     
 
