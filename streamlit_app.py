@@ -32,25 +32,54 @@ def display_image12():
     st.image("data:image/png;base64,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", caption="sequence_alignment_page", use_container_width=True)
     
 def footer():
+    # Footer styling with fixed position and full width
     st.markdown(
         """
         <style>
         footer {
             position: fixed;
             bottom: 0;
+            left: 0;
             width: 100%;
             background-color: #333;
             color: white;
             text-align: center;
             padding: 20px;
             font-size: 14px;
+            z-index: 1000; /* Ensures it stays on top */
+        }
+        .footer-container {
+            position: relative;
+            margin-bottom: 100px; /* Adds space above the footer to avoid overlap */
         }
         </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    
+    # Adding a container for email subscription and footer
+    st.markdown("<div class='footer-container'>", unsafe_allow_html=True)
+
+    # Email subscription
+    st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
+    email = st.text_input("Enter your email:", placeholder="example@example.com", key="email_input")
+
+    if st.button("Subscribe"):
+        if email:
+            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
+        else:
+            st.error("Please enter a valid email address.")
+    
+    st.markdown("</div>", unsafe_allow_html=True)  # Close container
+
+    # Footer content
+    st.markdown(
+        """
         <footer>
             <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
         </footer>
         """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     
