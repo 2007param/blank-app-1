@@ -63,12 +63,6 @@ def footer():
     st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
     email = st.text_input("Enter your email:", placeholder="example@example.com", key="footer_email_input")
 
-    if st.button("Subscribe", key="footer_subscribe_button"):
-        if email:
-            st.success(f"Thank you for subscribing! We've added {email} to our mailing list.")
-        else:
-            st.error("Please enter a valid email address.")
-    
 def is_valid_sequence(sequence):
     sequence = sequence.upper()
     return all(base in 'ACTG' for base in sequence)
