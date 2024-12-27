@@ -34,12 +34,11 @@ def display_image12():
 import streamlit as st
 
 def footer():
+    # Footer styling with fixed position and full width
     st.markdown(
         """
         <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        .footer-custom {
+        footer {
             position: fixed;
             bottom: 0;
             left: 0;
@@ -47,12 +46,13 @@ def footer():
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             font-size: 14px;
-            z-index: 9999;
+            z-index: 1000; /* Ensures it stays on top */
         }
         .footer-container {
-            margin-bottom: 100px;
+            position: relative;
+            margin-bottom: 100px; /* Adds space above the footer to avoid overlap */
         }
         </style>
         """,
