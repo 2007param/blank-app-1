@@ -62,7 +62,7 @@ def footer():
 
     # Email subscription
     st.markdown("<h3 style='text-align: center;'>Sign Up for Updates</h3>", unsafe_allow_html=True)
-    email = st.text_input("Enter your email:", placeholder="example@example.com", key="footer_email_input")
+    st.text_input("Enter your email:", placeholder="example@example.com", key="footer_email_input")
 
     if st.button("Subscribe", key="footer_subscribe_button"):
         if email:
