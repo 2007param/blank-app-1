@@ -444,11 +444,11 @@ def testimonials_page():
     - **Case Study 1**: Accelerating cancer research with our K-mer analysis tool.
     - **Case Study 2**: Genome sequencing made easy for small research labs.
     """)
-    display_image13()
+    #display_image13()
     footer()
 
 def certifications_page():
-    #apply_background_color("#401E12")
+    apply_background_color("#401E12")
     st.title("Certifications & Partnerships")
     st.markdown("## 🏅 Certifications")
     st.write("""
@@ -461,11 +461,11 @@ def certifications_page():
     - AI for Health
     - ResearchNet Labs
     """)
-    display_image14()
+    #display_image14()
     footer()
 
 def faqs_page():
-    #apply_background_color("#F0CB07")
+    apply_background_color("#F0CB07")
     st.title("FAQs")
     st.markdown("## ❓ Frequently Asked Questions")
     st.write("""
@@ -476,11 +476,11 @@ def faqs_page():
     **Q: How secure is my data?**  
     A: We use industry-standard encryption to ensure your data is secure.
     """)
-    display_image15()
+    #display_image15()
     footer()
 
 def security_page():
-    #apply_background_color("#808080")
+    apply_background_color("#808080")
     st.title("Security")
     st.markdown("## 🔒 Data Security")
     st.write("""
@@ -491,7 +491,7 @@ def security_page():
     st.image("https://via.placeholder.com/150", caption="SSL Secured")
     st.image("https://via.placeholder.com/150", caption="GDPR Compliant")
     st.image("https://via.placeholder.com/150", caption="HIPAA Certified")
-    display_image16()
+    #isplay_image16()
     footer()
 
 def main():
