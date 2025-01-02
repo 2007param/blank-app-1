@@ -52,24 +52,24 @@ def search_bar():
     # Search bar
     search_query = st.sidebar.text_input("Search", placeholder="Search through the app...")
     
-        pages = {
-            "Nucleotide Count": nucleotide_count_page,
-            "K-mer Analysis": kmer_analysis_page,
-            "Gene Finding": gene_finding_page,
-            "Hamming Distance": hamming_distance_page,
-            "Reverse Complement": reverse_complement_page,
-            "GC Content": gc_content_page,
-            "Transcription": transcription_page,
-            "Translation": translation_page,
-            "Sequence Alignment": sequence_alignment_page,
-            "Global Alignment": global_alignment_page,
-            "Local Alignment": local_alignment_page,
-            "About Us": about_us_page,
-            "Testimonials": testimonials_page,
-            "Certifications": certifications_page,
-            "FAQs": faqs_page,
-            "Security": security_page
-        }
+    pages = {
+        "Nucleotide Count": nucleotide_count_page,
+        "K-mer Analysis": kmer_analysis_page,
+        "Gene Finding": gene_finding_page,
+        "Hamming Distance": hamming_distance_page,
+        "Reverse Complement": reverse_complement_page,
+        "GC Content": gc_content_page,
+        "Transcription": transcription_page,
+        "Translation": translation_page,
+        "Sequence Alignment": sequence_alignment_page,
+        "Global Alignment": global_alignment_page,
+        "Local Alignment": local_alignment_page,
+        "About Us": about_us_page,
+        "Testimonials": testimonials_page,
+        "Certifications": certifications_page,
+        "FAQs": faqs_page,
+        "Security": security_page
+    }
 
        
     # Search functionality
