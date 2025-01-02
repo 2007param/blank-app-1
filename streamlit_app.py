@@ -66,7 +66,7 @@ def search_bar():
             "Testimonials": testimonials_page,
             "Certifications": certifications_page,
             "FAQs": faqs_page,
-            #"Security": security_page
+            "Security": security_page
         }
 
         # Search results based on the pages
