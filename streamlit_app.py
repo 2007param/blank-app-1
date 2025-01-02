@@ -432,7 +432,7 @@ def local_alignment_page():
     footer()
     
 def testimonials_page():
-    #apply_background_color("#1656AD")
+    apply_background_color("#1656AD")
     st.title("Testimonials & Case Studies")
     st.markdown("## 📢 What Our Users Say")
     st.write("""
