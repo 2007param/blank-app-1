@@ -42,55 +42,50 @@ def display_image16():
 import streamlit as st
 
 # Function to display the search bar
-def search_bar():
-    st.sidebar.title("Navigation")
-    
-    # Initialize session state
-    if 'page' not in st.session_state:
-        st.session_state.page = 'Home'
-
-    # Search bar
+ef search_bar():
+    # Adding a search bar in the sidebar
     search_query = st.sidebar.text_input("Search", placeholder="Search through the app...")
     
-    pages = {
-        "Nucleotide Count": nucleotide_count_page,
-        "K-mer Analysis": kmer_analysis_page,
-        "Gene Finding": gene_finding_page,
-        "Hamming Distance": hamming_distance_page,
-        "Reverse Complement": reverse_complement_page,
-        "GC Content": gc_content_page,
-        "Transcription": transcription_page,
-        "Translation": translation_page,
-        "Sequence Alignment": sequence_alignment_page,
-        "Global Alignment": global_alignment_page,
-        "Local Alignment": local_alignment_page,
-        "About Us": about_us_page,
-        "Testimonials": testimonials_page,
-        "Certifications": certifications_page,
-        "FAQs": faqs_page,
-        "Security": security_page
-    }
-
-       
-    # Search functionality
+    # Filtering functionality based on the search query
     if search_query:
-        search_results = [page for page in pages if search_query.lower() in page.lower()]
+        # If search query is present, we filter results based on the available functions.
+        search_results = []
+        pages = {
+            "Nucleotide Count": nucleotide_count_page,
+            "K-mer Analysis": kmer_analysis_page,
+            "Gene Finding": gene_finding_page,
+            "Hamming Distance": hamming_distance_page,
+            "Reverse Complement": reverse_complement_page,
+            "GC Content": gc_content_page,
+            "Transcription": transcription_page,
+            "Translation": translation_page,
+            "Sequence Alignment": sequence_alignment_page,
+            "Global Alignment": global_alignment_page,
+            "Local Alignment": local_alignment_page,
+            "About Us": about_us_page,
+            "Testimonials": testimonials_page,
+            "Certifications": certifications_page,
+            "FAQs": faqs_page,
+            "Security": security_page
+        }
+
+        # Search results based on the pages
+        for page, func in pages.items():
+            if search_query.lower() in page.lower():
+                search_results.append(page)
+
+        # Display search results
         if search_results:
             st.sidebar.markdown("### Search Results:")
             for result in search_results:
+                st.sidebar.markdown(f"- {result}")
+                # Display the result page when clicked
                 if st.sidebar.button(f"Go to {result}"):
-                    st.session_state.page = result
+                    func()
         else:
             st.sidebar.markdown("No results found.")
 
-    # Regular navigation
-    for page in pages:
-        if st.sidebar.button(page):
-            st.session_state.page = page
-
-    # Display the selected page
-    pages[st.session_state.page]()
-    
+    return search_query
     
 def footer():
     # Footer styling with fixed position and full width
