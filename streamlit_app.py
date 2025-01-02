@@ -45,6 +45,15 @@ import streamlit as st
 
 def error_404():
     apply_background_color("#F8D7DA")  # Light red background for error
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXST16EDNB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-BXST16EDNB');
+    </script>
     st.markdown(f"<h1 style='text-align: center;'>{translations[language]['404_title']}</h1>", unsafe_allow_html=True)
     st.markdown(f"<p style='text-align: center;'>{translations[language]['404_message']}</p>", unsafe_allow_html=True)
     st.markdown(f"<p style='text-align: center;'><a href='/'>{translations[language]['back_home']}</a></p>", unsafe_allow_html=True)
