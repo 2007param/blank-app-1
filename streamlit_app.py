@@ -597,7 +597,7 @@ def main():
     elif page == "Security Page":
         security_page()
     else:
-        error_page()
+        error_404()
     
 if __name__ == "__main__":
         main()
