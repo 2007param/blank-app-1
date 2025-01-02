@@ -45,7 +45,7 @@ import streamlit as st
 
 def error_404():
     apply_background_color("#F8D7DA")  # Light red background for error
-    <!-- Google tag (gtag.js) -->
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXST16EDNB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
