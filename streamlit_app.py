@@ -499,11 +499,11 @@ def main():
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
          "Reverse Complement", "GC Content", "Transcription", "Translation", 
-         "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us"),
+         "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us", "Testimonials Page", 
+         "Certifications Page", "FAQs Page", "Security Page"),
         on_change=reset_input_field
     )
     footer()
-    
 
 # Display selected page
     if page == "Title Page":
@@ -532,6 +532,14 @@ def main():
         local_alignment_page()
     elif page == "About Us":
         about_us_page()
+    elif page == "Testimonials Page":
+        testimonials_page()
+    elif page == "Certifications Page":
+        certifications_page()
+    elif page == "FAQs Page":
+        faqs_page()
+    elif page == "Security Page":
+        security_page()
     
 if __name__ == "__main__":
         main()
