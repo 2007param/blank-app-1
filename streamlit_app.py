@@ -432,7 +432,7 @@ def local_alignment_page():
     footer()
     
 def testimonials_page():
-    apply_background_color("#1656AD")
+    #apply_background_color("#1656AD")
     st.title("Testimonials & Case Studies")
     st.markdown("## 📢 What Our Users Say")
     st.write("""
@@ -448,7 +448,7 @@ def testimonials_page():
     footer()
 
 def certifications_page():
-    apply_background_color("#401E12")
+    #apply_background_color("#401E12")
     st.title("Certifications & Partnerships")
     st.markdown("## 🏅 Certifications")
     st.write("""
@@ -465,7 +465,7 @@ def certifications_page():
     footer()
 
 def faqs_page():
-    apply_background_color("#F0CB07")
+    #apply_background_color("#F0CB07")
     st.title("FAQs")
     st.markdown("## ❓ Frequently Asked Questions")
     st.write("""
@@ -480,7 +480,7 @@ def faqs_page():
     footer()
 
 def security_page():
-    apply_background_color("#808080")
+    #apply_background_color("#808080")
     st.title("Security")
     st.markdown("## 🔒 Data Security")
     st.write("""
