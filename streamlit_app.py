@@ -42,7 +42,7 @@ def display_image16():
 import streamlit as st
 
 # Function to display the search bar
-ef search_bar():
+def search_bar():
     # Adding a search bar in the sidebar
     search_query = st.sidebar.text_input("Search", placeholder="Search through the app...")
     
