@@ -43,13 +43,15 @@ import streamlit as st
 
 # Function to display the search bar
 def search_bar():
-    # Adding a search bar in the sidebar
+    st.sidebar.title("Navigation")
+    
+    # Initialize session state
+    if 'page' not in st.session_state:
+        st.session_state.page = 'Home'
+
+    # Search bar
     search_query = st.sidebar.text_input("Search", placeholder="Search through the app...")
     
-    # Filtering functionality based on the search query
-    if search_query:
-        # If search query is present, we filter results based on the available functions.
-        search_results = []
         pages = {
             "Nucleotide Count": nucleotide_count_page,
             "K-mer Analysis": kmer_analysis_page,
@@ -69,23 +71,26 @@ def search_bar():
             "Security": security_page
         }
 
-        # Search results based on the pages
-        for page, func in pages.items():
-            if search_query.lower() in page.lower():
-                search_results.append(page)
-
-        # Display search results
+       
+    # Search functionality
+    if search_query:
+        search_results = [page for page in pages if search_query.lower() in page.lower()]
         if search_results:
             st.sidebar.markdown("### Search Results:")
             for result in search_results:
-                st.sidebar.markdown(f"- {result}")
-                # Display the result page when clicked
                 if st.sidebar.button(f"Go to {result}"):
-                    func()
+                    st.session_state.page = result
         else:
             st.sidebar.markdown("No results found.")
 
-    return search_query
+    # Regular navigation
+    for page in pages:
+        if st.sidebar.button(page):
+            st.session_state.page = page
+
+    # Display the selected page
+    pages[st.session_state.page]()
+    
     
 def footer():
     # Footer styling with fixed position and full width
