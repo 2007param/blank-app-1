@@ -541,7 +541,6 @@ def security_page():
     footer()
 
 def main():
-    search_bar()
     page = st.sidebar.radio(
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
@@ -589,4 +588,5 @@ def main():
         security_page()
     
 if __name__ == "__main__":
+        search_bar()
         main()
