@@ -43,11 +43,12 @@ def display_image17():
 
 import streamlit as st
 
-def error_404(language):
+def error_404():
     apply_background_color("#F8D7DA")  # Light red background for error
     st.markdown(f"<h1 style='text-align: center;'>{translations[language]['404_title']}</h1>", unsafe_allow_html=True)
     st.markdown(f"<p style='text-align: center;'>{translations[language]['404_message']}</p>", unsafe_allow_html=True)
     st.markdown(f"<p style='text-align: center;'><a href='/'>{translations[language]['back_home']}</a></p>", unsafe_allow_html=True)
+    display_image17()
     footer()
 
 # Function to display the search bar
