@@ -444,7 +444,7 @@ def testimonials_page():
     - **Case Study 1**: Accelerating cancer research with our K-mer analysis tool.
     - **Case Study 2**: Genome sequencing made easy for small research labs.
     """)
-    #display_image13()
+    display_image13()
     footer()
 
 def certifications_page():
@@ -461,7 +461,7 @@ def certifications_page():
     - AI for Health
     - ResearchNet Labs
     """)
-    #display_image14()
+    display_image14()
     footer()
 
 def faqs_page():
