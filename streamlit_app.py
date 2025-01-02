@@ -491,7 +491,7 @@ def security_page():
     st.image("https://via.placeholder.com/150", caption="SSL Secured")
     st.image("https://via.placeholder.com/150", caption="GDPR Compliant")
     st.image("https://via.placeholder.com/150", caption="HIPAA Certified")
-    #isplay_image16()
+    display_image16()
     footer()
 
 def main():
