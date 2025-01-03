@@ -105,7 +105,7 @@ def homepage():
         """,
         unsafe_allow_html=True
     )
-     col1, col2, col3 = st.columns([1, 2, 1])
+    col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         if st.button("Get Started"):
             st.success("Thank you for clicking! Let’s dive into bioinformatics.")
