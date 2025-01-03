@@ -94,7 +94,7 @@ def homepage():
         """,
         unsafe_allow_html=True
     )
-    if st.button("Click Here to Get Started"):
+    if st.button("Get Started"):
         st.success("Thank you for clicking! Let’s dive into bioinformatics.")
     
     # Hero section
