@@ -51,6 +51,50 @@ def error_404():
     display_image17()
     footer()
 
+def homepage():
+    # Apply styling to the hero section
+    st.markdown(
+        """
+        <style>
+        .hero {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button {
+            background-color: #FFC107;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .cta-button:hover {
+            background-color: #FFB300;
+        }
+        .features {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .feature-box {
+            width: 30%;
+            background-color: #F1F1F1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
 # Function to display the search bar
 def search_bar():
     # Adding a search bar in the sidebar
@@ -295,7 +339,8 @@ def local_alignment(seq1, seq2):
         return "Invalid sequence! Please enter DNA sequences containing only A, C, T, or G."
 
 # Function to display the title page
-def title_page():    
+def title_page():
+    homepage()
     apply_background_color("#D6EAF8")  
     st.markdown("<h1 style='text-align: center;'>🧬 Bioinformatics Tool</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
