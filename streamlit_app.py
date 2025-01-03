@@ -76,13 +76,13 @@ def top_navigation():
     st.markdown(
         """
         <div class="navbar">
-            <a href="/title_page">Home</a>
-            <a href="/nucleotide_count_page">Nucleotide Count</a>
-            <a href="/kmer_analysis_page">K-mer Analysis</a>
-            <a href="/gene_finding_page">Gene Finding</a>
-            <a href="/hamming_distance_page">Hamming Distance</a>
-            <a href="/reverse_complement_page">Reverse Complement</a>
-            <a href="/gc_content_page">GC Content</a>
+            <a href="/title_page()">Home</a>
+            <a href="/nucleotide_count_page()">Nucleotide Count</a>
+            <a href="/kmer_analysis_page()">K-mer Analysis</a>
+            <a href="/gene_finding_page()">Gene Finding</a>
+            <a href="/hamming_distance_page()">Hamming Distance</a>
+            <a href="/reverse_complement_page()">Reverse Complement</a>
+            <a href="/gc_content_page()">GC Content</a>
             <a href="/transcription_page()">Transcription</a>
             <a href="/translation_page()">Translation</a>
             <a href="/sequence_alignment_page()">Sequence Alignment</a>
