@@ -105,7 +105,7 @@ def homepage():
         """,
         unsafe_allow_html=True
     )
-    col1, col2, col3, col4, col5 = st.columns([2,2,2,2,2])
+    col1, col2, col3, col4, col5 = st.columns([3,2,2,2,3])
     with col3:
         if st.button("Get Started"):
             st.success("Thank you for clicking! Let’s get started.")
