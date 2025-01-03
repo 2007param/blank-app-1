@@ -111,7 +111,7 @@ def homepage():
     with col2:
         if st.button("Get Started"):
             # Display the success message centered in the page
-        st.markdown(
+            st.markdown(
             """
             <div style="text-align: center; font-size: 18px; color: green;">
                 Thank you for clicking! Let’s get started. First, click the arrow on the top left! 
