@@ -678,6 +678,7 @@ def security_page():
     footer()
 
 def privacy_policy():
+    apply_background_color("#00B496")  # Light red background for errors
     st.markdown("<h2 style='text-align: center;'>Privacy Policy</h2>", unsafe_allow_html=True)
     st.markdown("""
     ### Introduction
@@ -703,6 +704,7 @@ def privacy_policy():
     footer()
     
 def terms_of_service():
+    apply_background_color("#3C20A3")  # Light red background for error
     st.markdown("<h2 style='text-align: center;'>Terms of Service</h2>", unsafe_allow_html=True)
     st.markdown("""
     ### Agreement to Terms
