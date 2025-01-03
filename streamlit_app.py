@@ -94,6 +94,42 @@ def homepage():
         """,
         unsafe_allow_html=True
     )
+
+    # Hero section
+    st.markdown(
+        """
+        <div class="hero">
+            <h1>Welcome to Bioinformatics Tool</h1>
+            <p>Your one-stop platform for advanced bioinformatics analysis and tools.</p>
+            <a href="#features" class="cta-button">Get Started</a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # Key Features Section
+    st.markdown(
+        """
+        <div id="features" class="features">
+            <div class="feature-box">
+                <h3>Easy to Use</h3>
+                <p>Navigate through intuitive interfaces designed for simplicity and efficiency.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Powerful Tools</h3>
+                <p>Analyze DNA sequences, perform alignments, and more with cutting-edge algorithms.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Secure and Reliable</h3>
+                <p>Your data is safe with our robust and secure platform.</p>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # Footer section
+    footer()
     
 # Function to display the search bar
 def search_bar():
@@ -340,13 +376,9 @@ def local_alignment(seq1, seq2):
 
 # Function to display the title page
 def title_page():
-    
     apply_background_color("#D6EAF8")  
-    st.markdown("<h1 style='text-align: center;'>🧬 Bioinformatics Tool</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
-    display_image()
     homepage()
-    footer()
+    display_image()
     
 def about_us_page():
     apply_background_color("#F4ECF7")  
