@@ -50,26 +50,31 @@ import streamlit as st
 # Function to render the navigation bar
 def top_navigation():
     st.markdown(
-        """
-        <style>
+    """
+    <style>
         .navbar {
-            background-color: #333;
-            overflow: hidden;
             position: sticky;
+            top: 0;
+            background-color: #333;
+            padding: 10px;
+            z-index: 100;
         }
         .navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
+            color: white;
             padding: 14px 20px;
-            text-align: center;
             text-decoration: none;
+            font-size: 17px;
         }
         .navbar a:hover {
             background-color: #ddd;
             color: black;
         }
-        </style>
+    </style>
+    """, 
+    unsafe_allow_html=True
+    )
+    st.markdown(
+        """
         <div class="navbar">
             <a href="/">Home</a>
             <a href="/nucleotide_count">Nucleotide Count</a>
