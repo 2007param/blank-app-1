@@ -76,19 +76,26 @@ def top_navigation():
     st.markdown(
         """
         <div class="navbar">
-            <a href="/">Home</a>
-            <a href="/nucleotide_count">Nucleotide Count</a>
-            <a href="/kmer_analysis">K-mer Analysis</a>
-            <a href="/gene_finding">Gene Finding</a>
-            <a href="/hamming_distance">Hamming Distance</a>
-            <a href="/gc_content">Hamming Distance</a>
-            <a href="/transcription">Hamming Distance</a>
-            <a href="/translation">Hamming Distance</a>
-            <a href="/sequence_alignment">Hamming Distance</a>
-            <a href="/global_alignment">Hamming Distance</a>
-            <a href="/local_alignment">Hamming Distance</a>
-            <a href="/about_us">About Us</a>
-            <a href="/contact">Contact</a>
+            <a href="/title_page">Home</a>
+            <a href="/nucleotide_count_page">Nucleotide Count</a>
+            <a href="/kmer_analysis_page">K-mer Analysis</a>
+            <a href="/gene_finding_page">Gene Finding</a>
+            <a href="/hamming_distance_page">Hamming Distance</a>
+            <a href="/reverse_complement_page">Reverse Complement</a>
+            <a href="/gc_content_page">GC Content</a>
+            <a href="/transcription_page()">Transcription</a>
+            <a href="/translation_page()">Translation</a>
+            <a href="/sequence_alignment_page()">Sequence Alignment</a>
+            <a href="/global_alignment_page()">Global Alignment</a>
+            <a href="/local_alignment_page()">Local Alignment</a>
+            <a href="/about_us_page()">About Us</a>
+            <a href="/contact_page()">Contact</a>
+            <a href="/testimonials_page()">Testimonials</a>
+            <a href="/certifications_page()">Certifications</a>
+            <a href="/frqs_page()">FRQs</a>
+            <a href="/security_page()">Security</a>
+            <a href="/privacy_policy()">Privacy Policy</a>
+            <a href="/terms_of_service()">Terms of Service</a>
         </div>
         """, 
         unsafe_allow_html=True
