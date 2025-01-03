@@ -105,10 +105,11 @@ def homepage():
         """,
         unsafe_allow_html=True
     )
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 2, 1, 1])
+    with col3:
         if st.button("Get Started"):
             st.success("Thank you for clicking! Let’s dive into bioinformatics.")
+    
     
 
     # Key Features Section
