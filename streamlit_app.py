@@ -697,7 +697,7 @@ def privacy_policy():
     - We will never sell your data to third parties.
 
     ### Contact
-    If you have any questions about our Privacy Policy, please email us at `support@example.com`.
+    If you have any questions about our Privacy Policy, please email us at `2007parampatel@gmail.com`.
 
     """)
     display_image17()
