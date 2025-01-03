@@ -105,28 +105,12 @@ def homepage():
         """,
         unsafe_allow_html=True
     )
-    st.markdown(
-        """
-        <div style="text-align: center; margin-top: 20px;">
-            <button id="get-started" style="background-color: #007bff; color: white; padding: 10px 20px; 
-            font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
-                Get Started
-            </button>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        """
-        <script>
-        const button = document.getElementById('get-started');
-        button.addEventListener('click', () => {
-            alert('Thank you for clicking! Let’s dive into bioinformatics.');
-        });
-        </script>
-        """,
-        unsafe_allow_html=True,
-    )
+     # Centered "Get Started" button using Streamlit layout
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        if st.button("Get Started"):
+            st.success("Thank you for clicking! Let’s dive into bioinformatics.")
+
     # Key Features Section
     st.markdown(
         """
