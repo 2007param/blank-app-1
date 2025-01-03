@@ -340,11 +340,12 @@ def local_alignment(seq1, seq2):
 
 # Function to display the title page
 def title_page():
-    homepage()
+    
     apply_background_color("#D6EAF8")  
     st.markdown("<h1 style='text-align: center;'>🧬 Bioinformatics Tool</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Welcome to the Bioinformatics Tool. This app provides several bioinformatics analysis tools such as Nucleotide count, K-mer analysis, Gene Finding, and more. Select an option from the menu to get started!</p>", unsafe_allow_html=True)
     display_image()
+    homepage()
     footer()
     
 def about_us_page():
