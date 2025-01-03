@@ -105,22 +105,11 @@ def homepage():
         """,
         unsafe_allow_html=True
     )
-     # Centered "Get Started" Button
-    st.markdown(
-        """
-        <div style="text-align: center; margin-top: 20px;">
-            <form action="#">
-                <button style="background-color: #4CAF50; color: white; border: none; padding: 15px 32px; 
-                text-align: center; text-decoration: none; display: inline-block; font-size: 16px; 
-                margin: 4px 2px; cursor: pointer; border-radius: 8px;" 
-                onclick="alert('Thank you for clicking! Let’s dive into bioinformatics.')">
-                Get Started
-                </button>
-            </form>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+     col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        if st.button("Get Started"):
+            st.success("Thank you for clicking! Let’s dive into bioinformatics.")
+    
 
     # Key Features Section
     st.markdown(
