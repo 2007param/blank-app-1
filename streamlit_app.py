@@ -94,12 +94,14 @@ def homepage():
         """,
         unsafe_allow_html=True
     )
-
+    if st.button("Click Here to Get Started"):
+        st.success("Thank you for clicking! Let’s dive into bioinformatics.")
+    
     # Hero section
     st.markdown(
         """
         <div class="hero">
-            <h1>Welcome to Bioinformatics Tool</h1>
+            <h1>Welcome to Bioinformatics Tool 🧬🧬🧬</h1>
             <p>Your one-stop platform for advanced bioinformatics analysis and tools.</p>
             <a href="#features" class="cta-button">Get Started</a>
         </div>
