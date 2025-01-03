@@ -107,7 +107,7 @@ def homepage():
     )
      # Centered "Get Started" button using Streamlit layout
     col1, col2, col3 = st.columns([1, 2, 1])
-    with col3:
+    with col1:
         if st.button("Get Started"):
             st.success("Thank you for clicking! Let’s dive into bioinformatics.")
 
