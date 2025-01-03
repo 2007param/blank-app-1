@@ -727,6 +727,7 @@ def terms_of_service():
     footer()
     
 def main():
+    top_navigation()
     search_bar()
     page = st.sidebar.radio(
         "Select a page:",
