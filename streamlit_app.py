@@ -105,11 +105,21 @@ def homepage():
         """,
         unsafe_allow_html=True
     )
-    col1, col2, col3, col4, col5 = st.columns([3,2,2,2,3])
+    col1, col2, col3, col4, col5 = st.columns([3, 2, 2, 2, 3])
+
+# Create a button in one of the columns
     with col3:
         if st.button("Get Started"):
-            st.success("Thank you for clicking! Let’s get started. First, click the arrow on the top left! Then, open the sidebar! Lastly, use your favorite bioinformatics tools!")
-    
+        # Display the success message across the full width
+            st.markdown(
+            """
+                <div style="text-align: center; font-size: 18px; color: green;">
+                    Thank you for clicking! Let’s get started. First, click the arrow on the top left! 
+                    Then, open the sidebar! Lastly, use your favorite bioinformatics tools!
+                </div>
+            """, 
+                unsafe_allow_html=True
+        )
     
 
     # Key Features Section
