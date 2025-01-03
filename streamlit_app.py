@@ -87,6 +87,30 @@ def top_navigation():
         """, 
         unsafe_allow_html=True
     )
+    st.markdown(
+    """
+    <style>
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            padding: 10px;
+            z-index: 100;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+    """, 
+    unsafe_allow_html=True
+)
 
 def error_404():
     apply_background_color("#F8D7DA")  # Light red background for error
