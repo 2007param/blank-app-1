@@ -45,8 +45,6 @@ def display_image18():
 def display_image19():
     st.image("data:image/jpeg;base64,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", caption="sequence_alignment_page", use_container_width=True)
              
-import streamlit as st
-
 # Function to render the navigation bar
 def top_navigation():
     st.markdown(
@@ -101,6 +99,77 @@ def top_navigation():
         unsafe_allow_html=True
     )
     
+def display_content():
+    # Add custom CSS for animations
+    st.markdown(
+        """
+        <style>
+            /* Animation for hover effect on buttons */
+            .animated-button:hover {
+                background-color: #4CAF50;
+                transform: scale(1.1);
+                transition: transform 0.3s ease, background-color 0.3s ease;
+            }
+
+            /* Animation for image fade-in effect */
+            .fade-in-image {
+                opacity: 0;
+                animation: fadeIn 2s forwards;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Custom icons in navigation bar */
+            .custom-icon {
+                font-size: 24px;
+                color: #ffffff;
+                margin-right: 15px;
+            }
+        </style>
+        """, 
+        unsafe_allow_html=True
+    )
+
+    # Hero Section with High-Quality Image
+    st.image("https://your-image-url.com/high-quality-image.jpg", caption="Engaging Hero Image", use_column_width=True)
+
+    # Video Section with Tutorial
+    st.video("https://your-video-url.com/tutorial.mp4", start_time=0)
+
+    # Custom Icons in Navigation (using FontAwesome)
+    st.markdown(
+        """
+        <div class="navbar">
+            <a href="#home"><i class="fas fa-home custom-icon"></i>Home</a>
+            <a href="#services"><i class="fas fa-cogs custom-icon"></i>Services</a>
+            <a href="#about"><i class="fas fa-info-circle custom-icon"></i>About</a>
+            <a href="#contact"><i class="fas fa-phone custom-icon"></i>Contact</a>
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
+
+    # Add a button with animation effect
+    if st.button("Get Started", key="start", help="Click to get started", css_class="animated-button"):
+        st.markdown(
+            """
+            <div style="text-align: center; font-size: 18px; color: green;">
+                Thank you for clicking! Let’s get started. First, click the arrow on the top left! 
+                Then, open the sidebar! Lastly, use your favorite bioinformatics tools!
+            </div>
+            """, 
+            unsafe_allow_html=True
+        )
+
+    # Display an animated image
+    st.image("https://your-image-url.com/animated-image.jpg", caption="Subtle Animation", use_column_width=True, class_="fade-in-image")
 
 def error_404():
     apply_background_color("#F8D7DA")  # Light red background for error
@@ -743,6 +812,7 @@ def terms_of_service():
 def main():
     top_navigation()
     search_bar()
+    display_content()
     page = st.sidebar.radio(
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
