@@ -108,7 +108,7 @@ def homepage():
 
 # Create a button in one of the columns
     col1, col2, col3 = st.columns([2,2,1])
-    with col3:
+    with col1:
         if st.button("Get Started"):
             st.success("Thank you for clicking! Let’s get started. First, click the arrow on the top left! Then, open the sidebar! Lastly, use your favorite bioinformatics tools!")
     
