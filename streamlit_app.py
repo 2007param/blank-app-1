@@ -52,36 +52,103 @@ def error_404():
     footer()
 
 def homepage():
-    apply_background_color("#D6EAF8")  
+    # Apply styling to the hero section
     st.markdown(
         """
-        <div style="text-align: center; margin-top: 50px;">
-            <h1>Welcome to the Bioinformatics Tool!</h1>
-            <p>Your one-stop solution for DNA analysis, sequence alignment, and more.</p>
-            <button id="cta-button">Get Started</button>
-        </div>
-        """, 
+        <style>
+        .hero {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button {
+            background-color: #FFC107;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .cta-button:hover {
+            background-color: #FFB300;
+        }
+        .features {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .feature-box {
+            width: 30%;
+            background-color: #F1F1F1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        </style>
+        """,
         unsafe_allow_html=True
     )
-    
-    # Add interactivity with Streamlit's button
-    if st.button("Click Here to Get Started"):
-        st.success("Thank you for clicking! Let’s dive into bioinformatics. 🧬🧬🧬")
-    
-    # Display key features
+
+    # Hero section
     st.markdown(
         """
-        <div style="margin-top: 50px;">
-            <h2>Key Features:</h2>
-            <ul>
-                <li>Analyze DNA sequences effortlessly</li>
-                <li>Perform advanced sequence alignments</li>
-                <li>Explore gene finding and more</li>
-            </ul>
+        <div class="hero">
+            <h1>Welcome to Bioinformatics Tool 🧬🧬🧬</h1>
+            <p>Your one-stop platform for advanced bioinformatics analysis and tools.</p>
         </div>
-        """, 
+        """,
         unsafe_allow_html=True
     )
+    st.markdown(
+        """
+        <div style="text-align: center; margin-top: 20px;">
+            <button id="get-started" style="background-color: #007bff; color: white; padding: 10px 20px; 
+            font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+                Get Started
+            </button>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        """
+        <script>
+        const button = document.getElementById('get-started');
+        button.addEventListener('click', () => {
+            alert('Thank you for clicking! Let’s dive into bioinformatics.');
+        });
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
+    # Key Features Section
+    st.markdown(
+        """
+        <div id="features" class="features">
+            <div class="feature-box">
+                <h3>Easy to Use</h3>
+                <p>Navigate through intuitive interfaces designed for simplicity and efficiency.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Powerful Tools</h3>
+                <p>Analyze DNA sequences, perform alignments, and more with cutting-edge algorithms.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Secure and Reliable</h3>
+                <p>Your data is safe with our robust and secure platform.</p>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # Footer section
     footer()
 
 # Function to display the search bar
