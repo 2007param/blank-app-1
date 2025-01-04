@@ -168,7 +168,6 @@ def add_social_sharing_buttons():
             .twitter { background-color: #1DA1F2; }
             .facebook { background-color: #3b5998; }
             .linkedin { background-color: #0077b5; }
-            .instagram { background-color: #E4405F; }
         </style>
 
         <div class="social-buttons">
@@ -178,8 +177,6 @@ def add_social_sharing_buttons():
                 target="_blank" class="facebook">Share on Facebook</a>
             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yourappurl.com&title=Bioinformatics+Tools&summary=Explore+these+amazing+bioinformatics+tools+and+resources!&source=LinkedIn" 
                 target="_blank" class="linkedin">Share on LinkedIn</a>
-            <a href="https://www.instagram.com/?url=https://yourappurl.com" 
-                target="_blank" class="instagram">Share on Instagram</a>
         </div>
         """,
         unsafe_allow_html=True
