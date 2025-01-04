@@ -172,11 +172,17 @@ def add_social_sharing_buttons():
 
         <div class="social-buttons">
             <a href="https://twitter.com/intent/tweet?text=Check+out+this+awesome+bioinformatics+tool!&url=https://blank-app-r0d31ezvfu.streamlit.app/" 
-                target="_blank" class="twitter">Share on Twitter</a>
+                target="_blank" class="twitter">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_As_of_2021.svg" alt="Twitter logo"> Share on Twitter
+            </a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://blank-app-r0d31ezvfu.streamlit.app/" 
-                target="_blank" class="facebook">Share on Facebook</a>
+                target="_blank" class="facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook logo"> Share on Facebook
+            </a>
             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://blank-app-r0d31ezvfu.streamlit.app/&title=Bioinformatics+Tools&summary=Explore+these+amazing+bioinformatics+tools+and+resources!&source=LinkedIn" 
-                target="_blank" class="linkedin">Share on LinkedIn</a>
+                target="_blank" class="linkedin">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/LinkedIn_icon.svg" alt="LinkedIn logo"> Share on LinkedIn
+            </a>
         </div>
         """,
         unsafe_allow_html=True
