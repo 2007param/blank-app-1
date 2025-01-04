@@ -171,11 +171,11 @@ def add_social_sharing_buttons():
         </style>
 
         <div class="social-buttons">
-            <a href="https://twitter.com/intent/tweet?text=Check+out+this+awesome+bioinformatics+tool!&url=https://yourappurl.com" 
+            <a href="https://twitter.com/intent/tweet?text=Check+out+this+awesome+bioinformatics+tool!&url=https://blank-app-r0d31ezvfu.streamlit.app/" 
                 target="_blank" class="twitter">Share on Twitter</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourappurl.com" 
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://blank-app-r0d31ezvfu.streamlit.app/" 
                 target="_blank" class="facebook">Share on Facebook</a>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yourappurl.com&title=Bioinformatics+Tools&summary=Explore+these+amazing+bioinformatics+tools+and+resources!&source=LinkedIn" 
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://blank-app-r0d31ezvfu.streamlit.app/&title=Bioinformatics+Tools&summary=Explore+these+amazing+bioinformatics+tools+and+resources!&source=LinkedIn" 
                 target="_blank" class="linkedin">Share on LinkedIn</a>
         </div>
         """,
