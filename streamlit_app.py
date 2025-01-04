@@ -73,7 +73,7 @@ def footer():
             <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
         </footer>
         """, 
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
         add_social_sharing_buttons
     )
     add_social_sharing_buttons()
