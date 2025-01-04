@@ -789,7 +789,7 @@ def terms_of_service():
 def main():
     top_navigation()
     search_bar()
-    add_social_sharing_buttons():
+    add_social_sharing_buttons()
     page = st.sidebar.radio(
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
