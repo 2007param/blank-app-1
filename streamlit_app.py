@@ -74,7 +74,7 @@ def footer():
         </footer>
         """, 
         unsafe_allow_html=True,
-        add_social_sharing_buttons
+        add_social_sharing_buttons()
     )
     
 # Function to render the navigation bar
