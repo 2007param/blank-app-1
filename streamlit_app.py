@@ -488,6 +488,7 @@ def title_page():
     apply_background_color("#D6EAF8")  
     homepage()
     display_image()
+    add_social_sharing_buttons()
     
 def about_us_page():
     apply_background_color("#F4ECF7")  
@@ -497,6 +498,7 @@ def about_us_page():
     st.markdown("<p style='text-align: center;'>Email: ai-tutorial@example.com</p>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Phone: (123)-456-7890</p>", unsafe_allow_html=True)
     display_image1()
+    add_social_sharing_buttons()
     footer()
     
 
@@ -512,6 +514,7 @@ def nucleotide_count_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image2()
+    add_social_sharing_buttons()
     footer()
     
             
@@ -529,6 +532,7 @@ def kmer_analysis_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image3()
+    add_social_sharing_buttons()
     footer()
     
             
@@ -544,6 +548,7 @@ def gene_finding_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image4()
+    add_social_sharing_buttons()
     footer()
     
             
@@ -560,6 +565,7 @@ def hamming_distance_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image5()
+    add_social_sharing_buttons()
     footer()
     
             
@@ -575,6 +581,7 @@ def reverse_complement_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image6()
+    add_social_sharing_buttons()
     footer()
     
             
@@ -590,6 +597,7 @@ def gc_content_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image7()
+    add_social_sharing_buttons()
     footer()
     
             
@@ -605,6 +613,7 @@ def transcription_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image8()
+    add_social_sharing_buttons()
     footer()
     
             
@@ -620,6 +629,7 @@ def translation_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image9()
+    add_social_sharing_buttons()
     footer()
     
             
@@ -636,6 +646,7 @@ def sequence_alignment_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image10()
+    add_social_sharing_buttons()
     footer()
     
 
@@ -654,6 +665,7 @@ def global_alignment_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image11()
+    add_social_sharing_buttons()
     footer()
     
 
@@ -672,6 +684,7 @@ def local_alignment_page():
         else:
             st.error("Invalid sequence! Please enter a DNA sequence containing only A, C, T, or G.")
     display_image12()
+    add_social_sharing_buttons()
     footer()
     
 def testimonials_page():
@@ -688,6 +701,7 @@ def testimonials_page():
     - **Case Study 2**: Genome sequencing made easy for small research labs.
     """)
     display_image13()
+    add_social_sharing_buttons()
     footer()
 
 def certifications_page():
@@ -705,6 +719,7 @@ def certifications_page():
     - ResearchNet Labs
     """)
     display_image14()
+    add_social_sharing_buttons()
     footer()
 
 def faqs_page():
@@ -719,7 +734,8 @@ def faqs_page():
     **Q: How secure is my data?**  
     A: We use industry-standard encryption to ensure your data is secure.
     """)
-    #display_image15()
+    display_image15()
+    add_social_sharing_buttons()
     footer()
 
 def security_page():
@@ -735,6 +751,7 @@ def security_page():
     st.image("https://via.placeholder.com/150", caption="GDPR Compliant")
     st.image("https://via.placeholder.com/150", caption="HIPAA Certified")
     display_image16()
+    add_social_sharing_buttons()
     footer()
 
 def privacy_policy():
@@ -761,6 +778,7 @@ def privacy_policy():
 
     """)
     display_image17()
+    add_social_sharing_buttons()
     footer()
     
 def terms_of_service():
@@ -784,12 +802,12 @@ def terms_of_service():
     If you have any questions about these terms, please email us at `support@example.com`.
     """)
     display_image18()
+    add_social_sharing_buttons()
     footer()
     
 def main():
     top_navigation()
     search_bar()
-    add_social_sharing_buttons()
     page = st.sidebar.radio(
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
