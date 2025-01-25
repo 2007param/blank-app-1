@@ -5,7 +5,6 @@ from PIL import Image
 from Bio import pairwise2
 import numpy as np
 import time
-pip install streamlit openai toml
 import streamlit as st
 import toml
 
