@@ -302,23 +302,30 @@ def search_bar():
             "Security": security_page
         }
 
-        # Search results based on the pages
-        for page, func in pages.items():
-            if search_query.lower() in page.lower():
-                search_results.append(page)
+        # Initialize session state for active page
+    if "active_page" not in st.session_state:
+        st.session_state.active_page = None
+
+    # Filtering functionality based on the search query
+    if search_query:
+        search_results = [
+            page for page in pages if search_query.lower() in page.lower()
+        ]
 
         # Display search results
         if search_results:
             st.sidebar.markdown("### Search Results:")
             for result in search_results:
-                st.sidebar.markdown(f"- {result}")
-                # Display the result page when clicked
-                if st.sidebar.button(f"Go to {result}"):
-                    func()
+                if st.sidebar.button(result):
+                    st.session_state.active_page = result  # Set active page in session state
         else:
             st.sidebar.markdown("No results found.")
 
-    return search_query
+    # Load the selected page
+    if st.session_state.active_page:
+        page_function = pages.get(st.session_state.active_page)
+        if page_function:
+            page_function()
 
 def is_valid_sequence(sequence):
     sequence = sequence.upper()
