@@ -276,56 +276,63 @@ def homepage():
 
 # Function to display the search bar
 def search_bar():
-    # Adding a search bar in the sidebar
-    search_query = st.sidebar.text_input("Search", placeholder="Search through the app...")
-    
-    # Filtering functionality based on the search query
-    if search_query:
-        # If search query is present, we filter results based on the available functions.
-        search_results = []
-        pages = {
-            "Nucleotide Count": nucleotide_count_page,
-            "K-mer Analysis": kmer_analysis_page,
-            "Gene Finding": gene_finding_page,
-            "Hamming Distance": hamming_distance_page,
-            "Reverse Complement": reverse_complement_page,
-            "GC Content": gc_content_page,
-            "Transcription": transcription_page,
-            "Translation": translation_page,
-            "Sequence Alignment": sequence_alignment_page,
-            "Global Alignment": global_alignment_page,
-            "Local Alignment": local_alignment_page,
-            "About Us": about_us_page,
-            "Testimonials": testimonials_page,
-            "Certifications": certifications_page,
-            "FAQs": faqs_page,
-            "Security": security_page
-        }
+    # Pages dictionary mapping names to their respective functions
+    pages = {
+        "Nucleotide Count": nucleotide_count_page,
+        "K-mer Analysis": kmer_analysis_page,
+        "Gene Finding": gene_finding_page,
+        "Hamming Distance": hamming_distance_page,
+        "Reverse Complement": reverse_complement_page,
+        "GC Content": gc_content_page,
+        "Transcription": transcription_page,
+        "Translation": translation_page,
+        "Sequence Alignment": sequence_alignment_page,
+        "Global Alignment": global_alignment_page,
+        "Local Alignment": local_alignment_page,
+        "About Us": about_us_page,
+        "Testimonials": testimonials_page,
+        "Certifications": certifications_page,
+        "FAQs": faqs_page,
+        "Security": security_page,
+    }
 
-        # Initialize session state for active page
+    # Initialize session state for active page
     if "active_page" not in st.session_state:
-        st.session_state.active_page = None
+        st.session_state.active_page = "Main Page"  # Default main page
 
-    # Filtering functionality based on the search query
+    # Add a search bar in the sidebar
+    search_query = st.sidebar.text_input("Search", placeholder="Search through the app...")
+
+    # Display search results based on query
     if search_query:
         search_results = [
             page for page in pages if search_query.lower() in page.lower()
         ]
 
-        # Display search results
+        # Display search results as clickable options
         if search_results:
             st.sidebar.markdown("### Search Results:")
             for result in search_results:
                 if st.sidebar.button(result):
-                    st.session_state.active_page = result  # Set active page in session state
+                    st.session_state.active_page = result  # Set the selected page as active
         else:
             st.sidebar.markdown("No results found.")
+    else:
+        st.sidebar.markdown("Type a keyword to search.")
 
-    # Load the selected page
-    if st.session_state.active_page:
+    # Display the active page
+    if st.session_state.active_page == "Main Page":
+        show_main_page()
+    else:
         page_function = pages.get(st.session_state.active_page)
         if page_function:
             page_function()
+
+
+# Function to display the main page (default)
+def show_main_page():
+    st.title("Welcome to the App!")
+    st.write("Use the sidebar to navigate or search for specific tools and functionalities.")
 
 def is_valid_sequence(sequence):
     sequence = sequence.upper()
