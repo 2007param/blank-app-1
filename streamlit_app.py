@@ -81,56 +81,57 @@ def footer():
 # Function to render the navigation bar
 def top_navigation():
     st.markdown(
-    """
-    <style>
-        .navbar {
-            position: sticky;
-            top: 0;
-            background-color: #333;
-            padding: 10px;
-            z-index: 100;
-        }
-        .navbar a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-    </style>
-    """, 
-    unsafe_allow_html=True
-    )
-    st.markdown(
         """
-        <div class="navbar">
-            <a href="/title_page()">Home</a>
-            <a href="/nucleotide_count_page()">Nucleotide Count</a>
-            <a href="/kmer_analysis_page()">K-mer Analysis</a>
-            <a href="/gene_finding_page()">Gene Finding</a>
-            <a href="/hamming_distance_page()">Hamming Distance</a>
-            <a href="/reverse_complement_page()">Reverse Complement</a>
-            <a href="/gc_content_page()">GC Content</a>
-            <a href="/transcription_page()">Transcription</a>
-            <a href="/translation_page()">Translation</a>
-            <a href="/sequence_alignment_page()">Sequence Alignment</a>
-            <a href="/global_alignment_page()">Global Alignment</a>
-            <a href="/local_alignment_page()">Local Alignment</a>
-            <a href="/about_us_page()">About Us</a>
-            <a href="/contact_page()">Contact</a>
-            <a href="/testimonials_page()">Testimonials</a>
-            <a href="/certifications_page()">Certifications</a>
-            <a href="/frqs_page()">FRQs</a>
-            <a href="/security_page()">Security</a>
-            <a href="/privacy_policy()">Privacy Policy</a>
-            <a href="/terms_of_service()">Terms of Service</a>
-        </div>
-        """, 
+        <style>
+            .navbar {
+                position: sticky;
+                top: 0;
+                background-color: #333;
+                padding: 10px;
+                z-index: 100;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .navbar a {
+                color: white;
+                padding: 10px 15px;
+                text-decoration: none;
+                font-size: 16px;
+                border-radius: 5px;
+                transition: 0.3s;
+            }
+            .navbar a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+        </style>
+        """,
         unsafe_allow_html=True
     )
+
+    # Streamlit's workaround for navigation
+    with st.container():
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.page_link("pages/title_page.py", label="Home")
+            st.page_link("pages/nucleotide_count_page.py", label="Nucleotide Count")
+            st.page_link("pages/kmer_analysis_page.py", label="K-mer Analysis")
+
+        with col2:
+            st.page_link("pages/gene_finding_page.py", label="Gene Finding")
+            st.page_link("pages/hamming_distance_page.py", label="Hamming Distance")
+            st.page_link("pages/reverse_complement_page.py", label="Reverse Complement")
+
+        with col3:
+            st.page_link("pages/gc_content_page.py", label="GC Content")
+            st.page_link("pages/transcription_page.py", label="Transcription")
+            st.page_link("pages/translation_page.py", label="Translation")
+
+        with col4:
+            st.page_link("pages/sequence_alignment_page.py", label="Sequence Alignment")
+            st.page_link("pages/about_us_page.py", label="About Us")
+            st.page_link("pages/contact_page.py", label="Contact")
 
     df = pd.DataFrame(np.random.randn(15, 3), columns=(["A", "B", "C"]))
     my_data_element = st.line_chart(df)
