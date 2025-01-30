@@ -887,11 +887,11 @@ def main():
     
     # Apply Larger Text CSS if enabled
     if larger_text:
-        st.markdown(larger_text_css(), unsafe_allow_html=True)
+        st.markdown(large_text_css(), unsafe_allow_html=True)
     
     # Apply Grayscale CSS if enabled
     if grayscale:
-        st.markdown(grayscale_css(), unsafe_allow_html=True)
+        st.markdown(gray_scale_css(), unsafe_allow_html=True)
 
 # Main content
     
