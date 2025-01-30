@@ -149,6 +149,7 @@ def top_navigation():
         my_data_element.add_rows(add_df)
     
     st.button("Regenerate")
+    
 def high_contrast_css():
     return """
     <style>
@@ -166,16 +167,25 @@ def high_contrast_css():
         }
     </style>
     """
+# Function to return CSS for Larger Text mode
+def larger_text_css():
+    return """
+    <style>
+        body {
+            font-size: 1.5em !important;
+        }
+    </style>
+    """
 
-def app():
-    st.sidebar.title("Accessibility Settings")
-    high_contrast = st.sidebar.checkbox("Enable High Contrast Mode")
-
-    if high_contrast:
-        st.markdown(high_contrast_css(), unsafe_allow_html=True)
-
-    st.title("Welcome to the Accessible Streamlit App")
-    top_navigation()
+# Function to return CSS for Grayscale Mode
+def grayscale_css():
+    return """
+    <style>
+        body {
+            filter: grayscale(100%) !important;
+        }
+    </style>
+    """
 
 def error_404():
     apply_background_color("#F8D7DA")  # Light red background for error
@@ -868,6 +878,21 @@ def main():
 
     if high_contrast:
         st.markdown(high_contrast_css(), unsafe_allow_html=True)
+
+    
+    larger_text = st.sidebar.checkbox("Enable Larger Text")
+    grayscale = st.sidebar.checkbox("Enable Grayscale Mode")
+    
+    # Apply Larger Text CSS if enabled
+    if larger_text:
+        st.markdown(larger_text_css(), unsafe_allow_html=True)
+    
+    # Apply Grayscale CSS if enabled
+    if grayscale:
+        st.markdown(grayscale_css(), unsafe_allow_html=True)
+
+# Main content
+    
     page = st.sidebar.radio(
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
