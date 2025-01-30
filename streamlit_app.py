@@ -167,25 +167,27 @@ def high_contrast_css():
         }
     </style>
     """
-# Function to return CSS for Larger Text mode
-def larger_text_css():
+def large_text_css():
     return """
     <style>
         body {
-            font-size: 1.5em !important;
+            font-size: 22px !important;
+        }
+        .navbar a {
+            font-size: 22px !important;
         }
     </style>
     """
 
-# Function to return CSS for Grayscale Mode
-def grayscale_css():
+def gray_scale_css():
     return """
     <style>
-        body {
+        html {
             filter: grayscale(100%) !important;
         }
     </style>
     """
+
 
 def error_404():
     apply_background_color("#F8D7DA")  # Light red background for error
