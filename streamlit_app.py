@@ -169,7 +169,6 @@ def app():
     st.title("Welcome to the Accessible Streamlit App")
     top_navigation()
 
-app()
 def error_404():
     apply_background_color("#F8D7DA")  # Light red background for error
     st.markdown(f"<h1 style='text-align: center;'>{translations[language]['404_title']}</h1>", unsafe_allow_html=True)
@@ -856,6 +855,11 @@ def terms_of_service():
 def main():
     top_navigation()
     search_bar()
+    st.sidebar.title("Accessibility Settings")
+    high_contrast = st.sidebar.checkbox("Enable High Contrast Mode")
+
+    if high_contrast:
+        st.markdown(high_contrast_css(), unsafe_allow_html=True)
     page = st.sidebar.radio(
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
