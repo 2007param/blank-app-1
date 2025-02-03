@@ -987,7 +987,7 @@ def main():
         feedback_page()
     elif page == "Newsletter":
         newsletter_page()
-    elif page == "UNSCUBSCRIBE HERE":
+    elif page == "UNSUBSCRIBE HERE":
         unsubscribe_page()
     else:
         error_404()
