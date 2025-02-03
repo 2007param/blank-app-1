@@ -160,7 +160,36 @@ def unsubscribe_page():
         else:
             st.error("Please enter a valid email address.")
 
+def lead_magnet():
+    st.subheader("Get Your Free Resource!")
+    st.write("Sign up to access exclusive templates, tools, and trials.")
+    name = st.text_input("Your Name")
+    email = st.text_input("Your Email")
+    if st.button("Get Access"):
+        if is_valid_email(email):
+            if send_email(email, "Exclusive Access", "Here is your free resource: [Download Now](https://example.com/download)"):
+                st.success("Thank you! Your free resource has been sent to your email.")
+            else:
+                st.error("Error sending email. Please try again later.")
+        else:
+            st.error("Please enter a valid email address.")
+
+def downloadable_content():
+    st.subheader("Get Your Free Resource!")
+    st.write("Sign up to access exclusive whitepapers, tools, and resources.")
     
+    name = st.text_input("Your Name")
+    email = st.text_input("Your Email")
+    
+    if st.button("Download Now"):
+        if is_valid_email(email):
+            if send_email(email, "Exclusive Access", "Here is your free resource: [Download Now](https://www.kumon.com/centerepage/FilePreview.aspx?fd=885ae575-629d-4d07-9c55-cc9136bfc458)"):
+                st.success("Thank you! Your free resource has been sent to your email.")
+            else:
+                st.error("Error sending email. Please try again later.")
+        else:
+            st.error("Please enter a valid email address.")
+
 # Function to render the navigation bar
 def top_navigation():
     st.markdown(
@@ -976,7 +1005,7 @@ def main():
          "Reverse Complement", "GC Content", "Transcription", "Translation", 
          "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us", "Testimonials Page", 
          "Certifications Page", "FAQs Page", "Security Page", "Privacy Policy", "Terms of Service", "Contact Us", 
-         "Feedback", "Newsletter", "UNSUBSCRIBE HERE"),
+         "Feedback", "Newsletter", "UNSUBSCRIBE HERE", "Lead Magnet", "Downloadable Content"),
         on_change=reset_input_field
     )
     footer()
@@ -1028,6 +1057,10 @@ def main():
         newsletter_page()
     elif page == "UNSUBSCRIBE HERE":
         unsubscribe_page()
+    elif page == "Lead Magnet":
+        lead_magnet()
+    elif page == "Downloadable Content":
+        downloadable_content()
     else:
         error_404()
     
