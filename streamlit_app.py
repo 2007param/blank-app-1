@@ -57,6 +57,10 @@ def load_data():
 data = load_data()
 st.write(data)
 
+def is_valid_email(email):
+    pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+    return re.match(pattern, email)
+    
 def footer():
     # Footer styling with fixed position and full width
     st.markdown(
