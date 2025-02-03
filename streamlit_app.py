@@ -95,7 +95,7 @@ def footer():
         """, 
         unsafe_allow_html=True
     )
-    def contact_page():
+def contact_page():
     st.title("Contact Us")
     st.write("Have questions? Reach out to us!")
     name = st.text_input("Your Name")
