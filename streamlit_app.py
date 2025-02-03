@@ -95,6 +95,36 @@ def footer():
         """, 
         unsafe_allow_html=True
     )
+    def contact_page():
+    st.title("Contact Us")
+    st.write("Have questions? Reach out to us!")
+    name = st.text_input("Your Name")
+    email = st.text_input("Your Email")
+    message = st.text_area("Your Message")
+    if st.button("Submit"):
+        st.success("Thank you for reaching out! We'll get back to you soon.")
+
+def feedback_page():
+    st.title("Feedback")
+    st.write("We appreciate your feedback!")
+    feedback = st.text_area("Share your thoughts")
+    if st.button("Submit Feedback"):
+        st.success("Thank you for your feedback!")
+
+def newsletter_page():
+    st.title("Newsletter Signup")
+    st.write("Subscribe to stay updated with the latest news!")
+    email = st.text_input("Enter your email")
+    if st.button("Subscribe"):
+        st.success("You've successfully subscribed to our newsletter!")
+
+def unsubscribe_page():
+    st.title("Unsubscribe")
+    st.write("Unsubscribe from our mailing list.")
+    email = st.text_input("Enter your email")
+    if st.button("Unsubscribe"):
+        st.success("You've successfully unsubscribed from our newsletter.")
+
     
 # Function to render the navigation bar
 def top_navigation():
