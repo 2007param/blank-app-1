@@ -86,7 +86,6 @@ def footer():
         """
         <div class="footer">
             <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
-            <a href="/contact_page">Contact Us</a> |
             <p>Stay updated with our latest tutorials and articles to boost your knowledge and SEO!</p>
         </div>
         """, 
@@ -121,21 +120,6 @@ def unsubscribe_page():
     email = st.text_input("Enter your email")
     if st.button("Unsubscribe"):
         st.success("You've successfully unsubscribed from our newsletter.")
-PAGES = {
-    "contact_page": contact_page,
-    "feedback_page": feedback_page,
-    "newsletter_page": newsletter_page,
-    "unsubscribe_page": unsubscribe_page
-}
-
-query_params = st.query_params
-page = query_params.get("page", ["main"])[0]
-
-if page in PAGES:
-    PAGES[page]()
-else:
-    st.title("Welcome to Bioinformatics Tool")
-    st.write("Use the navigation links in the footer to explore the pages.")
 
     
 # Function to render the navigation bar
