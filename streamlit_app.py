@@ -91,6 +91,7 @@ def footer():
         """, 
         unsafe_allow_html=True
     )
+    
 def contact_page():
     st.title("Contact Us")
     st.write("Have questions? Reach out to us!")
@@ -98,7 +99,10 @@ def contact_page():
     email = st.text_input("Your Email")
     message = st.text_area("Your Message")
     if st.button("Submit"):
-        st.success("Thank you for reaching out! We'll get back to you soon.")
+        if is_valid_email(email):
+            st.success("Thank you for reaching out! We'll get back to you soon.")
+        else:
+            st.error("Please enter a valid email address.")
 
 def feedback_page():
     st.title("Feedback")
@@ -112,14 +116,20 @@ def newsletter_page():
     st.write("Subscribe to stay updated with the latest news!")
     email = st.text_input("Enter your email")
     if st.button("Subscribe"):
-        st.success("You've successfully subscribed to our newsletter!")
+        if is_valid_email(email):
+            st.success("You've successfully subscribed to our newsletter!")
+        else:
+            st.error("Please enter a valid email address.")
 
 def unsubscribe_page():
     st.title("Unsubscribe")
     st.write("Unsubscribe from our mailing list.")
     email = st.text_input("Enter your email")
     if st.button("Unsubscribe"):
-        st.success("You've successfully unsubscribed from our newsletter.")
+        if is_valid_email(email):
+            st.success("You've successfully unsubscribed from our newsletter.")
+        else:
+            st.error("Please enter a valid email address.")
 
     
 # Function to render the navigation bar
