@@ -87,9 +87,6 @@ def footer():
         <div class="footer">
             <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
             <a href="/contact_page">Contact Us</a> |
-            <a href="/feedback_page">Feedback</a> |
-            <a href="/newsletter_page">Newsletter</a> |
-            <a href="/unsubscribe_page">Unsubscribe</a>
             <p>Stay updated with our latest tutorials and articles to boost your knowledge and SEO!</p>
         </div>
         """, 
@@ -955,7 +952,8 @@ def main():
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
          "Reverse Complement", "GC Content", "Transcription", "Translation", 
          "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us", "Testimonials Page", 
-         "Certifications Page", "FAQs Page", "Security Page", "Privacy Policy", "Terms of Service"),
+         "Certifications Page", "FAQs Page", "Security Page", "Privacy Policy", "Terms of Service", "Contact Us", 
+         "Feedback", "Newsletter", "UNSUBSCRIBE HERE"),
         on_change=reset_input_field
     )
     footer()
@@ -999,6 +997,14 @@ def main():
         privacy_policy()
     elif page == "Terms of Service":
         terms_of_service()
+    elif page == "Contact Us":
+        contact_page()
+    elif page == "Feedback":
+        feedback_page()
+    elif page == "Newsletter":
+        newsletter_page()
+    elif page == "UNSCUBSCRIBE HERE":
+        unsubscribe_page()
     else:
         error_404()
     
