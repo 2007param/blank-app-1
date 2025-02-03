@@ -131,7 +131,7 @@ PAGES = {
     "unsubscribe_page": unsubscribe_page
 }
 
-query_params = st.experimental_get_query_params()
+query_params = st.query_params()
 page = query_params.get("page", ["main"])[0]
 
 if page in PAGES:
