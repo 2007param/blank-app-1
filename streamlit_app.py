@@ -58,30 +58,47 @@ data = load_data()
 st.write(data)
 
 def footer():
-    # Footer styling with fixed position and full width
     st.markdown(
-        """
-        <style>
-        footer {
+    """
+    <style>
+        .footer {
             position: fixed;
             bottom: 0;
-            left: 0;
             width: 100%;
             background-color: #333;
+            padding: 10px;
             color: white;
             text-align: center;
-            padding: 20px;
             font-size: 14px;
-            z-index: 1000; /* Ensures it stays on top */
+            z-index: 1000;
+        }
+        .footer a {
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            background-color: #ddd;
+            color: black;
         }
         .footer-container {
             position: relative;
-            margin-bottom: 100px; /* Adds space above the footer to avoid overlap */
+            margin-bottom: 100px;
         }
-        </style>
-        <footer>
+    </style>
+    """, 
+    unsafe_allow_html=True
+    )
+    st.markdown(
+        """
+        <div class="footer">
             <p>© 2024 Bioinformatics Tool. All rights reserved.</p>
-        </footer>
+            <a href="/contact_page">Contact Us</a> |
+            <a href="/feedback_page">Feedback</a> |
+            <a href="/newsletter_page">Newsletter</a> |
+            <a href="/unsubscribe_page">Unsubscribe</a>
+            <p>Stay updated with our latest tutorials and articles to boost your knowledge and SEO!</p>
+        </div>
         """, 
         unsafe_allow_html=True
     )
