@@ -62,7 +62,7 @@ def footer():
     st.markdown(
         """
         <style>
-        footer {
+        .footer {
             position: fixed;
             bottom: 0;
             left: 0;
