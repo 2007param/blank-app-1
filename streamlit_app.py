@@ -58,36 +58,29 @@ data = load_data()
 st.write(data)
 
 def footer():
+    # Footer styling with fixed position and full width
     st.markdown(
-    """
-    <style>
-        .footer {
+        """
+        <style>
+        footer {
             position: fixed;
             bottom: 0;
+            left: 0;
             width: 100%;
             background-color: #333;
-            padding: 10px;
             color: white;
             text-align: center;
+            padding: 20px;
             font-size: 14px;
-            z-index: 1000;
-        }
-        .footer a {
-            color: white;
-            padding: 5px 10px;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            background-color: #ddd;
-            color: black;
+            z-index: 1000; /* Ensures it stays on top */
         }
         .footer-container {
             position: relative;
-            margin-bottom: 100px;
+            margin-bottom: 100px; /* Adds space above the footer to avoid overlap */
         }
-    </style>
-    """, 
-    unsafe_allow_html=True
+        </style>
+        """, 
+        unsafe_allow_html=True
     )
     st.markdown(
         """
