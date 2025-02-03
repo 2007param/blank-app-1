@@ -124,6 +124,21 @@ def unsubscribe_page():
     email = st.text_input("Enter your email")
     if st.button("Unsubscribe"):
         st.success("You've successfully unsubscribed from our newsletter.")
+PAGES = {
+    "contact_page": contact_page,
+    "feedback_page": feedback_page,
+    "newsletter_page": newsletter_page,
+    "unsubscribe_page": unsubscribe_page
+}
+
+query_params = st.experimental_get_query_params()
+page = query_params.get("page", ["main"])[0]
+
+if page in PAGES:
+    PAGES[page]()
+else:
+    st.title("Welcome to Bioinformatics Tool")
+    st.write("Use the navigation links in the footer to explore the pages.")
 
     
 # Function to render the navigation bar
