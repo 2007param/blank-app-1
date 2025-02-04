@@ -101,6 +101,12 @@ if username in users and verify_password(password, users[username]["password"]):
     # Load user preferences
     user_prefs = users[username].get("preferences", {})
     
+    # Apply theme
+    if user_prefs.get("theme") == "Dark":
+        st.markdown("<style>body { background-color: #333; color: white; }</style>", unsafe_allow_html=True)
+    else:
+        st.markdown("<style>body { background-color: white; color: black; }</style>", unsafe_allow_html=True)
+    
     # Profile Management
     st.header("Profile Management")
     new_name = st.text_input("Full Name", value=users[username]['name'], key="profile_name")
@@ -117,7 +123,7 @@ if username in users and verify_password(password, users[username]["password"]):
                 "email": email
             }
             save_user_data(users)
-            st.success("Profile updated!")
+            st.success("Profile updated! Please refresh to apply theme changes.")
         else:
             st.error("Invalid email address. Please enter a valid email.")
     
@@ -154,6 +160,7 @@ if register_button:
         }
         save_user_data(users)
         st.sidebar.success("Account created! Please log in.")
+
 
 
 def is_valid_email(email):
