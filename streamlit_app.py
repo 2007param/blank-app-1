@@ -64,11 +64,6 @@ def load_data():
 data = load_data()
 st.write(data)
 
-import streamlit as st
-import pickle
-import os
-import hashlib
-
 # File to store user data
 USER_DATA_FILE = "user_data.pkl"
 
@@ -88,6 +83,9 @@ def hash_password(password):
 
 def verify_password(password, hashed_password):
     return hash_password(password) == hashed_password
+
+def is_valid_email(email):
+    return re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email)
 
 users = load_user_data()
 
@@ -111,14 +109,17 @@ if username in users and verify_password(password, users[username]["password"]):
     email = st.text_input("Email", value=user_prefs.get("email", ""), key="profile_email")
     
     if st.button("Save Changes", key="save_changes"):
-        users[username]["name"] = new_name
-        users[username]["preferences"] = {
-            "theme": theme,
-            "bio": bio,
-            "email": email
-        }
-        save_user_data(users)
-        st.success("Profile updated!")
+        if is_valid_email(email):
+            users[username]["name"] = new_name
+            users[username]["preferences"] = {
+                "theme": theme,
+                "bio": bio,
+                "email": email
+            }
+            save_user_data(users)
+            st.success("Profile updated!")
+        else:
+            st.error("Invalid email address. Please enter a valid email.")
     
     if st.button("Logout", key="logout"):
         st.session_state.clear()
@@ -139,6 +140,8 @@ register_button = st.sidebar.button("Sign Up", key="register_button")
 if register_button:
     if new_username in users:
         st.sidebar.error("Username already taken.")
+    elif not is_valid_email(email):
+        st.sidebar.error("Invalid email address. Please enter a valid email.")
     else:
         users[new_username] = {
             "name": full_name,
