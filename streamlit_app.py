@@ -549,7 +549,7 @@ def search_bar():
         "Privacy Policy": privacy_policy,
         "Terms of Service": terms_of_service,
         "Contact Page": contact_page,
-        "Feedback": feedbackk_page,
+        "Feedback": feedback_page,
         "Newsletter": newsletter_page,
         "Unsubscribe Here": unsubscribe_page,
         "Lead Magnet": lead_magnet,
