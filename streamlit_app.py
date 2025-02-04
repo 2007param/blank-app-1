@@ -546,6 +546,14 @@ def search_bar():
         "Certifications": certifications_page,
         "FAQs": faqs_page,
         "Security": security_page,
+        "Privacy Policy": privacy_policy,
+        "Terms of Service": terms_of_service,
+        "Contact Page": contact_page,
+        "Feedback": feedbackk_page,
+        "Newsletter": newsletter_page,
+        "Unsubscribe Here": unsubscribe_page,
+        "Lead Magnet": lead_magnet,
+        "Downloadable Content": downloadable_content,
     }
 
     # Initialize session state for active page
@@ -557,15 +565,13 @@ def search_bar():
 
     # Display search results based on query
     if search_query:
-        search_results = [
-            page for page in pages if search_query.lower() in page.lower()
-        ]
+        search_results = [page for page in pages if search_query.lower() in page.lower()]
 
         # Display search results as clickable options
         if search_results:
             st.sidebar.markdown("### Search Results:")
             for result in search_results:
-                if st.sidebar.button(result):
+                if st.sidebar.button(result, key=f"search_{result}"):
                     st.session_state.active_page = result  # Set the selected page as active
         else:
             st.sidebar.markdown("No results found.")
