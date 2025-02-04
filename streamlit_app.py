@@ -64,6 +64,11 @@ def load_data():
 data = load_data()
 st.write(data)
 
+import streamlit as st
+import pickle
+import os
+import hashlib
+
 # File to store user data
 USER_DATA_FILE = "user_data.pkl"
 
@@ -88,9 +93,9 @@ users = load_user_data()
 
 # User Authentication
 st.sidebar.header("Login")
-username = st.sidebar.text_input("Username")
-password = st.sidebar.text_input("Password", type="password")
-login_button = st.sidebar.button("Login")
+username = st.sidebar.text_input("Username", key="login_username")
+password = st.sidebar.text_input("Password", type="password", key="login_password")
+login_button = st.sidebar.button("Login", key="login_button")
 
 if username in users and verify_password(password, users[username]["password"]):
     st.sidebar.write(f"Welcome, {users[username]['name']}!")
@@ -100,12 +105,12 @@ if username in users and verify_password(password, users[username]["password"]):
     
     # Profile Management
     st.header("Profile Management")
-    new_name = st.text_input("Full Name", value=users[username]['name'])
-    theme = st.selectbox("Preferred Theme", ["Light", "Dark"], index=(0 if user_prefs.get("theme") == "Light" else 1))
-    bio = st.text_area("Bio", value=user_prefs.get("bio", ""))
-    email = st.text_input("Email", value=user_prefs.get("email", ""))
+    new_name = st.text_input("Full Name", value=users[username]['name'], key="profile_name")
+    theme = st.selectbox("Preferred Theme", ["Light", "Dark"], index=(0 if user_prefs.get("theme") == "Light" else 1), key="profile_theme")
+    bio = st.text_area("Bio", value=user_prefs.get("bio", ""), key="profile_bio")
+    email = st.text_input("Email", value=user_prefs.get("email", ""), key="profile_email")
     
-    if st.button("Save Changes"):
+    if st.button("Save Changes", key="save_changes"):
         users[username]["name"] = new_name
         users[username]["preferences"] = {
             "theme": theme,
@@ -115,7 +120,7 @@ if username in users and verify_password(password, users[username]["password"]):
         save_user_data(users)
         st.success("Profile updated!")
     
-    if st.button("Logout"):
+    if st.button("Logout", key="logout"):
         st.session_state.clear()
         st.experimental_rerun()
 else:
@@ -124,12 +129,12 @@ else:
 
 # Registration
 st.sidebar.header("Register")
-new_username = st.sidebar.text_input("Choose a Username")
-new_password = st.sidebar.text_input("Choose a Password", type="password")
-full_name = st.sidebar.text_input("Full Name")
-email = st.sidebar.text_input("Email")
-bio = st.sidebar.text_area("Short Bio")
-register_button = st.sidebar.button("Sign Up")
+new_username = st.sidebar.text_input("Choose a Username", key="register_username")
+new_password = st.sidebar.text_input("Choose a Password", type="password", key="register_password")
+full_name = st.sidebar.text_input("Full Name", key="register_fullname")
+email = st.sidebar.text_input("Email", key="register_email")
+bio = st.sidebar.text_area("Short Bio", key="register_bio")
+register_button = st.sidebar.button("Sign Up", key="register_button")
 
 if register_button:
     if new_username in users:
@@ -146,6 +151,7 @@ if register_button:
         }
         save_user_data(users)
         st.sidebar.success("Account created! Please log in.")
+
 
 def is_valid_email(email):
     pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
