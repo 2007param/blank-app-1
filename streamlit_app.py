@@ -102,10 +102,16 @@ if username in users and verify_password(password, users[username]["password"]):
     st.header("Profile Management")
     new_name = st.text_input("Full Name", value=users[username]['name'])
     theme = st.selectbox("Preferred Theme", ["Light", "Dark"], index=(0 if user_prefs.get("theme") == "Light" else 1))
+    bio = st.text_area("Bio", value=user_prefs.get("bio", ""))
+    email = st.text_input("Email", value=user_prefs.get("email", ""))
     
     if st.button("Save Changes"):
         users[username]["name"] = new_name
-        users[username]["preferences"] = {"theme": theme}
+        users[username]["preferences"] = {
+            "theme": theme,
+            "bio": bio,
+            "email": email
+        }
         save_user_data(users)
         st.success("Profile updated!")
     
@@ -121,15 +127,26 @@ st.sidebar.header("Register")
 new_username = st.sidebar.text_input("Choose a Username")
 new_password = st.sidebar.text_input("Choose a Password", type="password")
 full_name = st.sidebar.text_input("Full Name")
+email = st.sidebar.text_input("Email")
+bio = st.sidebar.text_area("Short Bio")
 register_button = st.sidebar.button("Sign Up")
 
 if register_button:
     if new_username in users:
         st.sidebar.error("Username already taken.")
     else:
-        users[new_username] = {"name": full_name, "password": hash_password(new_password), "preferences": {"theme": "Light"}}
+        users[new_username] = {
+            "name": full_name,
+            "password": hash_password(new_password),
+            "preferences": {
+                "theme": "Light",
+                "bio": bio,
+                "email": email
+            }
+        }
         save_user_data(users)
         st.sidebar.success("Account created! Please log in.")
+
 
 def is_valid_email(email):
     pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
