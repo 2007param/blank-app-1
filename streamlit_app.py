@@ -5,13 +5,11 @@ from PIL import Image
 from Bio import pairwise2
 import numpy as np
 import time
-import streamlit as st
 import toml
 import re
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import streamlit_authenticator as stauth
 import pickle
 import os
 from pathlib import Path
