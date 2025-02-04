@@ -78,27 +78,29 @@ def save_user_data(data):
     with open(USER_DATA_FILE, "wb") as f:
         pickle.dump(data, f)
 
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
+def verify_password(password, hashed_password):
+    return hash_password(password) == hashed_password
+
 users = load_user_data()
 
-# Streamlit authentication
-credentials = {"usernames": {}}
-for username, info in users.items():
-    credentials["usernames"][username] = {"name": info["name"], "password": info["password"]}
-
-authenticator = stauth.Authenticate(credentials, "app_home", "abcdef", cookie_expiry_days=30)
-
 # User Authentication
-name, authentication_status, username = authenticator.login("Login", "main")
+st.sidebar.header("Login")
+username = st.sidebar.text_input("Username")
+password = st.sidebar.text_input("Password", type="password")
+login_button = st.sidebar.button("Login")
 
-if authentication_status:
-    st.sidebar.write(f"Welcome, {name}!")
+if username in users and verify_password(password, users[username]["password"]):
+    st.sidebar.write(f"Welcome, {users[username]['name']}!")
     
     # Load user preferences
-    user_prefs = users.get(username, {}).get("preferences", {})
+    user_prefs = users[username].get("preferences", {})
     
     # Profile Management
     st.header("Profile Management")
-    new_name = st.text_input("Full Name", value=name)
+    new_name = st.text_input("Full Name", value=users[username]['name'])
     theme = st.selectbox("Preferred Theme", ["Light", "Dark"], index=(0 if user_prefs.get("theme") == "Light" else 1))
     
     if st.button("Save Changes"):
@@ -106,30 +108,28 @@ if authentication_status:
         users[username]["preferences"] = {"theme": theme}
         save_user_data(users)
         st.success("Profile updated!")
-
+    
     if st.button("Logout"):
-        authenticator.logout("Logout", "sidebar")
-
-elif authentication_status is False:
-    st.error("Username/password incorrect")
-elif authentication_status is None:
-    st.warning("Please enter your username and password")
+        st.session_state.clear()
+        st.experimental_rerun()
+else:
+    if login_button:
+        st.sidebar.error("Invalid username or password")
 
 # Registration
-if st.sidebar.button("Register"):
-    st.subheader("Create a New Account")
-    new_username = st.text_input("Choose a Username")
-    new_password = st.text_input("Choose a Password", type="password")
-    full_name = st.text_input("Full Name")
-    
-    if st.button("Sign Up"):
-        if new_username in users:
-            st.error("Username already taken.")
-        else:
-            hashed_password = stauth.Hasher([new_password]).generate()[0]
-            users[new_username] = {"name": full_name, "password": hashed_password, "preferences": {"theme": "Light"}}
-            save_user_data(users)
-            st.success("Account created! Please log in.")
+st.sidebar.header("Register")
+new_username = st.sidebar.text_input("Choose a Username")
+new_password = st.sidebar.text_input("Choose a Password", type="password")
+full_name = st.sidebar.text_input("Full Name")
+register_button = st.sidebar.button("Sign Up")
+
+if register_button:
+    if new_username in users:
+        st.sidebar.error("Username already taken.")
+    else:
+        users[new_username] = {"name": full_name, "password": hash_password(new_password), "preferences": {"theme": "Light"}}
+        save_user_data(users)
+        st.sidebar.success("Account created! Please log in.")
 
 def is_valid_email(email):
     pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
