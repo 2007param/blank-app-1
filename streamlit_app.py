@@ -245,15 +245,15 @@ def footer():
     
     with col1:
         if st.button("Sign Up", key="sign_up"):
-            st.experimental_set_query_params(page="signup")
+            st.query_params(page="signup")
 
     with col2:
         if st.button("Learn More", key="learn_more"):
-            st.experimental_set_query_params(page="learn_more")
+           st.query_params(page="learn_more")
 
     with col3:
         if st.button("Try for Free", key="try_free"):
-            st.experimental_set_query_params(page="try_free")
+            st.query_params(page="try_free")
 
 def signup_page():
     st.title("Sign Up")
