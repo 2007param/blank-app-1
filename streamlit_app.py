@@ -249,10 +249,12 @@ def signup_page():
         confirm_password = st.text_input("Confirm Password", type="password")
         submit = st.form_submit_button("Sign Up")
         if submit:
-            if password == confirm_password:
-                st.success("Sign-up successful! Welcome aboard.")
-            else:
+            if not is_valid_email(email):
+                st.error("Please enter a valid email address.")
+            elif password != confirm_password:
                 st.error("Passwords do not match. Try again.")
+            else:
+                st.success("Sign-up successful! Welcome aboard.")
 
 def learn_more_page():
     st.title("Learn More")
@@ -270,7 +272,10 @@ def try_free_page():
         email = st.text_input("Email Address")
         submit = st.form_submit_button("Start Free Trial")
         if submit:
-            st.success("Your free trial has started! Check your email for details.")
+            if not is_valid_email(email):
+                st.error("Please enter a valid email address.")
+            else:
+                st.success("Your free trial has started! Check your email for details.")
     
 def contact_page():
     st.title("Contact Us")
