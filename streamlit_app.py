@@ -180,26 +180,6 @@ if register_button:
         }
         save_user_data(users)
         st.sidebar.success("Account created! Please log in.")
-
-
-def cta_buttons():
-    st.write("## Take Action Now!")
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        if st.button("Sign Up", key="sign_up"):
-            st.success("Redirecting to Sign Up page...")
-            st.query_params(page="signup")
-
-    with col2:
-        if st.button("Learn More", key="learn_more"):
-            st.info("Redirecting to Learn More page...")
-            st.query_params(page="learn_more")
-
-    with col3:
-        if st.button("Try for Free", key="try_free"):
-            st.warning("Redirecting to Free Trial page...")
-            st.query_params(page="try_free")
             
 def is_valid_email(email):
     pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
@@ -259,21 +239,6 @@ def footer():
         """, 
         unsafe_allow_html=True
     )
-    # Call-to-Action buttons inside the footer
-    st.write("## Take Action Now!")
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        if st.button("Sign Up", key="sign_up"):
-            st.query_params(page="signup")
-
-    with col2:
-        if st.button("Learn More", key="learn_more"):
-           st.query_params(page="learn_more")
-
-    with col3:
-        if st.button("Try for Free", key="try_free"):
-            st.query_params(page="try_free")
 
 def signup_page():
     st.title("Sign Up")
@@ -1197,7 +1162,8 @@ def main():
          "Reverse Complement", "GC Content", "Transcription", "Translation", 
          "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us", "Testimonials Page", 
          "Certifications Page", "FAQs Page", "Security Page", "Privacy Policy", "Terms of Service", "Contact Us", 
-         "Feedback", "Newsletter", "UNSUBSCRIBE HERE", "Lead Magnet", "Downloadable Content"),
+         "Feedback", "Newsletter", "UNSUBSCRIBE HERE", "Lead Magnet", "Downloadable Content", "Signup Page",
+         "Learn More", "Try Free"),
         on_change=reset_input_field
     )
     footer()
@@ -1253,6 +1219,12 @@ def main():
         lead_magnet()
     elif page == "Downloadable Content":
         downloadable_content()
+    elif page == "Signup Page":
+        signup_page()
+    elif page == "Learn More":
+        learn_more_page()
+    elif page == "Try Free":
+        try_free_page()
     else:
         error_404()
     
