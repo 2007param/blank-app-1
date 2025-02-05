@@ -237,7 +237,7 @@ def footer():
             <p>Stay updated with our latest tutorials and articles to boost your knowledge and SEO!</p>
         </div>
         """, 
-        cta_buttons()
+        cta_buttons(),
         unsafe_allow_html=True
     )
     
