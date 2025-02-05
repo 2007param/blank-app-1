@@ -237,6 +237,8 @@ def footer():
             <p>Stay updated with our latest tutorials and articles to boost your knowledge and SEO!</p>
         </div>
         """, 
+        unsafe_allow_html=True
+    )
     st.write("## Take Action Now!")
     col1, col2, col3 = st.columns(3)
     
@@ -253,10 +255,7 @@ def footer():
     with col3:
         if st.button("Try for Free", key="try_free"):
             st.warning("Redirecting to Free Trial page...")
-            st.experimental_set_query_params(page="try_free"),
-
-        unsafe_allow_html=True
-    )
+            st.experimental_set_query_params(page="try_free")
     
 def contact_page():
     st.title("Contact Us")
