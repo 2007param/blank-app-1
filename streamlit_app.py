@@ -239,23 +239,53 @@ def footer():
         """, 
         unsafe_allow_html=True
     )
+    # Call-to-Action buttons inside the footer
     st.write("## Take Action Now!")
     col1, col2, col3 = st.columns(3)
     
     with col1:
         if st.button("Sign Up", key="sign_up"):
-            st.success("Redirecting to Sign Up page...")
-            st.query_params(page="signup")
+            st.experimental_set_query_params(page="signup")
 
     with col2:
         if st.button("Learn More", key="learn_more"):
-            st.info("Redirecting to Learn More page...")
-            st.query_params(page="learn_more")
+            st.experimental_set_query_params(page="learn_more")
 
     with col3:
         if st.button("Try for Free", key="try_free"):
-            st.warning("Redirecting to Free Trial page...")
-            st.query_params(page="try_free")
+            st.experimental_set_query_params(page="try_free")
+
+def signup_page():
+    st.title("Sign Up")
+    st.write("Welcome to the Sign-Up Page! Please fill out your details to get started.")
+    with st.form("signup_form"):
+        email = st.text_input("Email Address")
+        password = st.text_input("Password", type="password")
+        confirm_password = st.text_input("Confirm Password", type="password")
+        submit = st.form_submit_button("Sign Up")
+        if submit:
+            if password == confirm_password:
+                st.success("Sign-up successful! Welcome aboard.")
+            else:
+                st.error("Passwords do not match. Try again.")
+
+def learn_more_page():
+    st.title("Learn More")
+    st.write("Discover more about our services and how we can help you.")
+    st.write("- Advanced Bioinformatics tools.")
+    st.write("- Cutting-edge AI for biological data analysis.")
+    st.write("- Extensive documentation and support.")
+    st.video("https://www.youtube.com/embed/dQw4w9WgXcQ")
+
+def try_free_page():
+    st.title("Try for Free")
+    st.write("Start your free trial today and explore our features.")
+    with st.form("trial_form"):
+        name = st.text_input("Full Name")
+        email = st.text_input("Email Address")
+        submit = st.form_submit_button("Start Free Trial")
+        if submit:
+            st.success("Your free trial has started! Check your email for details.")
     
 def contact_page():
     st.title("Contact Us")
