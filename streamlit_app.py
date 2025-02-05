@@ -237,7 +237,24 @@ def footer():
             <p>Stay updated with our latest tutorials and articles to boost your knowledge and SEO!</p>
         </div>
         """, 
-        cta_buttons(),
+        st.write("## Take Action Now!")
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        if st.button("Sign Up", key="sign_up"):
+            st.success("Redirecting to Sign Up page...")
+            st.experimental_set_query_params(page="signup")
+
+    with col2:
+        if st.button("Learn More", key="learn_more"):
+            st.info("Redirecting to Learn More page...")
+            st.experimental_set_query_params(page="learn_more")
+
+    with col3:
+        if st.button("Try for Free", key="try_free"):
+            st.warning("Redirecting to Free Trial page...")
+            st.experimental_set_query_params(page="try_free")
+
         unsafe_allow_html=True
     )
     
