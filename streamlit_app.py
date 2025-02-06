@@ -394,7 +394,15 @@ def top_navigation():
             <a href="/frqs_page()">FRQs</a>
             <a href="/security_page()">Security</a>
             <a href="/privacy_policy()">Privacy Policy</a>
-            <a href="/terms_of_service()">Terms of Service</a>
+            <a href="/terms_of_service()">Contact Us</a>
+            <a href="/terms_of_service()">Feedback</a>
+            <a href="/terms_of_service()">Newsletter</a>
+            <a href="/terms_of_service()">UNSUBSCRIBE HERE</a>
+            <a href="/terms_of_service()">Lead Magnet</a>
+            <a href="/terms_of_service()">Downloadable Content</a>
+            <a href="/terms_of_service()">Signup Page</a>
+            <a href="/terms_of_service()">Learn More</a>
+            <a href="/terms_of_service()">Try For Free</a>
         </div>
         """, 
         unsafe_allow_html=True
@@ -609,6 +617,9 @@ def search_bar():
         "Unsubscribe Here": unsubscribe_page,
         "Lead Magnet": lead_magnet,
         "Downloadable Content": downloadable_content,
+        #<a href="/terms_of_service()">Signup Page</a>,
+        #<a href="/terms_of_service()">Learn More</a>,
+        #<a href="/terms_of_service()">Try For Free</a>
     }
 
     # Initialize session state for active page
