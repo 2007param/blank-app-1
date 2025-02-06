@@ -506,12 +506,16 @@ def interactive_page():
     conditions = [f"Condition {i+1}" for i in range(num_conditions)]
     expression_data = np.random.rand(num_genes, num_conditions) * 10  # Random data
     
-    # Create a heatmap for gene expression
-    st.subheader("Gene Expression Heatmap")
-    sns.set()
-    fig, ax = plt.subplots(figsize=(6, 4))
-    sns.heatmap(expression_data, annot=True, cmap="YlGnBu", xticklabels=conditions, yticklabels=genes)
-    st.pyplot(fig)
+    # Convert the data to a pandas DataFrame for better visualization
+    df = pd.DataFrame(expression_data, index=genes, columns=conditions)
+    
+    # Display the data as a table
+    st.subheader("Gene Expression Data")
+    st.write(df)
+    
+    # Optionally, visualize the data using a simple color-coded table
+    st.subheader("Gene Expression Color-Coded Table")
+    st.table(df.style.background_gradient(cmap='YlGnBu'))
     
 def high_contrast_css():
     return """
