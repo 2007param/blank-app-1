@@ -509,11 +509,14 @@ def interactive_page():
     
     # Display the data as a table
     st.subheader("Gene Expression Data")
-    st.write(df)
+    st.dataframe(df)
     
-    # Optionally, visualize the data using a simple color-coded table
+    # Optionally, visualize the data using simple color formatting
     st.subheader("Gene Expression Color-Coded Table")
-    st.table(df.style.background_gradient(cmap='YlGnBu'))
+    styled_df = df.style.applymap(lambda val: 'background-color: yellow' if val > 8 else '')
+    
+    # Display the table with simple coloring (no gradient, just yellow highlighting for high values)
+    st.dataframe(styled_df)
     
 def high_contrast_css():
     return """
