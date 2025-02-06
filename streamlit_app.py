@@ -346,7 +346,6 @@ def downloadable_content():
         else:
             st.error("Please enter a valid email address.")
 
-# Function to render the navigation bar
 def top_navigation():
     st.markdown(
     """
@@ -357,12 +356,16 @@ def top_navigation():
             background-color: #333;
             padding: 10px;
             z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .navbar a {
             color: white;
-            padding: 14px 20px;
+            padding: 10px 15px;
             text-decoration: none;
             font-size: 17px;
+            margin: 5px;
         }
         .navbar a:hover {
             background-color: #ddd;
