@@ -444,23 +444,82 @@ def interactive_page():
             else:
                 st.error("Cannot divide by zero")
     
-    # Data Visualizer Section
-    st.header("Data Visualizer")
-    chart_type = st.selectbox("Select chart type", ["Line Chart", "Bar Chart"])
-    data_size = st.slider("Select number of data points", 10, 100, 50)
+    # Gene Expression Visualization Section
+    st.header("Gene Expression Visualization")
     
-    data = {"x": list(range(data_size)), "y": [i % 10 for i in range(data_size)]}
+    # Simulate gene expression data (expression levels of genes over time or conditions)
+    genes = ["Gene A", "Gene B", "Gene C", "Gene D"]
+    time_points = ["Condition 1", "Condition 2", "Condition 3", "Condition 4", "Condition 5"]
+    data = {
+        "Gene A": np.random.rand(5) * 10,
+        "Gene B": np.random.rand(5) * 10,
+        "Gene C": np.random.rand(5) * 10,
+        "Gene D": np.random.rand(5) * 10,
+    }
     
-    if chart_type == "Line Chart":
-        st.line_chart(data)
-    elif chart_type == "Bar Chart":
-        st.bar_chart(data)
+    df = pd.DataFrame(data, index=time_points)
     
-    # Simulation Section
-    st.header("Random Walk Simulation")
+    # Display the gene expression data as a line chart
+    st.subheader("Gene Expression Across Conditions")
+    st.line_chart(df)
+
+    # Protein Concentration Visualization Section
+    st.header("Protein Concentration Over Time")
+    
+    # Simulate protein concentration levels over time (e.g., drug response)
+    time_points = np.arange(0, 100, 1)  # Time from 0 to 100 minutes
+    protein_concentration = 10 * np.exp(-time_points / 50)  # Exponential decay model
+    
+    # Display the protein concentration data as a line chart
+    st.subheader("Protein Concentration vs. Time")
+    st.line_chart(pd.DataFrame(protein_concentration, index=time_points, columns=["Concentration"]))
+
+    # Random Walk Simulation for Molecular Diffusion
+    st.header("Molecular Diffusion Simulation (Random Walk)")
+    
+    # Set the number of steps
     steps = st.slider("Number of steps", 10, 500, 100)
+    
+    # Simulate a random walk (e.g., molecule diffusion in the cell)
     walk = [sum((1 if i % 2 == 0 else -1) for i in range(j)) for j in range(steps)]
+    
+    # Display the random walk as a line chart
+    st.subheader("Random Walk Simulation of Molecule Diffusion")
     st.line_chart(walk)
+
+    # DNA Sequence Base Composition Visualization
+    st.header("DNA Sequence Base Composition")
+    
+    # Sample DNA sequence
+    dna_sequence = "ATGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCGATCGTACG"
+    
+    # Count base compositions (A, T, C, G)
+    base_composition = {
+        "A": dna_sequence.count("A"),
+        "T": dna_sequence.count("T"),
+        "C": dna_sequence.count("C"),
+        "G": dna_sequence.count("G"),
+    }
+    
+    # Display the base composition as a bar chart
+    st.subheader("Base Composition of DNA Sequence")
+    st.bar_chart(base_composition)
+
+    # Gene Clustering Visualization Section
+    st.header("Gene Expression Clustering")
+    
+    # Simulate gene expression data (gene expression across multiple conditions)
+    genes = ["Gene A", "Gene B", "Gene C", "Gene D", "Gene E"]
+    conditions = ["Condition 1", "Condition 2", "Condition 3", "Condition 4"]
+    
+    expression_data = np.random.rand(5, 4) * 10  # Random data
+    
+    # Create a heatmap for gene expression
+    st.subheader("Gene Expression Heatmap")
+    sns.set()
+    fig, ax = plt.subplots(figsize=(6, 4))
+    sns.heatmap(expression_data, annot=True, cmap="YlGnBu", xticklabels=conditions, yticklabels=genes)
+    st.pyplot(fig)
 
 def high_contrast_css():
     return """
