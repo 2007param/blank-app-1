@@ -397,15 +397,16 @@ def top_navigation():
             <a href="/frqs_page()">FRQs</a>
             <a href="/security_page()">Security</a>
             <a href="/privacy_policy()">Privacy Policy</a>
-            <a href="/terms_of_service()">Contact Us</a>
-            <a href="/terms_of_service()">Feedback</a>
-            <a href="/terms_of_service()">Newsletter</a>
-            <a href="/terms_of_service()">UNSUBSCRIBE HERE</a>
-            <a href="/terms_of_service()">Lead Magnet</a>
-            <a href="/terms_of_service()">Downloadable Content</a>
-            <a href="/terms_of_service()">Signup Page</a>
-            <a href="/terms_of_service()">Learn More</a>
-            <a href="/terms_of_service()">Try For Free</a>
+            <a href="/terms_of_service()">Terms of Service</a>
+            <a href="/contact_page()">Contact Us</a>
+            <a href="/feedback_page()">Feedback</a>
+            <a href="/newsletter_page()">Newsletter</a>
+            <a href="/unsubscribe_page()">UNSUBSCRIBE HERE</a>
+            <a href="/lead_magnet()">Lead Magnet</a>
+            <a href="/downloadable_content()">Downloadable Content</a>
+            <a href="/signup_page()">Signup Page</a>
+            <a href="/learn_more()">Learn More</a>
+            <a href="/try_free_page()">Try For Free</a>
         </div>
         """, 
         unsafe_allow_html=True
