@@ -14,6 +14,7 @@ from email.mime.multipart import MIMEMultipart
 import pickle
 import os
 from pathlib import Path
+from googletrans import Translator, LANGUAGES
 import plotly.express as px
 from google.oauth2 import service_account
 from google.analytics.data import BetaAnalyticsDataClient
