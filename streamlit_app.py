@@ -14,6 +14,8 @@ from email.mime.multipart import MIMEMultipart
 import pickle
 import os
 from pathlib import Path
+# install from PyPI
+pip install openai
 from openai import OpenAI
 
 
