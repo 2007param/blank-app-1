@@ -14,7 +14,7 @@ from email.mime.multipart import MIMEMultipart
 import pickle
 import os
 from pathlib import Path
-from openai import OpenAI
+import OpenAI
 
 
 def display_image():
