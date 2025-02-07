@@ -14,6 +14,7 @@ from email.mime.multipart import MIMEMultipart
 import pickle
 import os
 from pathlib import Path
+import plotly.express as px
 from google.oauth2 import service_account
 from google.analytics.data import BetaAnalyticsDataClient
 from google.analytics.data_v1beta.types import DateRange, RunReportRequest, Metric, Dimension
@@ -78,6 +79,57 @@ selected_language = st.sidebar.selectbox("Choose a language", list(languages.key
 # Display content in the selected language
 st.title(languages[selected_language])
 st.write("Select a language from the sidebar to change the text.")
+
+# Load Google Analytics Credentials
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["google_credentials"],
+    scopes=["https://www.googleapis.com/auth/analytics.readonly"]
+)
+
+client = BetaAnalyticsDataClient(credentials=credentials)
+GA_PROPERTY_ID = "YOUR_GA_PROPERTY_ID"
+
+def get_google_analytics_data():
+    request = RunReportRequest(
+        property=f"properties/{GA_PROPERTY_ID}",
+        date_ranges=[DateRange(start_date="7daysAgo", end_date="today")],
+        metrics=[Metric(name="activeUsers"), Metric(name="sessions")],
+        dimensions=[Dimension(name="date")]
+    )
+    response = client.run_report(request=request)
+    
+    data = []
+    for row in response.rows:
+        data.append({
+            "date": row.dimension_values[0].value,
+            "activeUsers": int(row.metric_values[0].value),
+            "sessions": int(row.metric_values[1].value)
+        })
+    return pd.DataFrame(data)
+
+# Streamlit UI
+st.set_page_config(page_title="Analytics Dashboard", layout="wide")
+st.title("📊 Real-Time Analytics Dashboard")
+
+st.sidebar.header("Dashboard Filters")
+view_option = st.sidebar.selectbox("View By", ["Last 7 Days", "Last 30 Days"])
+
+# Fetch Google Analytics Data
+data = get_google_analytics_data()
+
+# Metrics Display
+st.metric(label="Total Active Users (7 Days)", value=data["activeUsers"].sum())
+st.metric(label="Total Sessions (7 Days)", value=data["sessions"].sum())
+
+# Line Chart of Active Users
+fig = px.line(data, x="date", y="activeUsers", title="Active Users Over Time")
+st.plotly_chart(fig, use_container_width=True)
+
+# Line Chart of Sessions
+fig_sessions = px.line(data, x="date", y="sessions", title="Sessions Over Time")
+st.plotly_chart(fig_sessions, use_container_width=True)
+
+st.write("Data is sourced from Google Analytics in real time.")
 
 def chatbot():
     st.title("AI Chatbot")
