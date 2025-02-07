@@ -1,0 +1,9 @@
+openai
+langchain
+unstructured
+poppler-utils
+pinecone-client
+tiktoken
+streamlit
+pyngrok
+git+https://github.com/facebookresearch/detectron2.git@v0.6#egg=detectron2
