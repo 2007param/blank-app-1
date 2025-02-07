@@ -76,6 +76,23 @@ selected_language = st.sidebar.selectbox("Choose a language", list(languages.key
 st.title(languages[selected_language])
 st.write("Select a language from the sidebar to change the text.")
 
+def chatbot():
+    st.title("AI Chatbot")
+    
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    
+    for message in st.session_state.messages:
+        st.write(f"**{message['role']}:** {message['text']}")
+    
+    user_input = st.text_input("You:", "", key="input")
+    if user_input:
+        st.session_state.messages.append({"role": "You", "text": user_input})
+        response = "I am a simple chatbot. You said: " + user_input
+        time.sleep(1)  # Simulating a delay in response
+        st.session_state.messages.append({"role": "Bot", "text": response})
+        st.experimental_rerun()
+
 @st.cache_data
 def load_data():
     # Simulate loading data
@@ -1279,7 +1296,7 @@ def main():
          "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us", "Testimonials Page", 
          "Certifications Page", "FAQs Page", "Security Page", "Privacy Policy", "Terms of Service", "Contact Us", 
          "Feedback", "Newsletter", "UNSUBSCRIBE HERE", "Lead Magnet", "Downloadable Content", "Signup Page",
-         "Learn More", "Try Free", "Interactive Page"),
+         "Learn More", "Try Free", "Interactive Page", "Chatbot"),
         on_change=reset_input_field
     )
     footer()
@@ -1343,6 +1360,8 @@ def main():
         try_free_page()
     elif page == "Interactive Page":
         interactive_page()
+    elif page == "Chatbot":
+        chatbot()
     else:
         error_404()
     
