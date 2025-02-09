@@ -1,6 +1,7 @@
 streamlit
 biopython
 openai
+googletrans 
 langchain
 plotly.express
 LANGUAGES
