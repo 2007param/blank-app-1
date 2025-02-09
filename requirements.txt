@@ -6,3 +6,5 @@ langchain
 plotly.express
 LANGUAGES
 Translator
+google.oauth2
+service_account
