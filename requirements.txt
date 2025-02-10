@@ -6,10 +6,7 @@ langchain
 plotly.express
 LANGUAGES
 Translator
-google.oauth2
 service_account
-google.analytics.data
-google.analytics.data_v1beta.types
 BetaAnalyticsDataClient
 DateRange
 RunReportRe
