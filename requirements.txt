@@ -27,7 +27,7 @@ plotly.express
 
 
 google.analytics.data 
-BetaAnalyticsDataClient
+
 google.analytics.data_v1beta.types 
 DateRange
 RunReportRequest
