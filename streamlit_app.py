@@ -194,10 +194,10 @@ login_button = st.sidebar.button("Login", key="login_button")
     #user_prefs = users[username].get("preferences", {})
     
     # Apply theme
-    if user_prefs.get("theme") == "Dark":
-        st.markdown("<style>body { background-color: #333; color: white; }</style>", unsafe_allow_html=True)
-    else:
-        st.markdown("<style>body { background-color: white; color: black; }</style>", unsafe_allow_html=True)
+    #if user_prefs.get("theme") == "Dark":
+        #st.markdown("<style>body { background-color: #333; color: white; }</style>", unsafe_allow_html=True)
+    #else:
+        #st.markdown("<style>body { background-color: white; color: black; }</style>", unsafe_allow_html=True)
     
     # Profile Management
     st.header("Profile Management")
