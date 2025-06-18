@@ -17,7 +17,7 @@ toml
 
 
 
-os
+
 pathlib 
 Path
 googletrans 
