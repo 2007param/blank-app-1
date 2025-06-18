@@ -10,7 +10,7 @@ Bio
 numpy
 
 toml
-re
+
 smtplib
 email.mime.text 
 MIMEText
