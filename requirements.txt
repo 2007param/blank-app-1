@@ -12,7 +12,7 @@ numpy
 toml
 
 
-email.mime.text 
+
 MIMEText
 email.mime.multipart 
 MIMEMultipart
