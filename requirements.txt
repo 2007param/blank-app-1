@@ -24,7 +24,7 @@ googletrans
 Translator
 LANGUAGES
 plotly.express 
-google.oauth2 
+
 service_account
 google.analytics.data 
 BetaAnalyticsDataClient
