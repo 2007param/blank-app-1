@@ -3,20 +3,33 @@ hashlib
 pandas
 collections
 Counter
-from PIL import Image
-from Bio import pairwise2
-import numpy as np
-import time
-import toml
-import re
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-import pickle
-import os
-from pathlib import Path
-from googletrans import Translator, LANGUAGES
-import plotly.express as px
-from google.oauth2 import service_account
-from google.analytics.data import BetaAnalyticsDataClient
-from google.analytics.data_v1beta.types import DateRange, RunReportRequest, Metric, Dimension
+PIL
+Image
+Bio 
+pairwise2
+numpy
+time
+toml
+re
+smtplib
+email.mime.text 
+MIMEText
+email.mime.multipart 
+MIMEMultipart
+pickle
+os
+pathlib 
+Path
+googletrans 
+Translator
+LANGUAGES
+plotly.express 
+google.oauth2 
+service_account
+google.analytics.data 
+BetaAnalyticsDataClient
+google.analytics.data_v1beta.types 
+DateRange
+RunReportRequest
+Metric
+Dimension
