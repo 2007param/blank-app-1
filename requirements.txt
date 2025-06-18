@@ -3,7 +3,7 @@ streamlit
 pandas
 
 Counter
-PIL
+
 Image
 Bio 
 pairwise2
