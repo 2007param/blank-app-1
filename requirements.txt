@@ -20,16 +20,3 @@ pickle
 os
 pathlib 
 Path
-googletrans 
-Translator
-LANGUAGES
-plotly.express 
-google.oauth2 
-service_account
-google.analytics.data 
-BetaAnalyticsDataClient
-google.analytics.data_v1beta.types 
-DateRange
-RunReportRequest
-Metric
-Dimension
