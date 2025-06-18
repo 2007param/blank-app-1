@@ -3,7 +3,6 @@ import hashlib
 import pandas as pd
 from collections import Counter
 from PIL import Image
-from Bio import pairwise2
 
 
 def display_image():
