@@ -187,11 +187,11 @@ username = st.sidebar.text_input("Username", key="login_username")
 password = st.sidebar.text_input("Password", type="password", key="login_password")
 login_button = st.sidebar.button("Login", key="login_button")
 
-if username in users and verify_password(password, users[username]["password"]):
-    st.sidebar.write(f"Welcome, {users[username]['name']}!")
+#if username in users and verify_password(password, users[username]["password"]):
+    #st.sidebar.write(f"Welcome, {users[username]['name']}!")
     
     # Load user preferences
-    user_prefs = users[username].get("preferences", {})
+    #user_prefs = users[username].get("preferences", {})
     
     # Apply theme
     if user_prefs.get("theme") == "Dark":
