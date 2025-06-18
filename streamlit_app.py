@@ -84,8 +84,8 @@ st.write("Select a language from the sidebar to change the text.")
 # Load Google Analytics Credentials
 #credentials = service_account.Credentials.from_service_account_info(
     #st.secrets["google_credentials"],
-    #scopes=["https://www.googleapis.com/auth/analytics.readonly"]
-)
+    #scopes=["https://www.googleapis.com/auth/analytics.readonly"])
+
 
 #client = BetaAnalyticsDataClient(credentials=credentials)
 #GA_PROPERTY_ID = "YOUR_GA_PROPERTY_ID"
