@@ -6,7 +6,7 @@ Counter
 
 Image
 Bio 
-pairwise2
+
 numpy
 time
 toml
