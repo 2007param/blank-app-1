@@ -123,12 +123,12 @@ view_option = st.sidebar.selectbox("View By", ["Last 7 Days", "Last 30 Days"])
 #st.metric(label="Total Sessions (7 Days)", value=data["sessions"].sum())
 
 # Line Chart of Active Users
-fig = px.line(data, x="date", y="activeUsers", title="Active Users Over Time")
-st.plotly_chart(fig, use_container_width=True)
+#fig = px.line(data, x="date", y="activeUsers", title="Active Users Over Time")
+#st.plotly_chart(fig, use_container_width=True)
 
 # Line Chart of Sessions
-fig_sessions = px.line(data, x="date", y="sessions", title="Sessions Over Time")
-st.plotly_chart(fig_sessions, use_container_width=True)
+#fig_sessions = px.line(data, x="date", y="sessions", title="Sessions Over Time")
+#st.plotly_chart(fig_sessions, use_container_width=True)
 
 st.write("Data is sourced from Google Analytics in real time.")
 
