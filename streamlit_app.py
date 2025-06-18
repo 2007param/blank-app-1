@@ -145,7 +145,7 @@ def chatbot():
     if user_input:
         st.session_state.messages.append({"role": "You", "text": user_input})
         response = "I am a simple chatbot. You said: " + user_input
-        time.sleep(1)  # Simulating a delay in response
+        #time.sleep(1)  # Simulating a delay in response
         st.session_state.messages.append({"role": "Bot", "text": response})
 
 @st.cache_data
