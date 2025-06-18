@@ -4,7 +4,7 @@ import pandas as pd
 from collections import Counter
 from PIL import Image
 from Bio import pairwise2
-#import numpy as np
+import numpy as np
 #import time
 #import toml
 #import re
