@@ -30,6 +30,6 @@ google.analytics.data
 
 
 DateRange
-RunReportRequest
+
 Metric
 Dimension
