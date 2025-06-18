@@ -71,7 +71,7 @@ languages = {
     "Hindi": "मल्टीलिंगुअल स्ट्रीमलिट ऐप में आपका स्वागत है!",
     "Chinese": "欢迎使用多语言 Streamlit 应用！",
     "Japanese": "多言語 Streamlit アプリへようこそ！"
-#}
+}
 
 # Sidebar for language selection
 st.sidebar.title("Language Selection")
