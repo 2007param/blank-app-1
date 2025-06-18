@@ -25,7 +25,7 @@ Translator
 LANGUAGES
 plotly.express 
 
-service_account
+
 google.analytics.data 
 BetaAnalyticsDataClient
 google.analytics.data_v1beta.types 
