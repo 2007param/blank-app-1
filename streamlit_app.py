@@ -200,31 +200,31 @@ login_button = st.sidebar.button("Login", key="login_button")
         #st.markdown("<style>body { background-color: white; color: black; }</style>", unsafe_allow_html=True)
     
     # Profile Management
-    st.header("Profile Management")
-    new_name = st.text_input("Full Name", value=users[username]['name'], key="profile_name")
-    theme = st.selectbox("Preferred Theme", ["Light", "Dark"], index=(0 if user_prefs.get("theme") == "Light" else 1), key="profile_theme")
-    bio = st.text_area("Bio", value=user_prefs.get("bio", ""), key="profile_bio")
-    email = st.text_input("Email", value=user_prefs.get("email", ""), key="profile_email")
+    #st.header("Profile Management")
+    #new_name = st.text_input("Full Name", value=users[username]['name'], key="profile_name")
+    #theme = st.selectbox("Preferred Theme", ["Light", "Dark"], index=(0 if user_prefs.get("theme") == "Light" else 1), key="profile_theme")
+    #bio = st.text_area("Bio", value=user_prefs.get("bio", ""), key="profile_bio")
+    #email = st.text_input("Email", value=user_prefs.get("email", ""), key="profile_email")
     
-    if st.button("Save Changes", key="save_changes"):
-        if is_valid_email(email):
-            users[username]["name"] = new_name
-            users[username]["preferences"] = {
-                "theme": theme,
-                "bio": bio,
-                "email": email
-            }
-            save_user_data(users)
-            st.success("Profile updated! Please refresh to apply theme changes.")
-        else:
-            st.error("Invalid email address. Please enter a valid email.")
+    #if st.button("Save Changes", key="save_changes"):
+        #if is_valid_email(email):
+            #users[username]["name"] = new_name
+            #users[username]["preferences"] = {
+                #"theme": theme,
+                #"bio": bio,
+                #"email": email
+            #}
+            #save_user_data(users)
+            #st.success("Profile updated! Please refresh to apply theme changes.")
+        #else:
+            #st.error("Invalid email address. Please enter a valid email.")
     
-    if st.button("Logout", key="logout"):
-        st.session_state.clear()
-        st.experimental_rerun()
-else:
-    if login_button:
-        st.sidebar.error("Invalid username or password")
+    #if st.button("Logout", key="logout"):
+        #st.session_state.clear()
+        #st.experimental_rerun()
+#else:
+    #if login_button:
+        #st.sidebar.error("Invalid username or password")
 
 # Registration
 st.sidebar.header("Register")
