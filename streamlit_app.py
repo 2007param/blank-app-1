@@ -116,7 +116,7 @@ st.sidebar.header("Dashboard Filters")
 view_option = st.sidebar.selectbox("View By", ["Last 7 Days", "Last 30 Days"])
 
 # Fetch Google Analytics Data
-data = get_google_analytics_data()
+#data = get_google_analytics_data()
 
 # Metrics Display
 st.metric(label="Total Active Users (7 Days)", value=data["activeUsers"].sum())
