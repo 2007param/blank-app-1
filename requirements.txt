@@ -11,7 +11,7 @@ numpy
 
 toml
 
-smtplib
+
 email.mime.text 
 MIMEText
 email.mime.multipart 
