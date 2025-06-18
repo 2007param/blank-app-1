@@ -119,8 +119,8 @@ view_option = st.sidebar.selectbox("View By", ["Last 7 Days", "Last 30 Days"])
 #data = get_google_analytics_data()
 
 # Metrics Display
-st.metric(label="Total Active Users (7 Days)", value=data["activeUsers"].sum())
-st.metric(label="Total Sessions (7 Days)", value=data["sessions"].sum())
+#st.metric(label="Total Active Users (7 Days)", value=data["activeUsers"].sum())
+#st.metric(label="Total Sessions (7 Days)", value=data["sessions"].sum())
 
 # Line Chart of Active Users
 fig = px.line(data, x="date", y="activeUsers", title="Active Users Over Time")
