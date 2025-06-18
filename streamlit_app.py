@@ -160,11 +160,11 @@ st.write(data)
 USER_DATA_FILE = "user_data.pkl"
 
 # Load existing user data or create a new one
-def load_user_data():
-    if os.path.exists(USER_DATA_FILE):
-        with open(USER_DATA_FILE, "rb") as f:
-            return pickle.load(f)
-    return {}
+#def load_user_data():
+    #if os.path.exists(USER_DATA_FILE):
+        #with open(USER_DATA_FILE, "rb") as f:
+            #return pickle.load(f)
+    #return {}
 
 def save_user_data(data):
     with open(USER_DATA_FILE, "wb") as f:
@@ -179,7 +179,7 @@ def verify_password(password, hashed_password):
 def is_valid_email(email):
     return re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email)
 
-users = load_user_data()
+#users = load_user_data()
 
 # User Authentication
 st.sidebar.header("Login")
