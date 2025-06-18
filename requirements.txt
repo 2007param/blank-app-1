@@ -1,7 +1,8 @@
 streamlit
 hashlib
-import pandas as pd
-from collections import Counter
+pandas
+collections
+Counter
 from PIL import Image
 from Bio import pairwise2
 import numpy as np
