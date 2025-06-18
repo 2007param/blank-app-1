@@ -7,7 +7,7 @@ Counter
 Image
 Bio 
 
-numpy
+
 
 toml
 
