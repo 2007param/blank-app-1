@@ -13,9 +13,9 @@ toml
 
 
 
-MIMEText
-email.mime.multipart 
-MIMEMultipart
+
+
+
 pickle
 os
 pathlib 
