@@ -1381,6 +1381,10 @@ def main():
         global_alignment_page()
     elif page == "Local Alignment":
         local_alignment_page()
+    elif page == "Interactive Page":
+        interactive_page()
+    elif page == "Chatbot":
+        chatbot()
     elif page == "About Us":
         about_us_page()
     elif page == "Testimonials Page":
@@ -1413,10 +1417,6 @@ def main():
         learn_more_page()
     elif page == "Try Free":
         try_free_page()
-    elif page == "Interactive Page":
-        interactive_page()
-    elif page == "Chatbot":
-        chatbot()
     else:
         error_404()
     
