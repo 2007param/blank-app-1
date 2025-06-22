@@ -1348,10 +1348,10 @@ def main():
         "Select a page:",
         ("Title Page", "Nucleotide Count", "K-mer Analysis", "Gene Finding", "Hamming Distance", 
          "Reverse Complement", "GC Content", "Transcription", "Translation", 
-         "Sequence Alignment", "Global Alignment", "Local Alignment", "About Us", "Testimonials Page", 
+         "Sequence Alignment", "Global Alignment", "Local Alignment", "Interactive Page", "Chatbot", "About Us", "Testimonials Page", 
          "Certifications Page", "FAQs Page", "Security Page", "Privacy Policy", "Terms of Service", "Contact Us", 
          "Feedback", "Newsletter", "UNSUBSCRIBE HERE", "Lead Magnet", "Downloadable Content", "Signup Page",
-         "Learn More", "Try Free", "Interactive Page", "Chatbot"),
+         "Learn More", "Try Free"),
         on_change=reset_input_field
     )
     footer()
